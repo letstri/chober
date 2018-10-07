@@ -169,7 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Clone any item.
  *
- * @param {Any} item Some item to clone
+ * @param {Any} item Some item to clone.
  * @return {Any}
  *
  * @example
@@ -200,11 +200,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref$arrayFields = _ref.arrayFields,
-      arrayFields = _ref$arrayFields === void 0 ? [] : _ref$arrayFields;
+/**
+ * Get query from url.
+ *
+ * @param {Array} arrayFields Fields that must be an arrays.
+ * @return {Boolean}
+ *
+ * @example
+ *
+ * http://github.com/?value=test&field=hi&field=hello
+ *
+ * getQuery() // { value: 'test', field: ['hi', 'hello'] }
+ */
 
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var arrayFields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var query = window.location.search.substr(1);
   var objectUrl = {};
   if (!query) return {}; // Set default array fields to objectUrl
@@ -216,11 +226,7 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   query.split('&').forEach(function (part) {
-    var item = part.split('=');
-    /**
-     * If item already exists,
-     * create an array with this item.
-     */
+    var item = part.split('='); // If item already exists, create an array with this item.
 
     if (Object.prototype.hasOwnProperty.call(objectUrl, item[0])) {
       if (Array.isArray(objectUrl[item[0]])) {
@@ -228,10 +234,7 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         objectUrl[item[0]] = [objectUrl[item[0]], item[1]];
       }
-    }
-    /**
-     * Decode URI if array and if only one key.
-     */
+    } // Decode URI if array and if only one key.
 
 
     if (Array.isArray(objectUrl[item[0]])) {
@@ -259,7 +262,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Check is empty object or other type.
  *
- * @param {Any} item Some item to check
+ * @param {Any} item Some item to check.
  * @return {Boolean}
  *
  * @example
