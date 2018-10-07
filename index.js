@@ -10,9 +10,9 @@
 import { version } from './package';
 
 // Import all methods.
-import isset from './lib/isset';
 import isEmpty from './lib/isEmpty';
 import getQuery from './lib/getQuery';
+import clone from './lib/clone';
 
 // Set versio to constant.
 const VERSION = version;
@@ -20,9 +20,9 @@ const VERSION = version;
 // Export all methods as a separate modules.
 export {
   VERSION,
-  isset,
   isEmpty,
   getQuery,
+  clone,
 };
 
 // Export one module with all methods.
@@ -30,9 +30,9 @@ class Chober {
   constructor() {
     Object.assign(this, {
       VERSION,
-      isset,
       isEmpty,
       getQuery,
+      clone,
     });
   }
 }

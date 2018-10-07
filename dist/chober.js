@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isset, isEmpty, getQuery, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -112,14 +112,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _package__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./package */ "./package.json");
 var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./package */ "./package.json", 1);
-/* harmony import */ var _lib_isset__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/isset */ "./lib/isset.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isset", function() { return _lib_isset__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+/* harmony import */ var _lib_isEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/isEmpty */ "./lib/isEmpty.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isEmpty", function() { return _lib_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/isEmpty */ "./lib/isEmpty.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isEmpty", function() { return _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getQuery", function() { return _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getQuery", function() { return _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "clone", function() { return _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
 
 
@@ -147,13 +147,38 @@ var Chober = function Chober() {
 
   _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()(this, {
     VERSION: VERSION,
-    isset: _lib_isset__WEBPACK_IMPORTED_MODULE_3__["default"],
-    isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"],
-    getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__["default"]
+    isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"],
+    getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
+    clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"]
   });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (new Chober());
+
+/***/ }),
+
+/***/ "./lib/clone.js":
+/*!**********************!*\
+  !*** ./lib/clone.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Clone any item.
+ *
+ * @param {Any} item Some item to clone
+ * @return {Any}
+ *
+ * @example
+ *
+ * clone([1, null, '3']) // [1, null, '3']
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (item) {
+  return item && JSON.parse(JSON.stringify(item));
+});
 
 /***/ }),
 
@@ -231,25 +256,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _isset__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isset */ "./lib/isset.js");
-
+/**
+ * Check is empty object or other type.
+ *
+ * @param {Any} item Some item to check
+ * @return {Boolean}
+ *
+ * @example
+ *
+ * isEmpty({ test: 'some value' }) // false
+ * isEmpty([1, null, '3']) // false
+ * isEmpty('qwe') // false
+ * isEmpty(true) // true
+ * isEmpty(1) // true
+ * isEmpty(undefined) // true
+ * isEmpty(null) // true
+ */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
-  return !Object(_isset__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
-});
-
-/***/ }),
-
-/***/ "./lib/isset.js":
-/*!**********************!*\
-  !*** ./lib/isset.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function (item) {
-  return Boolean(Object.keys(item).length);
+  return !(item && Object.keys(item).length);
 });
 
 /***/ }),
