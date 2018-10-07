@@ -14,6 +14,7 @@ import isEmpty from './lib/isEmpty';
 import getQuery from './lib/getQuery';
 import clone from './lib/clone';
 import getNumbers from './lib/getNumbers';
+import getScrollWidth from './lib/getScrollWidth';
 
 // Set versio to constant.
 const VERSION = version;
@@ -25,6 +26,7 @@ export {
   getQuery,
   clone,
   getNumbers,
+  getScrollWidth,
 };
 
 // Export one module with all methods.
@@ -36,6 +38,7 @@ class Chober {
       getQuery,
       clone,
       getNumbers,
+      getScrollWidth,
     });
   }
 }

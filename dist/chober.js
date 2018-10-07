@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollWidth, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,6 +124,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getNumbers", function() { return _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
+/* harmony import */ var _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollWidth */ "./lib/getScrollWidth.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollWidth", function() { return _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
 
 
 /**
@@ -136,6 +139,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  */
 
  // Import all methods.
+
 
 
 
@@ -154,7 +158,8 @@ var Chober = function Chober() {
     isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"],
     getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
     clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"],
-    getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]
+    getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"],
+    getScrollWidth: _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]
   });
 };
 
@@ -276,6 +281,24 @@ __webpack_require__.r(__webpack_exports__);
     }
   });
   return objectUrl;
+});
+
+/***/ }),
+
+/***/ "./lib/getScrollWidth.js":
+/*!*******************************!*\
+  !*** ./lib/getScrollWidth.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Get scrollbar width.
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return window.innerWidth - document.documentElement.clientWidth;
 });
 
 /***/ }),
