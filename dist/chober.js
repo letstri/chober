@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isset, isEmpty, default */
+/*! exports provided: VERSION, isset, isEmpty, getQuery, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -118,6 +118,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/isEmpty */ "./lib/isEmpty.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isEmpty", function() { return _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
+/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getQuery", function() { return _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
 
 
 /**
@@ -132,6 +135,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  // Import all methods.
 
 
+
  // Set versio to constant.
 
 var VERSION = _package__WEBPACK_IMPORTED_MODULE_2__["version"]; // Export all methods as a separate modules.
@@ -144,11 +148,77 @@ var Chober = function Chober() {
   _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()(this, {
     VERSION: VERSION,
     isset: _lib_isset__WEBPACK_IMPORTED_MODULE_3__["default"],
-    isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"]
+    isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"],
+    getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_5__["default"]
   });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (new Chober());
+
+/***/ }),
+
+/***/ "./lib/getQuery.js":
+/*!*************************!*\
+  !*** ./lib/getQuery.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$arrayFields = _ref.arrayFields,
+      arrayFields = _ref$arrayFields === void 0 ? [] : _ref$arrayFields;
+
+  var query = window.location.search.substr(1);
+  var objectUrl = {};
+  if (!query) return {}; // Set default array fields to objectUrl
+
+  if (arrayFields.length) {
+    _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default()(objectUrl, arrayFields.reduce(function (object, field) {
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, object, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, field, []));
+    }, {}));
+  }
+
+  query.split('&').forEach(function (part) {
+    var item = part.split('=');
+    /**
+     * If item already exists,
+     * create an array with this item.
+     */
+
+    if (Object.prototype.hasOwnProperty.call(objectUrl, item[0])) {
+      if (Array.isArray(objectUrl[item[0]])) {
+        objectUrl[item[0]].push(item[1]);
+      } else {
+        objectUrl[item[0]] = [objectUrl[item[0]], item[1]];
+      }
+    }
+    /**
+     * Decode URI if array and if only one key.
+     */
+
+
+    if (Array.isArray(objectUrl[item[0]])) {
+      objectUrl[item[0]].forEach(function (url, index) {
+        objectUrl[item[0]][index] = decodeURIComponent(objectUrl[item[0]][index]);
+      });
+    } else {
+      objectUrl[item[0]] = decodeURIComponent(item[1]);
+    }
+  });
+  return objectUrl;
+});
 
 /***/ }),
 
@@ -201,6 +271,32 @@ module.exports = _classCallCheck;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/extends.js":
 /*!********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
@@ -227,6 +323,38 @@ function _extends() {
 }
 
 module.exports = _extends;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/objectSpread.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/objectSpread.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var defineProperty = __webpack_require__(/*! ./defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
+module.exports = _objectSpread;
 
 /***/ }),
 

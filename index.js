@@ -12,6 +12,7 @@ import { version } from './package';
 // Import all methods.
 import isset from './lib/isset';
 import isEmpty from './lib/isEmpty';
+import getQuery from './lib/getQuery';
 
 // Set versio to constant.
 const VERSION = version;
@@ -21,6 +22,7 @@ export {
   VERSION,
   isset,
   isEmpty,
+  getQuery,
 };
 
 // Export one module with all methods.
@@ -30,6 +32,7 @@ class Chober {
       VERSION,
       isset,
       isEmpty,
+      getQuery,
     });
   }
 }
