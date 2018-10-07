@@ -13,6 +13,7 @@ import { version } from './package';
 import isEmpty from './lib/isEmpty';
 import getQuery from './lib/getQuery';
 import clone from './lib/clone';
+import getNumbers from './lib/getNumbers';
 
 // Set versio to constant.
 const VERSION = version;
@@ -23,6 +24,7 @@ export {
   isEmpty,
   getQuery,
   clone,
+  getNumbers,
 };
 
 // Export one module with all methods.
@@ -33,6 +35,7 @@ class Chober {
       isEmpty,
       getQuery,
       clone,
+      getNumbers,
     });
   }
 }

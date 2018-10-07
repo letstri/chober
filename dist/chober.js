@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -121,6 +121,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "clone", function() { return _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
+/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getNumbers", function() { return _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
 
 
 /**
@@ -133,6 +136,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  */
 
  // Import all methods.
+
 
 
 
@@ -149,7 +153,8 @@ var Chober = function Chober() {
     VERSION: VERSION,
     isEmpty: _lib_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"],
     getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
-    clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"]
+    clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"],
+    getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]
   });
 };
 
@@ -178,6 +183,31 @@ __webpack_require__.r(__webpack_exports__);
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return item && JSON.parse(JSON.stringify(item));
+});
+
+/***/ }),
+
+/***/ "./lib/getNumbers.js":
+/*!***************************!*\
+  !*** ./lib/getNumbers.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Get only numbers from string.
+ *
+ * @param {String} string Some string, which from to pick only numbers.
+ * @return {String}
+ *
+ * @example
+ *
+ * getNumbers('+7 (123) 456-78-90') // '71234567890'
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (string) {
+  return string && string.toString().replace(/\D+/g, '');
 });
 
 /***/ }),
