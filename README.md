@@ -1,1 +1,1 @@
-# chober
+# Chober.js
