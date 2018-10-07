@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollWidth, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollWidth, getCookie, removeCookie, invertObject, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -127,6 +127,15 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollWidth */ "./lib/getScrollWidth.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollWidth", function() { return _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
 
+/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getCookie", function() { return _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
+/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeCookie", function() { return _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "invertObject", function() { return _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]; });
+
 
 
 /**
@@ -139,6 +148,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  */
 
  // Import all methods.
+
+
+
 
 
 
@@ -159,7 +171,10 @@ var Chober = function Chober() {
     getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
     clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"],
     getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"],
-    getScrollWidth: _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]
+    getScrollWidth: _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
+    getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"],
+    removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
+    invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]
   });
 };
 
@@ -188,6 +203,38 @@ __webpack_require__.r(__webpack_exports__);
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return item && JSON.parse(JSON.stringify(item));
+});
+
+/***/ }),
+
+/***/ "./lib/getCookie.js":
+/*!**************************!*\
+  !*** ./lib/getCookie.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Get cookie.
+ *
+ * @param {String} key Cookie name.
+ * @return {String}
+ *
+ * @example
+ *
+ * getCookie('someCookie') //
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (key) {
+  var value = "; ".concat(document.cookie);
+  var parts = value.split("; ".concat(key, "="));
+
+  if (parts.length === 2) {
+    return parts.pop().split(';').shift();
+  }
+
+  return '';
 });
 
 /***/ }),
@@ -303,6 +350,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./lib/invertObject.js":
+/*!*****************************!*\
+  !*** ./lib/invertObject.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Invert object.
+ *
+ * @param {Object} object Some object to invert.
+ * @return {Object}
+ *
+ * @example
+ *
+ * invertObject({ key: 'value' }) // { value: 'key' }
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (function (object) {
+  return object && Object.entries(object).reduce(function (newObject, item) {
+    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newObject, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, item[1], item[0]));
+  }, {});
+});
+
+/***/ }),
+
 /***/ "./lib/isEmpty.js":
 /*!************************!*\
   !*** ./lib/isEmpty.js ***!
@@ -330,6 +411,31 @@ __webpack_require__.r(__webpack_exports__);
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return !(item && Object.keys(item).length);
+});
+
+/***/ }),
+
+/***/ "./lib/removeCookie.js":
+/*!*****************************!*\
+  !*** ./lib/removeCookie.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Remove cookie.
+ *
+ * @param {String} key Cookie name.
+ * @return {Any}
+ *
+ * @example
+ *
+ * removeCookie('testCookie')
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (key) {
+  document.cookie = "".concat(key, "=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;");
 });
 
 /***/ }),

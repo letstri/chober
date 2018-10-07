@@ -15,6 +15,9 @@ import getQuery from './lib/getQuery';
 import clone from './lib/clone';
 import getNumbers from './lib/getNumbers';
 import getScrollWidth from './lib/getScrollWidth';
+import getCookie from './lib/getCookie';
+import removeCookie from './lib/removeCookie';
+import invertObject from './lib/invertObject';
 
 // Set versio to constant.
 const VERSION = version;
@@ -27,6 +30,9 @@ export {
   clone,
   getNumbers,
   getScrollWidth,
+  getCookie,
+  removeCookie,
+  invertObject,
 };
 
 // Export one module with all methods.
@@ -39,6 +45,9 @@ class Chober {
       clone,
       getNumbers,
       getScrollWidth,
+      getCookie,
+      removeCookie,
+      invertObject,
     });
   }
 }
