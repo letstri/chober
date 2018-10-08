@@ -19,7 +19,7 @@ import getCookie from './lib/getCookie';
 import removeCookie from './lib/removeCookie';
 import invertObject from './lib/invertObject';
 
-// Set versio to constant.
+// Set version to constant.
 const VERSION = version;
 
 // Export all methods as a separate modules.
