@@ -199,12 +199,13 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Clone any item.
  *
- * @param {Any} item Some item to clone.
- * @return {Any}
+ * @param {*} item Some item to clone.
+ * @returns {*}
  *
  * @example
  *
- * clone([1, null, '3']) // [1, null, '3']
+ * clone([1, null, '3'])
+ * // => [1, null, '3']
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return item && JSON.parse(JSON.stringify(item));
@@ -226,12 +227,15 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @param {Array} array
  * @param {Number} number Number of items to returns.
- * @return {Array}
+ * @returns {Array}
  *
  * @example
  *
- * first([1, null, '3']) // [1]
- * first([1, null, '3'], 2) // [1, null]
+ * first([1, null, '3'])
+ * // => [1]
+ *
+ * first([1, null, '3'], 2)
+ * // => [1, null]
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (array) {
   var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
@@ -253,11 +257,11 @@ __webpack_require__.r(__webpack_exports__);
  * Get cookie.
  *
  * @param {String} key Cookie name.
- * @return {String}
+ * @returns {String}
  *
  * @example
  *
- * getCookie('someCookie') //
+ * getCookie('someCookie')
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (key) {
   var value = "; ".concat(document.cookie);
@@ -285,11 +289,12 @@ __webpack_require__.r(__webpack_exports__);
  * Get only numbers from string.
  *
  * @param {String} string Some string, which from to pick only numbers.
- * @return {String}
+ * @returns {String}
  *
  * @example
  *
- * getNumbers('+7 (123) 456-78-90') // '71234567890'
+ * getNumbers('+7 (123) 456-78-90')
+ * // => '71234567890'
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (string) {
   return string && string.toString().replace(/\D+/g, '');
@@ -319,13 +324,14 @@ __webpack_require__.r(__webpack_exports__);
  * Get query from url.
  *
  * @param {Array} arrayFields Fields that must be an arrays.
- * @return {Boolean}
+ * @returns {Boolean}
  *
  * @example
  *
  * http://github.com/?value=test&field=hi&field=hello
  *
- * getQuery() // { value: 'test', field: ['hi', 'hello'] }
+ * getQuery()
+ * // => { value: 'test', field: ['hi', 'hello'] }
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -376,6 +382,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /**
  * Get scrollbar width.
+ *
+ * @returns {Number}
  */
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return window.innerWidth - document.documentElement.clientWidth;
@@ -402,11 +410,12 @@ __webpack_require__.r(__webpack_exports__);
  * Invert object.
  *
  * @param {Object} object Some object to invert.
- * @return {Object}
+ * @returns {Object}
  *
  * @example
  *
- * invertObject({ key: 'value' }) // { value: 'key' }
+ * invertObject({ key: 'value' })
+ * // => { value: 'key' }
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function (object) {
@@ -427,23 +436,36 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /**
- * Check is empty object or other type.
+ * Check is empty object, string, array or other type.
  *
- * @param {Any} item Some item to check.
+ * @param {*} item Some item to check.
  * @return {Boolean}
  *
  * @example
  *
- * isEmpty({ test: 'some value' }) // false
- * isEmpty([1, null, '3']) // false
- * isEmpty('qwe') // false
- * isEmpty(true) // true
- * isEmpty(1) // true
- * isEmpty(undefined) // true
- * isEmpty(null) // true
+ * isEmpty({ test: 'some value' })
+ * // => false
+ *
+ * isEmpty([1, null, '3'])
+ * // => false
+ *
+ * isEmpty('qwe')
+ * // => false
+ *
+ * isEmpty(true)
+ * // => true
+ *
+ * isEmpty(1)
+ * // => true
+ *
+ * isEmpty(undefined)
+ * // => true
+ *
+ * isEmpty(null)
+ * // => true
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
-  return !(item && Object.keys(item).length);
+  return !(item && (item.length || Object.keys(item).length));
 });
 
 /***/ }),
@@ -461,7 +483,6 @@ __webpack_require__.r(__webpack_exports__);
  * Remove cookie.
  *
  * @param {String} key Cookie name.
- * @return {Any}
  *
  * @example
  *
@@ -590,4 +611,3 @@ module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - i
 
 /******/ });
 });
-//# sourceMappingURL=chober.js.map
