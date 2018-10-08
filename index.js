@@ -31,8 +31,6 @@ const VERSION = version;
 
 /**
  * Export all methods as a separate modules.
- *
- * @exports
  */
 export {
   VERSION,
@@ -49,8 +47,6 @@ export {
 
 /**
  * Export one module with all methods.
- *
- * @exports
  */
 class Chober {
   constructor() {
