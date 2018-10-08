@@ -9,7 +9,9 @@
 
 import { version } from './package';
 
-// Import all methods.
+/**
+ * Import all methods.
+ */
 import isEmpty from './lib/isEmpty';
 import getQuery from './lib/getQuery';
 import clone from './lib/clone';
@@ -20,10 +22,18 @@ import removeCookie from './lib/removeCookie';
 import invertObject from './lib/invertObject';
 import first from './lib/first';
 
-// Set version to constant.
+/**
+ * Set version to constant.
+ *
+ * @constant
+ */
 const VERSION = version;
 
-// Export all methods as a separate modules.
+/**
+ * Export all methods as a separate modules.
+ *
+ * @exports
+ */
 export {
   VERSION,
   isEmpty,
@@ -37,7 +47,11 @@ export {
   first,
 };
 
-// Export one module with all methods.
+/**
+ * Export one module with all methods.
+ *
+ * @exports
+ */
 class Chober {
   constructor() {
     Object.assign(this, {
