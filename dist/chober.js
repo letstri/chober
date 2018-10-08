@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, first, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -136,6 +136,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "invertObject", function() { return _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]; });
 
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "first", function() { return _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+
 
 
 /**
@@ -148,6 +151,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  */
 
  // Import all methods.
+
 
 
 
@@ -174,7 +178,8 @@ var Chober = function Chober() {
     getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
     getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"],
     removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
-    invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]
+    invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"],
+    first: _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]
   });
 };
 
@@ -203,6 +208,34 @@ __webpack_require__.r(__webpack_exports__);
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return item && JSON.parse(JSON.stringify(item));
+});
+
+/***/ }),
+
+/***/ "./lib/first.js":
+/*!**********************!*\
+  !*** ./lib/first.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Returns the first item of array or `number` items.
+ *
+ * @param {Array} array
+ * @param {Number} number Number of items to returns.
+ * @return {Array}
+ *
+ * @example
+ *
+ * first([1, null, '3']) // [1]
+ * first([1, null, '3'], 2) // [1, null]
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (array) {
+  var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  return Array.isArray(array) ? array.slice(0, number) : [];
 });
 
 /***/ }),
@@ -321,7 +354,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (Array.isArray(objectUrl[item[0]])) {
       objectUrl[item[0]].forEach(function (url, index) {
-        objectUrl[item[0]][index] = decodeURIComponent(objectUrl[item[0]][index]);
+        objectUrl[item[0]][index] = decodeURIComponent(url);
       });
     } else {
       objectUrl[item[0]] = decodeURIComponent(item[1]);
