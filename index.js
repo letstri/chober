@@ -14,7 +14,7 @@ import isEmpty from './lib/isEmpty';
 import getQuery from './lib/getQuery';
 import clone from './lib/clone';
 import getNumbers from './lib/getNumbers';
-import getScrollWidth from './lib/getScrollWidth';
+import getScrollbarWidth from './lib/getScrollbarWidth';
 import getCookie from './lib/getCookie';
 import removeCookie from './lib/removeCookie';
 import invertObject from './lib/invertObject';
@@ -29,7 +29,7 @@ export {
   getQuery,
   clone,
   getNumbers,
-  getScrollWidth,
+  getScrollbarWidth,
   getCookie,
   removeCookie,
   invertObject,
@@ -44,7 +44,7 @@ class Chober {
       getQuery,
       clone,
       getNumbers,
-      getScrollWidth,
+      getScrollbarWidth,
       getCookie,
       removeCookie,
       invertObject,

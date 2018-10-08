@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollWidth, getCookie, removeCookie, invertObject, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,8 +124,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getNumbers", function() { return _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
-/* harmony import */ var _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollWidth */ "./lib/getScrollWidth.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollWidth", function() { return _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollbarWidth", function() { return _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
 
 /* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getCookie", function() { return _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"]; });
@@ -156,7 +156,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 
 
 
- // Set versio to constant.
+ // Set version to constant.
 
 var VERSION = _package__WEBPACK_IMPORTED_MODULE_2__["version"]; // Export all methods as a separate modules.
 
@@ -171,7 +171,7 @@ var Chober = function Chober() {
     getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
     clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"],
     getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"],
-    getScrollWidth: _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
+    getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
     getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"],
     removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
     invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]
@@ -332,10 +332,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./lib/getScrollWidth.js":
-/*!*******************************!*\
-  !*** ./lib/getScrollWidth.js ***!
-  \*******************************/
+/***/ "./lib/getScrollbarWidth.js":
+/*!**********************************!*\
+  !*** ./lib/getScrollbarWidth.js ***!
+  \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
