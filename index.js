@@ -18,6 +18,7 @@ import getScrollWidth from './lib/getScrollWidth';
 import getCookie from './lib/getCookie';
 import removeCookie from './lib/removeCookie';
 import invertObject from './lib/invertObject';
+import setCookie from './lib/setCookie';
 
 // Set version to constant.
 const VERSION = version;
@@ -33,6 +34,7 @@ export {
   getCookie,
   removeCookie,
   invertObject,
+  setCookie,
 };
 
 // Export one module with all methods.
@@ -48,6 +50,7 @@ class Chober {
       getCookie,
       removeCookie,
       invertObject,
+      setCookie,
     });
   }
 }
