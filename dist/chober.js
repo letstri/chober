@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -148,6 +148,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return _lib_debounce__WEBPACK_IMPORTED_MODULE_14__["default"]; });
 
+/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scrollTo", function() { return _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"]; });
+
 
 
 /**
@@ -163,6 +166,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
 
 
 
@@ -208,7 +212,8 @@ var Chober = function Chober() {
     setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_11__["default"],
     first: _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"],
     formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_13__["default"],
-    debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_14__["default"]
+    debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_14__["default"],
+    scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"]
   });
 };
 
@@ -229,17 +234,18 @@ __webpack_require__.r(__webpack_exports__);
  * Clone any item.
  *
  * @since 0.1.0
- * @param {*} item Some item to clone.
+ * @param {Any} item Some item to clone.
  * @returns {*}
  *
  * @example
- *
  * clone([1, null, '3'])
  * // => [1, null, '3']
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (item) {
+function clone(item) {
   return item && JSON.parse(JSON.stringify(item));
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (clone);
 
 /***/ }),
 
@@ -252,7 +258,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this = undefined;
 /**
  * Useful for implementing behavior that should only happen after a repeated action has completed.
  *
@@ -262,14 +267,13 @@ var _this = undefined;
  * @returns {Function}
  *
  * @example
- *
  * window.addEventListener('scroll', debounce(() => {
  *   console.log(Math.random());
  * }, 100));
  */
+function debounce(func, delay) {
+  var _this = this;
 
-
-/* harmony default export */ __webpack_exports__["default"] = (function (func, delay) {
   var timer = null;
   return function () {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -284,7 +288,9 @@ var _this = undefined;
     if (timer) clearTimeout(timer);
     timer = setTimeout(onComplete, delay);
   };
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (debounce);
 
 /***/ }),
 
@@ -306,17 +312,18 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Array}
  *
  * @example
- *
  * first([1, null, '3'])
  * // => [1]
  *
  * first([1, null, '3'], 2)
  * // => [1, null]
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (array) {
+function first(array) {
   var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   return Array.isArray(array) ? array.slice(0, number) : [];
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (first);
 
 /***/ }),
 
@@ -338,17 +345,18 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Number}
  *
  * @example
- *
  * formatNumer(1234)
  * // => '1 234'
  *
  * formatNumer('1234', ',')
  * // => '1,234'
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (number) {
+function formatNumber(number) {
   var symbol = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ' ';
   return String(number).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1".concat(symbol));
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (formatNumber);
 
 /***/ }),
 
@@ -369,10 +377,9 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {String}
  *
  * @example
- *
  * getCookie('someCookie')
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (key) {
+function getCookie(key) {
   var value = "; ".concat(document.cookie);
   var parts = value.split("; ".concat(key, "="));
 
@@ -381,7 +388,9 @@ __webpack_require__.r(__webpack_exports__);
   }
 
   return '';
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getCookie);
 
 /***/ }),
 
@@ -402,13 +411,14 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {String}
  *
  * @example
- *
  * getNumbers('+7 (123) 456-78-90')
  * // => '71234567890'
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (string) {
+function getNumbers(string) {
   return string && string.toString().replace(/\D+/g, '');
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getNumbers);
 
 /***/ }),
 
@@ -438,14 +448,13 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Boolean}
  *
  * @example
- *
- * http://github.com/?value=test&field=hi&field=hello
+ * // http://github.com/?value=test&field=hi&field=hello
  *
  * getQuery()
  * // => { value: 'test', field: ['hi', 'hello'] }
  */
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+function getQuery() {
   var arrayFields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var query = window.location.search.substr(1);
   var objectUrl = {};
@@ -478,7 +487,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   });
   return objectUrl;
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getQuery);
 
 /***/ }),
 
@@ -497,9 +508,11 @@ __webpack_require__.r(__webpack_exports__);
  * @since 0.1.0
  * @returns {Number}
  */
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+function getScrollbarWidth() {
   return window.innerWidth - document.documentElement.clientWidth;
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getScrollbarWidth);
 
 /***/ }),
 
@@ -526,16 +539,17 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Object}
  *
  * @example
- *
  * invertObject({ key: 'value' })
  * // => { value: 'key' }
  */
 
-/* harmony default export */ __webpack_exports__["default"] = (function (object) {
+function invertObject(object) {
   return object && Object.entries(object).reduce(function (newObject, item) {
     return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newObject, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, item[1], item[0]));
   }, {});
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (invertObject);
 
 /***/ }),
 
@@ -556,7 +570,6 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Boolean}
  *
  * @example
- *
  * isEmpty({ test: 'some value' })
  * // => false
  *
@@ -578,9 +591,11 @@ __webpack_require__.r(__webpack_exports__);
  * isEmpty(null)
  * // => true
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (item) {
+function isEmpty(item) {
   return !(item && (item.length || Object.keys(item).length));
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (isEmpty);
 
 /***/ }),
 
@@ -600,12 +615,37 @@ __webpack_require__.r(__webpack_exports__);
  * @param {String} key Cookie name.
  *
  * @example
- *
  * removeCookie('testCookie')
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (key) {
+function removeCookie(key) {
   document.cookie = "".concat(key, "=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;");
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (removeCookie);
+
+/***/ }),
+
+/***/ "./lib/scrollTo.js":
+/*!*************************!*\
+  !*** ./lib/scrollTo.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Scroll to element in DOM.
+ *
+ * @param {String} selector Class or id.
+ */
+function scrollTo(selector) {
+  document.querySelector(selector).scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (scrollTo);
 
 /***/ }),
 
@@ -626,17 +666,18 @@ __webpack_require__.r(__webpack_exports__);
  * @param {?Number} expireIn Time in milliseconds to expire cookie.
  *
  * @example
- *
  * setCookie('name', 'value', 60000) // 60000 - one minute
  */
-/* harmony default export */ __webpack_exports__["default"] = (function (key, value) {
+function setCookie(key, value) {
   var expireIn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   var expirationDate = expireIn && new Date().getTime() + expireIn;
   var expirationDateString = expireIn && new Date(expirationDate).toUTCString();
   var mainPartCookie = "".concat(key, "=").concat(value, "; path=/");
   var expirationPartCookie = "; expires=".concat(expirationDateString);
   document.cookie = expireIn ? mainPartCookie : mainPartCookie + expirationPartCookie;
-});
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (setCookie);
 
 /***/ }),
 
@@ -751,7 +792,7 @@ module.exports = _objectSpread;
 /*! exports provided: name, version, description, main, private, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","private":true,"scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run prod && npm run dev","doc":"documentation lib/*.js build index.js -f md"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","private":true,"scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
