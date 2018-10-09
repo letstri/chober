@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollWidth, getCookie, removeCookie, invertObject, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, first, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,8 +124,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getNumbers", function() { return _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
-/* harmony import */ var _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollWidth */ "./lib/getScrollWidth.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollWidth", function() { return _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollbarWidth", function() { return _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__["default"]; });
 
 /* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getCookie", function() { return _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"]; });
@@ -135,6 +135,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 
 /* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "invertObject", function() { return _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]; });
+
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "first", function() { return _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]; });
 
 
 
@@ -156,7 +159,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 
 
 
- // Set versio to constant.
+
+ // Set version to constant.
 
 var VERSION = _package__WEBPACK_IMPORTED_MODULE_2__["version"]; // Export all methods as a separate modules.
 
@@ -171,10 +175,11 @@ var Chober = function Chober() {
     getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_4__["default"],
     clone: _lib_clone__WEBPACK_IMPORTED_MODULE_5__["default"],
     getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_6__["default"],
-    getScrollWidth: _lib_getScrollWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
+    getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_7__["default"],
     getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"],
     removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
-    invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]
+    invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"],
+    first: _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]
   });
 };
 
@@ -194,15 +199,47 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Clone any item.
  *
- * @param {Any} item Some item to clone.
- * @return {Any}
+ * @param {*} item Some item to clone.
+ * @returns {*}
  *
  * @example
  *
- * clone([1, null, '3']) // [1, null, '3']
+ * clone([1, null, '3'])
+ * // => [1, null, '3']
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
   return item && JSON.parse(JSON.stringify(item));
+});
+
+/***/ }),
+
+/***/ "./lib/first.js":
+/*!**********************!*\
+  !*** ./lib/first.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Returns the first item of array or `number` items.
+ *
+ * @param {Array} array
+ * @param {Number} number Number of items to returns.
+ * @returns {Array}
+ *
+ * @example
+ *
+ * first([1, null, '3'])
+ * // => [1]
+ *
+ * first([1, null, '3'], 2)
+ * // => [1, null]
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (array) {
+  var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  return Array.isArray(array) ? array.slice(0, number) : [];
 });
 
 /***/ }),
@@ -220,11 +257,11 @@ __webpack_require__.r(__webpack_exports__);
  * Get cookie.
  *
  * @param {String} key Cookie name.
- * @return {String}
+ * @returns {String}
  *
  * @example
  *
- * getCookie('someCookie') //
+ * getCookie('someCookie')
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (key) {
   var value = "; ".concat(document.cookie);
@@ -252,11 +289,12 @@ __webpack_require__.r(__webpack_exports__);
  * Get only numbers from string.
  *
  * @param {String} string Some string, which from to pick only numbers.
- * @return {String}
+ * @returns {String}
  *
  * @example
  *
- * getNumbers('+7 (123) 456-78-90') // '71234567890'
+ * getNumbers('+7 (123) 456-78-90')
+ * // => '71234567890'
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (string) {
   return string && string.toString().replace(/\D+/g, '');
@@ -286,13 +324,14 @@ __webpack_require__.r(__webpack_exports__);
  * Get query from url.
  *
  * @param {Array} arrayFields Fields that must be an arrays.
- * @return {Boolean}
+ * @returns {Boolean}
  *
  * @example
  *
  * http://github.com/?value=test&field=hi&field=hello
  *
- * getQuery() // { value: 'test', field: ['hi', 'hello'] }
+ * getQuery()
+ * // => { value: 'test', field: ['hi', 'hello'] }
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -321,7 +360,7 @@ __webpack_require__.r(__webpack_exports__);
 
     if (Array.isArray(objectUrl[item[0]])) {
       objectUrl[item[0]].forEach(function (url, index) {
-        objectUrl[item[0]][index] = decodeURIComponent(objectUrl[item[0]][index]);
+        objectUrl[item[0]][index] = decodeURIComponent(url);
       });
     } else {
       objectUrl[item[0]] = decodeURIComponent(item[1]);
@@ -332,10 +371,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./lib/getScrollWidth.js":
-/*!*******************************!*\
-  !*** ./lib/getScrollWidth.js ***!
-  \*******************************/
+/***/ "./lib/getScrollbarWidth.js":
+/*!**********************************!*\
+  !*** ./lib/getScrollbarWidth.js ***!
+  \**********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -343,6 +382,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /**
  * Get scrollbar width.
+ *
+ * @returns {Number}
  */
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return window.innerWidth - document.documentElement.clientWidth;
@@ -369,11 +410,12 @@ __webpack_require__.r(__webpack_exports__);
  * Invert object.
  *
  * @param {Object} object Some object to invert.
- * @return {Object}
+ * @returns {Object}
  *
  * @example
  *
- * invertObject({ key: 'value' }) // { value: 'key' }
+ * invertObject({ key: 'value' })
+ * // => { value: 'key' }
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function (object) {
@@ -394,23 +436,36 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /**
- * Check is empty object or other type.
+ * Check is empty object, string, array or other type.
  *
- * @param {Any} item Some item to check.
+ * @param {*} item Some item to check.
  * @return {Boolean}
  *
  * @example
  *
- * isEmpty({ test: 'some value' }) // false
- * isEmpty([1, null, '3']) // false
- * isEmpty('qwe') // false
- * isEmpty(true) // true
- * isEmpty(1) // true
- * isEmpty(undefined) // true
- * isEmpty(null) // true
+ * isEmpty({ test: 'some value' })
+ * // => false
+ *
+ * isEmpty([1, null, '3'])
+ * // => false
+ *
+ * isEmpty('qwe')
+ * // => false
+ *
+ * isEmpty(true)
+ * // => true
+ *
+ * isEmpty(1)
+ * // => true
+ *
+ * isEmpty(undefined)
+ * // => true
+ *
+ * isEmpty(null)
+ * // => true
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (item) {
-  return !(item && Object.keys(item).length);
+  return !(item && (item.length || Object.keys(item).length));
 });
 
 /***/ }),
@@ -428,7 +483,6 @@ __webpack_require__.r(__webpack_exports__);
  * Remove cookie.
  *
  * @param {String} key Cookie name.
- * @return {Any}
  *
  * @example
  *
@@ -557,4 +611,3 @@ module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - i
 
 /******/ });
 });
-//# sourceMappingURL=chober.js.map

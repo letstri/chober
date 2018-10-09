@@ -6,7 +6,7 @@ const LIBRARY_SHORT_NAME = '_c';
 module.exports = env => ({
   entry: './index.js',
   mode: env,
-  devtool: 'source-map',
+  devtool: 'none',
   output: {
     filename: env === 'development' ? 'chober.js' : 'chober.min.js',
     path: path.resolve(__dirname, 'dist'),
