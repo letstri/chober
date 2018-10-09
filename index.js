@@ -22,6 +22,7 @@ import removeCookie from './lib/removeCookie';
 import invertObject from './lib/invertObject';
 import setCookie from './lib/setCookie';
 import first from './lib/first';
+import formatNumber from './lib/formatNumber';
 
 /**
  * Set version to constant.
@@ -45,6 +46,7 @@ export {
   invertObject,
   setCookie,
   first,
+  formatNumber,
 };
 
 /**
@@ -64,6 +66,7 @@ class Chober {
       invertObject,
       setCookie,
       first,
+      formatNumber,
     });
   }
 }

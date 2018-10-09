@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,6 +142,9 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "first", function() { return _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"]; });
 
+/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "formatNumber", function() { return _lib_formatNumber__WEBPACK_IMPORTED_MODULE_13__["default"]; });
+
 
 
 /**
@@ -157,6 +160,7 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
 
 
 
@@ -198,7 +202,8 @@ var Chober = function Chober() {
     removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
     invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"],
     setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_11__["default"],
-    first: _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"]
+    first: _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"],
+    formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_13__["default"]
   });
 };
 
@@ -261,6 +266,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (array) {
   var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   return Array.isArray(array) ? array.slice(0, number) : [];
+});
+
+/***/ }),
+
+/***/ "./lib/formatNumber.js":
+/*!*****************************!*\
+  !*** ./lib/formatNumber.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Format number.
+ *
+ * @since 0.1.0
+ * @param {Number|String} number
+ * @param {String} symbol Symbol to be inserted. Default ` `.
+ * @returns {Number}
+ *
+ * @example
+ *
+ * formatNumer(1234)
+ * // => '1 234'
+ *
+ * formatNumer('1234', ',')
+ * // => '1,234'
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (number) {
+  var symbol = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ' ';
+  return String(number).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1".concat(symbol));
 });
 
 /***/ }),
