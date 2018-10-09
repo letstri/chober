@@ -24,6 +24,7 @@ import setCookie from './lib/setCookie';
 import first from './lib/first';
 import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
+import scrollTo from './lib/scrollTo';
 
 /**
  * Set version to constant.
@@ -49,6 +50,7 @@ export {
   first,
   formatNumber,
   debounce,
+  scrollTo,
 };
 
 /**
@@ -70,6 +72,7 @@ class Chober {
       first,
       formatNumber,
       debounce,
+      scrollTo,
     });
   }
 }
