@@ -8,7 +8,9 @@
     "prod": "webpack --env production --config webpack.config.js",
     "dev": "webpack --env development --config webpack.config.js",
     "watch": "webpack --env development --config webpack.config.js --watch",
-    "build": "npm run prod && npm run dev"
+    "build": "npm run prod && npm run dev",
+    "docs": "jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > docs/README.md",
+    "docs-server": "docsify serve docs"
   },
   "repository": {
     "type": "git",
