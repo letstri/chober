@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, first, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -136,8 +136,11 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "invertObject", function() { return _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"]; });
 
-/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "first", function() { return _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setCookie", function() { return _lib_setCookie__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "first", function() { return _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"]; });
 
 
 
@@ -150,7 +153,10 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
  * @license https://github.com/BrooonS/chober/blob/master/LICENSE
  */
 
- // Import all methods.
+
+/**
+ * Import all methods.
+ */
 
 
 
@@ -160,11 +166,23 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 
 
 
- // Set version to constant.
 
-var VERSION = _package__WEBPACK_IMPORTED_MODULE_2__["version"]; // Export all methods as a separate modules.
 
- // Export one module with all methods.
+/**
+ * Set version to constant.
+ *
+ * @constant
+ */
+
+var VERSION = _package__WEBPACK_IMPORTED_MODULE_2__["version"];
+/**
+ * Export all methods as a separate modules.
+ */
+
+
+/**
+ * Export one module with all methods.
+ */
 
 var Chober = function Chober() {
   _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, Chober);
@@ -179,7 +197,8 @@ var Chober = function Chober() {
     getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_8__["default"],
     removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_9__["default"],
     invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_10__["default"],
-    first: _lib_first__WEBPACK_IMPORTED_MODULE_11__["default"]
+    setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_11__["default"],
+    first: _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"]
   });
 };
 
@@ -199,6 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Clone any item.
  *
+ * @since 0.1.0
  * @param {*} item Some item to clone.
  * @returns {*}
  *
@@ -225,6 +245,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Returns the first item of array or `number` items.
  *
+ * @since 0.1.0
  * @param {Array} array
  * @param {Number} number Number of items to returns.
  * @returns {Array}
@@ -256,6 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Get cookie.
  *
+ * @since 0.1.0
  * @param {String} key Cookie name.
  * @returns {String}
  *
@@ -288,6 +310,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Get only numbers from string.
  *
+ * @since 0.1.0
  * @param {String} string Some string, which from to pick only numbers.
  * @returns {String}
  *
@@ -323,6 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Get query from url.
  *
+ * @since 0.1.0
  * @param {Array} arrayFields Fields that must be an arrays.
  * @returns {Boolean}
  *
@@ -383,6 +407,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Get scrollbar width.
  *
+ * @since 0.1.0
  * @returns {Number}
  */
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -409,6 +434,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Invert object.
  *
+ * @since 0.1.0
  * @param {Object} object Some object to invert.
  * @returns {Object}
  *
@@ -438,6 +464,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Check is empty object, string, array or other type.
  *
+ * @since 0.1.0
  * @param {*} item Some item to check.
  * @return {Boolean}
  *
@@ -482,6 +509,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Remove cookie.
  *
+ * @since 0.1.0
  * @param {String} key Cookie name.
  *
  * @example
@@ -490,6 +518,37 @@ __webpack_require__.r(__webpack_exports__);
  */
 /* harmony default export */ __webpack_exports__["default"] = (function (key) {
   document.cookie = "".concat(key, "=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;");
+});
+
+/***/ }),
+
+/***/ "./lib/setCookie.js":
+/*!**************************!*\
+  !*** ./lib/setCookie.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Set cookie.
+ *
+ * @param {String} key Cookie name.
+ * @param {String} value Cookie value.
+ * @param {?Number} expireIn Time in milliseconds to expire cookie.
+ *
+ * @example
+ *
+ * setCookie('name', 'value', 60000) // 60000 - one minute
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (key, value) {
+  var expireIn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var expirationDate = expireIn && new Date().getTime() + expireIn;
+  var expirationDateString = expireIn && new Date(expirationDate).toUTCString();
+  var mainPartCookie = "".concat(key, "=").concat(value, "; path=/");
+  var expirationPartCookie = "; expires=".concat(expirationDateString);
+  document.cookie = expireIn ? mainPartCookie : mainPartCookie + expirationPartCookie;
 });
 
 /***/ }),
