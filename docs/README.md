@@ -170,6 +170,14 @@ removeCookie('testCookie')
 ```
 
 
+## scrollTo
+
+Scroll to element in DOM.
+
+- @param **String** selector Class or id.
+
+
+
 ## setCookie
 
 Set cookie.
