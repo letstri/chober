@@ -1,6 +1,6 @@
 # Chober.js
 
-> A collection of methods that are used by programmers every day.
+> A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
 ## Quick start
 
@@ -16,26 +16,39 @@ Install with `script`.
 <script src="chober.min.js"></script>
 ```
 
-# Methods
+# Usage
 
 {{#functions}}
 
 ## {{name}}
-{{since}}
-{{description}}
 
+{{#if description}}
+> {{description}}
+{{/if}}
+
+{{#if since}}
+### Since
+- {{since}}
+{{/if}}
+
+{{#if params}}
+### Params
 {{#each params}}
-- @param **{{type.names}}** {{name}} {{description}}
+- `{{name}}`
+ - Type: `{{type.names}}`
+ - Description: *{{description}}*
 {{/each}}
+{{/if}}
 
+{{#if examples}}
+### Example
 {{#each examples}}
 ```JS
 {{{this}}}
 ```
 {{/each}}
-
-{{/functions}}
-
+{{/if}}
 * * *
+{{/functions}}
 
 &copy; Valery Strelets
