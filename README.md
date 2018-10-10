@@ -16,6 +16,12 @@ Install with `script`.
 <script src="chober.min.js"></script>
 ```
 
+## Add your methods
+
+If you want to add your methods, read the instructions below.
+
+Clone repository ``.
+
 ## Usage
 
 There are 4 ways to use.
