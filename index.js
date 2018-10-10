@@ -25,6 +25,8 @@ import first from './lib/first';
 import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
+import getOffset from './lib/getOffset';
+import preloadImage from './lib/preloadImage';
 
 /**
  * Set version to constant.
@@ -51,6 +53,8 @@ export {
   formatNumber,
   debounce,
   scrollTo,
+  getOffset,
+  preloadImage,
 };
 
 /**
@@ -73,6 +77,8 @@ class Chober {
       formatNumber,
       debounce,
       scrollTo,
+      getOffset,
+      preloadImage,
     });
   }
 }
