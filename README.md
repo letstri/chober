@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/chober.svg)](https://brooons.github.io/chober/)
 [![](https://data.jsdelivr.com/v1/package/npm/chober/badge)](https://www.jsdelivr.com/package/npm/chober)
 
-[Docs](https://brooons.github.io/chober/)
+[Docs](https://brooons.github.io/chober/) | [Licence](https://github.com/BrooonS/chober/blob/master/LICENSE)
 
 > A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
