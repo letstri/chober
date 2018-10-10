@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.",
   "main": "dist/chober.js",
-  "private": true,
   "scripts": {
     "prod": "webpack --env production --config webpack.config.js",
     "dev": "webpack --env development --config webpack.config.js",
