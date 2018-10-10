@@ -33,7 +33,8 @@ Install with `script`.
 
 ### Example
 ```JS
-clone([1, null, '3'])// => [1, null, '3']
+clone([1, null, '3'])
+// => [1, null, '3']
 ```
 * * *
 
@@ -54,7 +55,9 @@ clone([1, null, '3'])// => [1, null, '3']
 
 ### Example
 ```JS
-window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
+window.addEventListener('scroll', debounce(() => {
+  console.log(Math.random());
+}, 100));
 ```
 * * *
 
@@ -75,7 +78,11 @@ window.addEventListener('scroll', debounce(() => {  console.log(Math.random());
 
 ### Example
 ```JS
-first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
+first([1, null, '3'])
+// => [1]
+
+first([1, null, '3'], 2)
+// => [1, null]
 ```
 * * *
 
@@ -96,7 +103,11 @@ first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 
 ### Example
 ```JS
-formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
+formatNumer(1234)
+// => '1 234'
+
+formatNumer('1234', ',')
+// => '1,234'
 ```
 * * *
 
@@ -132,7 +143,26 @@ getCookie('someCookie')
 
 ### Example
 ```JS
-getNumbers('+7 (123) 456-78-90')// => '71234567890'
+getNumbers('+7 (123) 456-78-90')
+// => '71234567890'
+```
+* * *
+
+## getOffset
+
+> Get absolute coordinates of an element.
+
+### Since
+- 0.1.0
+
+### Params
+- `element`
+ - Type: `HTMLelement`
+ - Description: *Element to get coordinates of.*
+
+### Example
+```JS
+getOffset(document.querySelector('#element'))
 ```
 * * *
 
@@ -150,7 +180,10 @@ getNumbers('+7 (123) 456-78-90')// => '71234567890'
 
 ### Example
 ```JS
-// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
+// http://github.com/?value=test&field=hi&field=hello
+
+getQuery()
+// => { value: 'test', field: ['hi', 'hello'] }
 ```
 * * *
 
@@ -178,7 +211,8 @@ getNumbers('+7 (123) 456-78-90')// => '71234567890'
 
 ### Example
 ```JS
-invertObject({ key: 'value' })// => { value: 'key' }
+invertObject({ key: 'value' })
+// => { value: 'key' }
 ```
 * * *
 
@@ -196,7 +230,44 @@ invertObject({ key: 'value' })// => { value: 'key' }
 
 ### Example
 ```JS
-isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
+isEmpty({ test: 'some value' })
+// => false
+
+isEmpty([1, null, '3'])
+// => false
+
+isEmpty('qwe')
+// => false
+
+isEmpty(true)
+// => true
+
+isEmpty(1)
+// => true
+
+isEmpty(undefined)
+// => true
+
+isEmpty(null)
+// => true
+```
+* * *
+
+## preloadImage
+
+> Preload an image by its path.
+
+### Since
+- 0.1.0
+
+### Params
+- `imgPath`
+ - Type: `String`
+ - Description: *Path of an image to preload.*
+
+### Example
+```JS
+preloadImage('some/path/to/img')
 ```
 * * *
 

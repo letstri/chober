@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, getOffset, preloadImage, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -151,6 +151,12 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scrollTo", function() { return _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"]; });
 
+/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOffset", function() { return _lib_getOffset__WEBPACK_IMPORTED_MODULE_16__["default"]; });
+
+/* harmony import */ var _lib_preloadImage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/preloadImage */ "./lib/preloadImage.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "preloadImage", function() { return _lib_preloadImage__WEBPACK_IMPORTED_MODULE_17__["default"]; });
+
 
 
 /**
@@ -166,6 +172,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
+
 
 
 
@@ -213,7 +221,9 @@ var Chober = function Chober() {
     first: _lib_first__WEBPACK_IMPORTED_MODULE_12__["default"],
     formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_13__["default"],
     debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_14__["default"],
-    scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"]
+    scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"],
+    getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_16__["default"],
+    preloadImage: _lib_preloadImage__WEBPACK_IMPORTED_MODULE_17__["default"]
   });
 };
 
@@ -422,6 +432,43 @@ function getNumbers(string) {
 
 /***/ }),
 
+/***/ "./lib/getOffset.js":
+/*!**************************!*\
+  !*** ./lib/getOffset.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Get absolute coordinates of an element.
+ *
+ * @since 0.1.0
+ * @param {HTMLelement} element Element to get coordinates of.
+ * @returns {Object}
+ *
+ * @example
+ * getOffset(document.querySelector('#element'))
+ */
+function getOffset(element) {
+  var rect = element.getBoundingClientRect();
+  var scrollLeft = window.pageXOffset;
+  var scrollTop = window.pageYOffset;
+  return {
+    x: rect.left + scrollLeft,
+    y: rect.top + scrollTop,
+    left: rect.left + scrollLeft,
+    top: rect.top + scrollTop,
+    right: rect.right + scrollLeft,
+    bottom: rect.bottom + scrollTop
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (getOffset);
+
+/***/ }),
+
 /***/ "./lib/getQuery.js":
 /*!*************************!*\
   !*** ./lib/getQuery.js ***!
@@ -596,6 +643,33 @@ function isEmpty(item) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (isEmpty);
+
+/***/ }),
+
+/***/ "./lib/preloadImage.js":
+/*!*****************************!*\
+  !*** ./lib/preloadImage.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Preload an image by its path.
+ *
+ * @since 0.1.0
+ * @param {String} imgPath Path of an image to preload.
+ *
+ * @example
+ * preloadImage('some/path/to/img')
+ */
+function preloadImage(imgPath) {
+  var img = new Image();
+  img.src = imgPath;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (preloadImage);
 
 /***/ }),
 
@@ -789,10 +863,10 @@ module.exports = _objectSpread;
 /*!**********************!*\
   !*** ./package.json ***!
   \**********************/
-/*! exports provided: name, version, description, main, private, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
+/*! exports provided: name, version, description, main, private, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, dependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","private":true,"scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --partial separator.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","private":true,"scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"},"dependencies":{}};
 
 /***/ })
 
