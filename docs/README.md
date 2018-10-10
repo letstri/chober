@@ -1,4 +1,5 @@
 # Chober.js
+[![npm version](https://badge.fury.io/js/chober.svg)](https://badge.fury.io/js/chober)
 
 [Docs](https://brooons.github.io/chober/)
 
