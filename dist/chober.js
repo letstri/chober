@@ -582,7 +582,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Get object type.
  *
- * @since 0.1.0
+ * @since 0.2.0
  * @param {Any} object Any type.
  * @returns {String}
  *
