@@ -1,6 +1,6 @@
 {
   "name": "chober",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.",
   "main": "dist/chober.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "dev": "webpack --env development --config webpack.config.js",
     "watch": "webpack --env development --config webpack.config.js --watch",
     "build": "npm run docs && npm run prod && npm run dev",
-    "docs": "jsdoc2md --template README.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --files lib/*.js > docs/README.md",
+    "docs": "jsdoc2md --template README.hbs --files lib/*.js > docs/README.md",
     "docs-server": "docsify serve docs"
   },
   "repository": {

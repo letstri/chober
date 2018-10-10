@@ -245,7 +245,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @since 0.1.0
  * @param {Any} item Some item to clone.
- * @returns {*}
+ * @returns {Any}
  *
  * @example
  * clone([1, null, '3'])
@@ -445,13 +445,15 @@ __webpack_require__.r(__webpack_exports__);
  * Get absolute coordinates of an element.
  *
  * @since 0.1.0
- * @param {HTMLelement} element Element to get coordinates of.
+ * @param {String} selector Selector of HTML element to get coordinates of.
  * @returns {Object}
  *
  * @example
- * getOffset(document.querySelector('#element'))
+ * getOffset('#element').left
+ * // => 8
  */
-function getOffset(element) {
+function getOffset(selector) {
+  var element = document.querySelector(selector);
   var rect = element.getBoundingClientRect();
   var scrollLeft = window.pageXOffset;
   var scrollTop = window.pageYOffset;
@@ -492,7 +494,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @since 0.1.0
  * @param {Array} arrayFields Fields that must be an arrays.
- * @returns {Boolean}
+ * @returns {Object}
  *
  * @example
  * // http://github.com/?value=test&field=hi&field=hello
@@ -613,7 +615,7 @@ __webpack_require__.r(__webpack_exports__);
  * Check is empty object, string, array or other type.
  *
  * @since 0.1.0
- * @param {*} item Some item to check.
+ * @param {Any} item Some item to check.
  * @return {Boolean}
  *
  * @example
@@ -866,7 +868,7 @@ module.exports = _objectSpread;
 /*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, dependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"0.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > README.md && jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"},"dependencies":{}};
+module.exports = {"name":"chober","version":"0.1.1","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"},"dependencies":{}};
 
 /***/ })
 
