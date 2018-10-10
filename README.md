@@ -130,6 +130,10 @@ class Chober {
 }
 ```
 
-* * *
+## Methods
+
+All methods you can find in our [documentation](https://brooons.github.io/chober/).
+
+---
 
 &copy; Valery Strelets

@@ -149,8 +149,7 @@ Clone any item.
 
 #### Example
 ```JS
-clone([1, null, '3'])
-// => [1, null, '3']
+clone([1, null, '3'])// => [1, null, '3']
 ```
 ### debounce
 
@@ -299,10 +298,7 @@ Get query from url.
 
 #### Example
 ```JS
-// http://github.com/?value=test&field=hi&field=hello
-
-getQuery()
-// => { value: 'test', field: ['hi', 'hello'] }
+// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
 ```
 ### getScrollbarWidth
 
@@ -352,26 +348,7 @@ Check is empty object, string, array or other type.
 
 #### Example
 ```JS
-isEmpty({ test: 'some value' })
-// => false
-
-isEmpty([1, null, '3'])
-// => false
-
-isEmpty('qwe')
-// => false
-
-isEmpty(true)
-// => true
-
-isEmpty(1)
-// => true
-
-isEmpty(undefined)
-// => true
-
-isEmpty(null)
-// => true
+isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
 ```
 ### preloadImage
 
@@ -440,6 +417,6 @@ Set cookie.
 setCookie('name', 'value', 60000) // 60000 - one minute
 ```
 
-* * *
+---
 
 &copy; Valery Strelets
