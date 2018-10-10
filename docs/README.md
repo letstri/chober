@@ -1,4 +1,6 @@
-# Chober.js {docsify-ignore}
+# Chober.js
+
+[Docs](https://brooons.github.io/chober/)
 
 > A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
@@ -10,19 +12,15 @@ Install with [npm](https://npmjs.com/).
 $ npm i chober
 ```
 
-Install with `script`.
+or nstall with `script`.
 
 ```html
 <script src="chober.min.js"></script>
 ```
 
-## Usage
-
-There are 4 ways to use.
-
 ### npm
 
-#### One method
+#### One method.
 
 ```js
 import { isEmpty } from 'chober';
@@ -43,7 +41,7 @@ _c.clone({ key: 'value' });
 // => { key: 'value' }
 ```
 
-#### Import only one method
+#### Import only one method.
 
 If you import one method, other methods will not be imported.
 
@@ -65,6 +63,59 @@ isEmpty([]);
 ```js
 _c.isEmpty([]);
 // => true
+```
+
+## Add your methods
+
+If you want to add your methods, read the instructions below.
+
+- Clone repository `git clone https://github.com/BrooonS/chober.git`.
+- Add method to `lib` folder. Example: `lib/yourMethod.js`.
+- Add comments to function params, if they exist.
+- Import method to `index.js`.
+- Run `npm run build` command.
+
+**Example**
+
+```js
+// lib/yourMethod.js
+
+/**
+ * Method to sum two numbers.
+ *
+ * @param {Number} a First number.
+ * @param {Number} b Second number.
+ * @returns {Number}
+ *
+ * @example
+ * math(2, 2)
+ * // => 4
+ */
+function math(a, b) {
+  return a + b;
+}
+
+export default math;
+```
+
+```js
+// index.js
+
+import yourMethod from './lib/yourMethod';
+
+export {
+  ... // other methods
+  yourMethod,
+};
+
+class Chober {
+  constructor() {
+    Object.assign(this, {
+      ... // other methods
+      yourMethod,
+    });
+  }
+}
 ```
 
 * * *
