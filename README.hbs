@@ -32,7 +32,7 @@ or cdn
 
 ### npm
 
-#### One method
+#### Import one method
 
 ```js
 import { isEmpty } from 'chober';
@@ -41,7 +41,7 @@ isEmpty([]);
 // => true
 ```
 
-#### Get all library and use all methods
+#### Import all library and use all methods
 
 ```js
 import _c from 'chober';
