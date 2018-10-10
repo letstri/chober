@@ -1,5 +1,6 @@
 # Chober.js
-[![npm version](https://badge.fury.io/js/chober.svg)](https://badge.fury.io/js/chober)
+[![npm version](https://badge.fury.io/js/chober.svg)](https://brooons.github.io/chober/)
+[![](https://data.jsdelivr.com/v1/package/npm/chober/badge)](https://www.jsdelivr.com/package/npm/chober)
 
 [Docs](https://brooons.github.io/chober/)
 
@@ -13,15 +14,25 @@ Install with [npm](https://npmjs.com/).
 $ npm i chober
 ```
 
-or nstall with `script`.
+or download and install with `script`.
 
 ```html
 <script src="chober.min.js"></script>
 ```
 
+or cdn
+
+```html
+<!-- Latest -->
+<script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
+
+<!-- With version -->
+<script src="https://cdn.jsdelivr.net/npm/chober@0.1.0/dist/chober.min.js"></script>
+```
+
 ### npm
 
-#### One method.
+#### One method
 
 ```js
 import { isEmpty } from 'chober';
@@ -42,7 +53,7 @@ _c.clone({ key: 'value' });
 // => { key: 'value' }
 ```
 
-#### Import only one method.
+#### Import only one method
 
 If you import one method, other methods will not be imported.
 
@@ -118,296 +129,6 @@ class Chober {
   }
 }
 ```
-
-* * *
-
-## Methods
-
-### clone
-
-Clone any item.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `item`
-  - Type: `Any`
-  - Description: *Some item to clone.*
-
-#### Example
-```JS
-clone([1, null, '3'])
-// => [1, null, '3']
-```
-
-### debounce
-
-Useful for implementing behavior that should only happen after a repeated action has completed.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `func`
-  - Type: `function`
-  
-- `delay`
-  - Type: `Number`
-  
-
-#### Example
-```JS
-window.addEventListener('scroll', debounce(() => {
-  console.log(Math.random());
-}, 100));
-```
-
-### first
-
-Returns the first item of array or &#x60;number&#x60; items.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `array`
-  - Type: `Array`
-  
-- `number`
-  - Type: `Number`
-  - Description: *Number of items to returns.*
-
-#### Example
-```JS
-first([1, null, '3'])
-// => [1]
-
-first([1, null, '3'], 2)
-// => [1, null]
-```
-
-### formatNumber
-
-Format number.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `number`
-  - Type: `Number,String`
-  
-- `symbol`
-  - Type: `String`
-  - Description: *Symbol to be inserted. Default &#x60; &#x60;.*
-
-#### Example
-```JS
-formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
-```
-
-### getCookie
-
-Get cookie.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `key`
-  - Type: `String`
-  - Description: *Cookie name.*
-
-#### Example
-```JS
-getCookie('someCookie')
-```
-
-### getNumbers
-
-Get only numbers from string.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `string`
-  - Type: `String`
-  - Description: *Some string, which from to pick only numbers.*
-
-#### Example
-```JS
-getNumbers('+7 (123) 456-78-90')
-// => '71234567890'
-```
-
-### getOffset
-
-Get absolute coordinates of an element.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `element`
-  - Type: `HTMLelement`
-  - Description: *Element to get coordinates of.*
-
-#### Example
-```JS
-getOffset(document.querySelector('#element'))
-```
-
-### getQuery
-
-Get query from url.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `arrayFields`
-  - Type: `Array`
-  - Description: *Fields that must be an arrays.*
-
-#### Example
-```JS
-// http://github.com/?value=test&field=hi&field=hello
-
-getQuery()
-// => { value: 'test', field: ['hi', 'hello'] }
-```
-
-### getScrollbarWidth
-
-Get scrollbar width.
-
-#### Since
-- 0.1.0
-
-
-
-### invertObject
-
-Invert object.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `object`
-  - Type: `Object`
-  - Description: *Some object to invert.*
-
-#### Example
-```JS
-invertObject({ key: 'value' })
-// => { value: 'key' }
-```
-
-### isEmpty
-
-Check is empty object, string, array or other type.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `item`
-  - Type: `*`
-  - Description: *Some item to check.*
-
-#### Example
-```JS
-isEmpty({ test: 'some value' })
-// => false
-
-isEmpty([1, null, '3'])
-// => false
-
-isEmpty('qwe')
-// => false
-
-isEmpty(true)
-// => true
-
-isEmpty(1)
-// => true
-
-isEmpty(undefined)
-// => true
-
-isEmpty(null)
-// => true
-```
-
-### preloadImage
-
-Preload an image by its path.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `imgPath`
-  - Type: `String`
-  - Description: *Path of an image to preload.*
-
-#### Example
-```JS
-preloadImage('some/path/to/img')
-```
-
-### removeCookie
-
-Remove cookie.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `key`
-  - Type: `String`
-  - Description: *Cookie name.*
-
-#### Example
-```JS
-removeCookie('testCookie')
-```
-
-### scrollTo
-
-Scroll to element in DOM.
-
-
-#### Params
-- `selector`
-  - Type: `String`
-  - Description: *Class or id.*
-
-
-### setCookie
-
-Set cookie.
-
-
-#### Params
-- `key`
-  - Type: `String`
-  - Description: *Cookie name.*
-- `value`
-  - Type: `String`
-  - Description: *Cookie value.*
-- `expireIn`
-  - Type: `Number`
-  - Description: *Time in milliseconds to expire cookie.*
-
-#### Example
-```JS
-setCookie('name', 'value', 60000) // 60000 - one minute
-```
-
 
 * * *
 
