@@ -27,6 +27,7 @@ import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
 import getOffset from './lib/getOffset';
 import preloadImage from './lib/preloadImage';
+import getType from './lib/getType';
 
 /**
  * Set version to constant.
@@ -55,6 +56,7 @@ export {
   scrollTo,
   getOffset,
   preloadImage,
+  getType,
 };
 
 /**
@@ -79,6 +81,7 @@ class Chober {
       scrollTo,
       getOffset,
       preloadImage,
+      getType,
     });
   }
 }
