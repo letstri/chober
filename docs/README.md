@@ -1,4 +1,4 @@
-# Chober.js
+# Chober.js {docsify-ignore}
 
 > A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
@@ -16,67 +16,117 @@ Install with `script`.
 <script src="chober.min.js"></script>
 ```
 
-# Usage
+## Usage
 
+There are 4 ways to use.
 
-## clone
+### npm
 
-> Clone any item.
+#### One method
 
-### Since
+```js
+import { isEmpty } from 'chober';
+
+isEmpty([]);
+// => true
+```
+
+#### Get all library and use all methods
+
+```js
+import _c from 'chober';
+
+_c.isEmpty([]);
+// => true
+
+_c.clone({ key: 'value' });
+// => { key: 'value' }
+```
+
+#### Import only one method
+
+If you import one method, other methods will not be imported.
+
+```js
+import isEmpty from 'chober/lib/isEmpty'; // ~600B
+
+isEmpty([]);
+// => true
+```
+
+### Browser
+
+`_c` binds to the `window`.
+
+```html
+<script src="chober.min.js"></script>
+```
+
+```js
+_c.isEmpty([]);
+// => true
+```
+
+* * *
+
+## Methods
+
+### clone
+
+Clone any item.
+
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `item`
- - Type: `Any`
- - Description: *Some item to clone.*
+  - Type: `Any`
+  - Description: *Some item to clone.*
 
-### Example
+#### Example
 ```JS
 clone([1, null, '3'])
 // => [1, null, '3']
 ```
-* * *
 
-## debounce
+### debounce
 
-> Useful for implementing behavior that should only happen after a repeated action has completed.
+Useful for implementing behavior that should only happen after a repeated action has completed.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `func`
- - Type: `function`
- - Description: **
+  - Type: `function`
+  
 - `delay`
- - Type: `Number`
- - Description: **
+  - Type: `Number`
+  
 
-### Example
+#### Example
 ```JS
 window.addEventListener('scroll', debounce(() => {
   console.log(Math.random());
 }, 100));
 ```
-* * *
 
-## first
+### first
 
-> Returns the first item of array or &#x60;number&#x60; items.
+Returns the first item of array or &#x60;number&#x60; items.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `array`
- - Type: `Array`
- - Description: **
+  - Type: `Array`
+  
 - `number`
- - Type: `Number`
- - Description: *Number of items to returns.*
+  - Type: `Number`
+  - Description: *Number of items to returns.*
 
-### Example
+#### Example
 ```JS
 first([1, null, '3'])
 // => [1]
@@ -84,151 +134,139 @@ first([1, null, '3'])
 first([1, null, '3'], 2)
 // => [1, null]
 ```
-* * *
 
-## formatNumber
+### formatNumber
 
-> Format number.
+Format number.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `number`
- - Type: `Number,String`
- - Description: **
+  - Type: `Number,String`
+  
 - `symbol`
- - Type: `String`
- - Description: *Symbol to be inserted. Default &#x60; &#x60;.*
+  - Type: `String`
+  - Description: *Symbol to be inserted. Default &#x60; &#x60;.*
 
-### Example
+#### Example
 ```JS
-formatNumer(1234)
-// => '1 234'
-
-formatNumer('1234', ',')
-// => '1,234'
+formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
 ```
-* * *
 
-## getCookie
+### getCookie
 
-> Get cookie.
+Get cookie.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `key`
- - Type: `String`
- - Description: *Cookie name.*
+  - Type: `String`
+  - Description: *Cookie name.*
 
-### Example
+#### Example
 ```JS
 getCookie('someCookie')
 ```
-* * *
 
-## getNumbers
+### getNumbers
 
-> Get only numbers from string.
+Get only numbers from string.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `string`
- - Type: `String`
- - Description: *Some string, which from to pick only numbers.*
+  - Type: `String`
+  - Description: *Some string, which from to pick only numbers.*
 
-### Example
+#### Example
 ```JS
 getNumbers('+7 (123) 456-78-90')
 // => '71234567890'
 ```
-* * *
 
-## getOffset
+### getOffset
 
-> Get absolute coordinates of an element.
+Get absolute coordinates of an element.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `element`
- - Type: `HTMLelement`
- - Description: *Element to get coordinates of.*
+  - Type: `HTMLelement`
+  - Description: *Element to get coordinates of.*
 
-### Example
+#### Example
 ```JS
 getOffset(document.querySelector('#element'))
 ```
-* * *
 
-## getQuery
+### getQuery
 
-> Get query from url.
+Get query from url.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `arrayFields`
- - Type: `Array`
- - Description: *Fields that must be an arrays.*
+  - Type: `Array`
+  - Description: *Fields that must be an arrays.*
 
-### Example
+#### Example
 ```JS
 // http://github.com/?value=test&field=hi&field=hello
 
 getQuery()
 // => { value: 'test', field: ['hi', 'hello'] }
 ```
-* * *
 
-## getScrollbarWidth
+### getScrollbarWidth
 
-> Get scrollbar width.
+Get scrollbar width.
 
-### Since
+#### Since
 - 0.1.0
 
 
-* * *
 
-## invertObject
+### invertObject
 
-> Invert object.
+Invert object.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `object`
- - Type: `Object`
- - Description: *Some object to invert.*
+  - Type: `Object`
+  - Description: *Some object to invert.*
 
-### Example
+#### Example
 ```JS
 invertObject({ key: 'value' })
 // => { value: 'key' }
 ```
-* * *
 
-## isEmpty
+### isEmpty
 
-> Check is empty object, string, array or other type.
+Check is empty object, string, array or other type.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `item`
- - Type: `*`
- - Description: *Some item to check.*
+  - Type: `*`
+  - Description: *Some item to check.*
 
-### Example
+#### Example
 ```JS
 isEmpty({ test: 'some value' })
 // => false
@@ -251,76 +289,74 @@ isEmpty(undefined)
 isEmpty(null)
 // => true
 ```
-* * *
 
-## preloadImage
+### preloadImage
 
-> Preload an image by its path.
+Preload an image by its path.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `imgPath`
- - Type: `String`
- - Description: *Path of an image to preload.*
+  - Type: `String`
+  - Description: *Path of an image to preload.*
 
-### Example
+#### Example
 ```JS
 preloadImage('some/path/to/img')
 ```
-* * *
 
-## removeCookie
+### removeCookie
 
-> Remove cookie.
+Remove cookie.
 
-### Since
+#### Since
 - 0.1.0
 
-### Params
+#### Params
 - `key`
- - Type: `String`
- - Description: *Cookie name.*
+  - Type: `String`
+  - Description: *Cookie name.*
 
-### Example
+#### Example
 ```JS
 removeCookie('testCookie')
 ```
-* * *
 
-## scrollTo
+### scrollTo
 
-> Scroll to element in DOM.
+Scroll to element in DOM.
 
 
-### Params
+#### Params
 - `selector`
- - Type: `String`
- - Description: *Class or id.*
-
-* * *
-
-## setCookie
-
-> Set cookie.
+  - Type: `String`
+  - Description: *Class or id.*
 
 
-### Params
+### setCookie
+
+Set cookie.
+
+
+#### Params
 - `key`
- - Type: `String`
- - Description: *Cookie name.*
+  - Type: `String`
+  - Description: *Cookie name.*
 - `value`
- - Type: `String`
- - Description: *Cookie value.*
+  - Type: `String`
+  - Description: *Cookie value.*
 - `expireIn`
- - Type: `Number`
- - Description: *Time in milliseconds to expire cookie.*
+  - Type: `Number`
+  - Description: *Time in milliseconds to expire cookie.*
 
-### Example
+#### Example
 ```JS
 setCookie('name', 'value', 60000) // 60000 - one minute
 ```
+
+
 * * *
 
 &copy; Valery Strelets

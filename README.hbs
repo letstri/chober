@@ -1,4 +1,4 @@
-# Chober.js
+# Chober.js {docsify-ignore}
 
 > A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
@@ -16,39 +16,93 @@ Install with `script`.
 <script src="chober.min.js"></script>
 ```
 
-# Usage
+## Usage
+
+There are 4 ways to use.
+
+### npm
+
+#### One method
+
+```js
+import { isEmpty } from 'chober';
+
+isEmpty([]);
+// => true
+```
+
+#### Get all library and use all methods
+
+```js
+import _c from 'chober';
+
+_c.isEmpty([]);
+// => true
+
+_c.clone({ key: 'value' });
+// => { key: 'value' }
+```
+
+#### Import only one method
+
+If you import one method, other methods will not be imported.
+
+```js
+import isEmpty from 'chober/lib/isEmpty'; // ~600B
+
+isEmpty([]);
+// => true
+```
+
+### Browser
+
+`_c` binds to the `window`.
+
+```html
+<script src="chober.min.js"></script>
+```
+
+```js
+_c.isEmpty([]);
+// => true
+```
+
+* * *
+
+## Methods
 
 {{#functions}}
-
-## {{name}}
+### {{name}}
 
 {{#if description}}
-> {{description}}
+{{description}}
 {{/if}}
 
 {{#if since}}
-### Since
+#### Since
 - {{since}}
 {{/if}}
 
 {{#if params}}
-### Params
+#### Params
 {{#each params}}
 - `{{name}}`
- - Type: `{{type.names}}`
- - Description: *{{description}}*
+  {{#if type.names}}- Type: `{{type.names}}`{{/if}}
+  {{#if description}}- Description: *{{description}}*{{/if}}
 {{/each}}
 {{/if}}
 
 {{#if examples}}
-### Example
+#### Example
 {{#each examples}}
 ```JS
 {{{this}}}
 ```
 {{/each}}
 {{/if}}
-* * *
+
 {{/functions}}
+
+* * *
 
 &copy; Valery Strelets
