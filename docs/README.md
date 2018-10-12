@@ -171,9 +171,7 @@ Useful for implementing behavior that should only happen after a repeated action
 
 #### Example
 ```JS
-window.addEventListener('scroll', debounce(() => {
-  console.log(Math.random());
-}, 100));
+window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
 ```
 ### first
 
@@ -195,11 +193,7 @@ Returns the first item of array or &#x60;number&#x60; items.
 
 #### Example
 ```JS
-first([1, null, '3'])
-// => [1]
-
-first([1, null, '3'], 2)
-// => [1, null]
+first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
 ### formatNumber
 
@@ -259,8 +253,7 @@ Get only numbers from string.
 
 #### Example
 ```JS
-getNumbers('+7 (123) 456-78-90')
-// => '71234567890'
+getNumbers('+7 (123) 456-78-90')// => '71234567890'
 ```
 ### getOffset
 
@@ -328,11 +321,7 @@ Get object type.
 
 #### Example
 ```JS
-getType({})
-// => 'object'
-
-getType([])
-// => 'array'
+getType({})// => 'object'getType([])// => 'array'
 ```
 ### invertObject
 
@@ -351,8 +340,7 @@ Invert object.
 
 #### Example
 ```JS
-invertObject({ key: 'value' })
-// => { value: 'key' }
+invertObject({ key: 'value' })// => { value: 'key' }
 ```
 ### isEmpty
 
