@@ -361,23 +361,6 @@ Check is empty object, string, array or other type.
 ```JS
 isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
 ```
-### preloadImage
-
-Preload an image by its path.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `imgPath`
-  - Type: `String`
-  - Description: *Path of an image to preload.*
-
-
-#### Example
-```JS
-preloadImage('some/path/to/img')
-```
 ### removeCookie
 
 Remove cookie.
@@ -403,11 +386,15 @@ Scroll to element in DOM.
 - 0.2.0
 
 #### Params
-- `selector`
-  - Type: `String`
-  - Description: *Class or id.*
+- `element`
+  - Type: `DOMElement`
+  - Description: *Element to which to scroll.*
 
 
+#### Example
+```JS
+scrollTo(document.querySelector('.j-block'))
+```
 ### setCookie
 
 Set cookie.

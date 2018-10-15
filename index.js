@@ -26,7 +26,6 @@ import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
 import getOffset from './lib/getOffset';
-import preloadImage from './lib/preloadImage';
 import getType from './lib/getType';
 import setQuery from './lib/setQuery';
 import uniq from './lib/uniq';
@@ -57,7 +56,6 @@ export {
   debounce,
   scrollTo,
   getOffset,
-  preloadImage,
   getType,
   setQuery,
   uniq,
@@ -84,7 +82,6 @@ class Chober {
       debounce,
       scrollTo,
       getOffset,
-      preloadImage,
       getType,
       setQuery,
       uniq,
