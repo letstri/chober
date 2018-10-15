@@ -395,10 +395,32 @@ Remove cookie.
 ```JS
 removeCookie('testCookie')
 ```
+### uniq
+
+Remove same values.
+
+#### Since
+- 0.3.0
+
+#### Params
+- `array`
+  - Type: `Array.&lt;String&gt;`
+  - Description: *Array of strings.*
+
+#### Returns
+- `Array`
+
+#### Example
+```JS
+uniq(['test', 'field', 'test'])
+// => ['test', 'field']
+```
 ### scrollTo
 
 Scroll to element in DOM.
 
+#### Since
+- 0.2.0
 
 #### Params
 - `selector`
@@ -410,6 +432,8 @@ Scroll to element in DOM.
 
 Set cookie.
 
+#### Since
+- 0.1.0
 
 #### Params
 - `key`
@@ -426,6 +450,34 @@ Set cookie.
 #### Example
 ```JS
 setCookie('name', 'value', 60000) // 60000 - one minute
+```
+### setQuery
+
+Method to sum two numbers.
+
+#### Since
+- 0.3.0
+
+#### Params
+- `object`
+  - Type: `Object`
+  - Description: *Object to parse in url.*
+- `isSaveOldQuery`
+  - Type: `Boolean`
+  - Description: *Whether to save the old query. Default: false.*
+
+
+#### Example
+```JS
+setQuery({ test: 'value' })
+// => /?test=value
+
+setQuery({ test: ['12', '34'] })
+// => /?test=12&test=34
+
+// https://github.com/?test=value&field=test
+setQuery({ test: 'field' }, true)
+// => https://github.com/?test=value&test=field&field=test
 ```
 
 ---

@@ -28,6 +28,8 @@ import scrollTo from './lib/scrollTo';
 import getOffset from './lib/getOffset';
 import preloadImage from './lib/preloadImage';
 import getType from './lib/getType';
+import setQuery from './lib/setQuery';
+import removeDuplicates from './lib/removeDuplicates';
 
 /**
  * Set version to constant.
@@ -57,6 +59,8 @@ export {
   getOffset,
   preloadImage,
   getType,
+  setQuery,
+  removeDuplicates,
 };
 
 /**
@@ -82,6 +86,8 @@ class Chober {
       getOffset,
       preloadImage,
       getType,
+      setQuery,
+      removeDuplicates,
     });
   }
 }
