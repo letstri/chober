@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, getOffset, preloadImage, getType, setQuery, removeDuplicates, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, getOffset, preloadImage, getType, setQuery, uniq, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -163,8 +163,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setQuery", function() { return _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__["default"]; });
 
-/* harmony import */ var _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/removeDuplicates */ "./lib/removeDuplicates.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeDuplicates", function() { return _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__["default"]; });
+/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "uniq", function() { return _lib_uniq__WEBPACK_IMPORTED_MODULE_20__["default"]; });
 
 
 
@@ -238,7 +238,7 @@ var Chober = function Chober() {
     preloadImage: _lib_preloadImage__WEBPACK_IMPORTED_MODULE_17__["default"],
     getType: _lib_getType__WEBPACK_IMPORTED_MODULE_18__["default"],
     setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__["default"],
-    removeDuplicates: _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__["default"]
+    uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_20__["default"]
   });
 };
 
@@ -747,36 +747,6 @@ function removeCookie(key) {
 
 /***/ }),
 
-/***/ "./lib/removeDuplicates.js":
-/*!*********************************!*\
-  !*** ./lib/removeDuplicates.js ***!
-  \*********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/**
- * Remove same values.
- *
- * @since 0.3.0
- * @param {Array.<String>} array Array of strings.
- * @return {Array}
- *
- * @example
- * uniq(['test', 'field', 'test'])
- * // => ['test', 'field']
- */
-function uniq(array) {
-  return array.filter(function (item, index, currentArray) {
-    return currentArray.indexOf(item) === index;
-  });
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (uniq);
-
-/***/ }),
-
 /***/ "./lib/scrollTo.js":
 /*!*************************!*\
   !*** ./lib/scrollTo.js ***!
@@ -851,7 +821,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _getQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getQuery */ "./lib/getQuery.js");
 /* harmony import */ var _isEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isEmpty */ "./lib/isEmpty.js");
 /* harmony import */ var _getType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getType */ "./lib/getType.js");
-/* harmony import */ var _removeDuplicates__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./removeDuplicates */ "./lib/removeDuplicates.js");
+/* harmony import */ var _uniq__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./uniq */ "./lib/uniq.js");
 
 
 
@@ -888,8 +858,8 @@ function setQuery(object) {
 
     if (isFieldExist) {
       var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
-      var arrayValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(newQuery[fieldName]) === 'array' ? Object(_removeDuplicates__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
-      var newValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(fieldValue) === 'array' ? Object(_removeDuplicates__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
+      var arrayValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(newQuery[fieldName]) === 'array' ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
+      var newValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(fieldValue) === 'array' ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, newValue));
     }
 
@@ -904,6 +874,36 @@ function setQuery(object) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setQuery);
+
+/***/ }),
+
+/***/ "./lib/uniq.js":
+/*!*********************!*\
+  !*** ./lib/uniq.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Remove same values.
+ *
+ * @since 0.3.0
+ * @param {Array.<String>} array Array of strings.
+ * @return {Array}
+ *
+ * @example
+ * uniq(['test', 'field', 'test'])
+ * // => ['test', 'field']
+ */
+function uniq(array) {
+  return array.filter(function (item, index, currentArray) {
+    return currentArray.indexOf(item) === index;
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (uniq);
 
 /***/ }),
 
@@ -1018,7 +1018,7 @@ module.exports = _objectSpread;
 /*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, dependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"0.2.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"},"dependencies":{}};
+module.exports = {"name":"chober","version":"0.3.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","methods","chober","isset","isEmpty"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.20.2","webpack-cli":"^3.1.2"},"dependencies":{}};
 
 /***/ })
 

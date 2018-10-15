@@ -1,6 +1,6 @@
 {
   "name": "chober",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.",
   "main": "dist/chober.js",
   "scripts": {

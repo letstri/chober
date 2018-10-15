@@ -29,7 +29,7 @@ import getOffset from './lib/getOffset';
 import preloadImage from './lib/preloadImage';
 import getType from './lib/getType';
 import setQuery from './lib/setQuery';
-import removeDuplicates from './lib/removeDuplicates';
+import uniq from './lib/uniq';
 
 /**
  * Set version to constant.
@@ -60,7 +60,7 @@ export {
   preloadImage,
   getType,
   setQuery,
-  removeDuplicates,
+  uniq,
 };
 
 /**
@@ -87,7 +87,7 @@ class Chober {
       preloadImage,
       getType,
       setQuery,
-      removeDuplicates,
+      uniq,
     });
   }
 }

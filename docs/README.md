@@ -395,26 +395,6 @@ Remove cookie.
 ```JS
 removeCookie('testCookie')
 ```
-### uniq
-
-Remove same values.
-
-#### Since
-- 0.3.0
-
-#### Params
-- `array`
-  - Type: `Array.&lt;String&gt;`
-  - Description: *Array of strings.*
-
-#### Returns
-- `Array`
-
-#### Example
-```JS
-uniq(['test', 'field', 'test'])
-// => ['test', 'field']
-```
 ### scrollTo
 
 Scroll to element in DOM.
@@ -469,15 +449,26 @@ Method to sum two numbers.
 
 #### Example
 ```JS
-setQuery({ test: 'value' })
-// => /?test=value
+setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// https://github.com/?test=value&field=testsetQuery({ test: 'field' }, true)// => https://github.com/?test=value&test=field&field=test
+```
+### uniq
 
-setQuery({ test: ['12', '34'] })
-// => /?test=12&test=34
+Remove same values.
 
-// https://github.com/?test=value&field=test
-setQuery({ test: 'field' }, true)
-// => https://github.com/?test=value&test=field&field=test
+#### Since
+- 0.3.0
+
+#### Params
+- `array`
+  - Type: `Array.&lt;String&gt;`
+  - Description: *Array of strings.*
+
+#### Returns
+- `Array`
+
+#### Example
+```JS
+uniq(['test', 'field', 'test'])// => ['test', 'field']
 ```
 
 ---
