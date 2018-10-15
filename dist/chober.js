@@ -100,7 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.js ***!
   \******************/
-/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, getOffset, preloadImage, getType, default */
+/*! exports provided: VERSION, isEmpty, getQuery, clone, getNumbers, getScrollbarWidth, getCookie, removeCookie, invertObject, setCookie, first, formatNumber, debounce, scrollTo, getOffset, preloadImage, getType, setQuery, removeDuplicates, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -160,6 +160,12 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getType", function() { return _lib_getType__WEBPACK_IMPORTED_MODULE_18__["default"]; });
 
+/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setQuery", function() { return _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__["default"]; });
+
+/* harmony import */ var _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/removeDuplicates */ "./lib/removeDuplicates.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeDuplicates", function() { return _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__["default"]; });
+
 
 
 /**
@@ -175,6 +181,8 @@ var _package__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
+
 
 
 
@@ -228,7 +236,9 @@ var Chober = function Chober() {
     scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_15__["default"],
     getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_16__["default"],
     preloadImage: _lib_preloadImage__WEBPACK_IMPORTED_MODULE_17__["default"],
-    getType: _lib_getType__WEBPACK_IMPORTED_MODULE_18__["default"]
+    getType: _lib_getType__WEBPACK_IMPORTED_MODULE_18__["default"],
+    setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_19__["default"],
+    removeDuplicates: _lib_removeDuplicates__WEBPACK_IMPORTED_MODULE_20__["default"]
   });
 };
 
@@ -737,6 +747,36 @@ function removeCookie(key) {
 
 /***/ }),
 
+/***/ "./lib/removeDuplicates.js":
+/*!*********************************!*\
+  !*** ./lib/removeDuplicates.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Remove same values.
+ *
+ * @since 0.3.0
+ * @param {Array.<String>} array Array of strings.
+ * @return {Array}
+ *
+ * @example
+ * uniq(['test', 'field', 'test'])
+ * // => ['test', 'field']
+ */
+function uniq(array) {
+  return array.filter(function (item, index, currentArray) {
+    return currentArray.indexOf(item) === index;
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (uniq);
+
+/***/ }),
+
 /***/ "./lib/scrollTo.js":
 /*!*************************!*\
   !*** ./lib/scrollTo.js ***!
@@ -749,6 +789,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Scroll to element in DOM.
  *
+ * @since 0.2.0
  * @param {String} selector Class or id.
  */
 function scrollTo(selector) {
@@ -773,6 +814,7 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Set cookie.
  *
+ * @since 0.1.0
  * @param {String} key Cookie name.
  * @param {String} value Cookie value.
  * @param {?Number} expireIn Time in milliseconds to expire cookie.
@@ -790,6 +832,78 @@ function setCookie(key, value) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setCookie);
+
+/***/ }),
+
+/***/ "./lib/setQuery.js":
+/*!*************************!*\
+  !*** ./lib/setQuery.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _getQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getQuery */ "./lib/getQuery.js");
+/* harmony import */ var _isEmpty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isEmpty */ "./lib/isEmpty.js");
+/* harmony import */ var _getType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getType */ "./lib/getType.js");
+/* harmony import */ var _removeDuplicates__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./removeDuplicates */ "./lib/removeDuplicates.js");
+
+
+
+
+
+
+/**
+ * Method to sum two numbers.
+ *
+ * @since 0.3.0
+ * @param {Object} object Object to parse in url.
+ * @param {Boolean} isSaveOldQuery Whether to save the old query. Default: false.
+ *
+ * @example
+ * setQuery({ test: 'value' })
+ * // => /?test=value
+ *
+ * setQuery({ test: ['12', '34'] })
+ * // => /?test=12&test=34
+ *
+ * // https://github.com/?test=value&field=test
+ * setQuery({ test: 'field' }, true)
+ * // => https://github.com/?test=value&test=field&field=test
+ */
+
+function setQuery(object) {
+  var isSaveOldQuery = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var oldQuery = Object(_getQuery__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  var mergedQueries = Object.entries(object).concat(Object.entries(oldQuery));
+  var queryObject = isSaveOldQuery && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
+    var fieldName = field[0];
+    var fieldValue = field[1];
+    var isFieldExist = Object.prototype.hasOwnProperty.call(newQuery, fieldName);
+
+    if (isFieldExist) {
+      var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
+      var arrayValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(newQuery[fieldName]) === 'array' ? Object(_removeDuplicates__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
+      var newValue = Object(_getType__WEBPACK_IMPORTED_MODULE_4__["default"])(fieldValue) === 'array' ? Object(_removeDuplicates__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, newValue));
+    }
+
+    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, fieldValue));
+  }, {}) : object;
+  var queryString = Object.keys(queryObject).map(function (key) {
+    return Array.isArray(queryObject[key]) ? queryObject[key].map(function (value) {
+      return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value));
+    }).join('&') : "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(queryObject[key]));
+  }).join('&');
+  window.history.pushState('', '', "?".concat(decodeURIComponent(queryString)));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (setQuery);
 
 /***/ }),
 

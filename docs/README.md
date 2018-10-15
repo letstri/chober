@@ -171,9 +171,7 @@ Useful for implementing behavior that should only happen after a repeated action
 
 #### Example
 ```JS
-window.addEventListener('scroll', debounce(() => {
-  console.log(Math.random());
-}, 100));
+window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
 ```
 ### first
 
@@ -195,11 +193,7 @@ Returns the first item of array or &#x60;number&#x60; items.
 
 #### Example
 ```JS
-first([1, null, '3'])
-// => [1]
-
-first([1, null, '3'], 2)
-// => [1, null]
+first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
 ### formatNumber
 
@@ -259,8 +253,7 @@ Get only numbers from string.
 
 #### Example
 ```JS
-getNumbers('+7 (123) 456-78-90')
-// => '71234567890'
+getNumbers('+7 (123) 456-78-90')// => '71234567890'
 ```
 ### getOffset
 
@@ -328,11 +321,7 @@ Get object type.
 
 #### Example
 ```JS
-getType({})
-// => 'object'
-
-getType([])
-// => 'array'
+getType({})// => 'object'getType([])// => 'array'
 ```
 ### invertObject
 
@@ -351,8 +340,7 @@ Invert object.
 
 #### Example
 ```JS
-invertObject({ key: 'value' })
-// => { value: 'key' }
+invertObject({ key: 'value' })// => { value: 'key' }
 ```
 ### isEmpty
 
@@ -407,10 +395,32 @@ Remove cookie.
 ```JS
 removeCookie('testCookie')
 ```
+### uniq
+
+Remove same values.
+
+#### Since
+- 0.3.0
+
+#### Params
+- `array`
+  - Type: `Array.&lt;String&gt;`
+  - Description: *Array of strings.*
+
+#### Returns
+- `Array`
+
+#### Example
+```JS
+uniq(['test', 'field', 'test'])
+// => ['test', 'field']
+```
 ### scrollTo
 
 Scroll to element in DOM.
 
+#### Since
+- 0.2.0
 
 #### Params
 - `selector`
@@ -422,6 +432,8 @@ Scroll to element in DOM.
 
 Set cookie.
 
+#### Since
+- 0.1.0
 
 #### Params
 - `key`
@@ -438,6 +450,34 @@ Set cookie.
 #### Example
 ```JS
 setCookie('name', 'value', 60000) // 60000 - one minute
+```
+### setQuery
+
+Method to sum two numbers.
+
+#### Since
+- 0.3.0
+
+#### Params
+- `object`
+  - Type: `Object`
+  - Description: *Object to parse in url.*
+- `isSaveOldQuery`
+  - Type: `Boolean`
+  - Description: *Whether to save the old query. Default: false.*
+
+
+#### Example
+```JS
+setQuery({ test: 'value' })
+// => /?test=value
+
+setQuery({ test: ['12', '34'] })
+// => /?test=12&test=34
+
+// https://github.com/?test=value&field=test
+setQuery({ test: 'field' }, true)
+// => https://github.com/?test=value&test=field&field=test
 ```
 
 ---
