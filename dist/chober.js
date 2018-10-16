@@ -1037,7 +1037,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Method to sum two numbers.
+ * Set query to url.
  *
  * @since 0.3.0
  * @param {Object} object Object to parse in url.

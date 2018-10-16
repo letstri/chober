@@ -535,7 +535,7 @@ setCookie('name', 'value', 60000) // 60000 - one minute
 * * *
 ### setQuery
 
-Method to sum two numbers.
+Set query to url.
 
 #### Since
 - 0.3.0
