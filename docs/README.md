@@ -1,17 +1,21 @@
 # Chober.js
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0284a7a536b44fd4beeed40879aa7093)](https://app.codacy.com/app/BrooonS/chober?utm_source=github.com&utm_medium=referral&utm_content=BrooonS/chober&utm_campaign=Badge_Grade_Dashboard)
 [![npm version](https://badge.fury.io/js/chober.svg)](https://brooons.github.io/chober/)
 [![](https://data.jsdelivr.com/v1/package/npm/chober/badge)](https://www.jsdelivr.com/package/npm/chober)
 
+<a class="github-button" href="https://github.com/BrooonS/chober" data-icon="octicon-star" data-show-count="true" aria-label="Star BrooonS/chober on GitHub">Star</a>
+<a class="github-button" href="https://github.com/BrooonS/chober/subscription" data-icon="octicon-eye" data-show-count="true" aria-label="Watch BrooonS/chober on GitHub">Watch</a>
+
 [Docs](https://brooons.github.io/chober/) | [Licence](https://github.com/BrooonS/chober/blob/master/LICENSE)
 
-> A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
+> A collection of useful methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
 ## Quick start
 
 Install with [npm](https://npmjs.com/).
 
 ```sh
-$ npm i chober
+npm i chober
 ```
 
 or download and install with `script`.
@@ -27,7 +31,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@0.1.0/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.0.0/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -35,8 +39,16 @@ or cdn
 #### Import one method
 
 ```js
+// ES6
 import { isEmpty } from 'chober';
+```
 
+```js
+// CommonJS
+const { isEmpty } = require('chober');
+```
+
+```JS
 isEmpty([]);
 // => true
 ```
@@ -44,8 +56,16 @@ isEmpty([]);
 #### Import all library and use all methods
 
 ```js
+// ES6
 import _c from 'chober';
+```
 
+```js
+// CommonJS
+const _c = require('chober');
+```
+
+```js
 _c.isEmpty([]);
 // => true
 
@@ -58,8 +78,16 @@ _c.clone({ key: 'value' });
 If you import one method, other methods will not be imported.
 
 ```js
+// ES6
 import isEmpty from 'chober/lib/isEmpty'; // ~600B
+```
 
+```js
+// CommonJS
+const isEmpty = require('chober/lib/isEmpty'); // ~600B
+```
+
+```js
 isEmpty([]);
 // => true
 ```
@@ -75,59 +103,6 @@ isEmpty([]);
 ```js
 _c.isEmpty([]);
 // => true
-```
-
-## Add your methods
-
-If you want to add your methods, read the instructions below.
-
-- Clone repository `git clone https://github.com/BrooonS/chober.git`.
-- Add method to `lib` folder. Example: `lib/yourMethod.js`.
-- Add comments to function params, if they exist.
-- Import method to `index.js`.
-- Run `npm run build` command.
-
-**Example**
-
-```js
-// lib/yourMethod.js
-
-/**
- * Method to sum two numbers.
- *
- * @param {Number} a First number.
- * @param {Number} b Second number.
- * @returns {Number}
- *
- * @example
- * math(2, 2)
- * // => 4
- */
-function math(a, b) {
-  return a + b;
-}
-
-export default math;
-```
-
-```js
-// index.js
-
-import yourMethod from './lib/yourMethod';
-
-export {
-  ... // other methods
-  yourMethod,
-};
-
-class Chober {
-  constructor() {
-    Object.assign(this, {
-      ... // other methods
-      yourMethod,
-    });
-  }
-}
 ```
 
 ## Methods
@@ -245,8 +220,8 @@ Get only numbers from string.
 
 #### Params
 - `string`
-  - Type: `String`
-  - Description: *Some string, which from to pick only numbers.*
+  - Type: `String,Number`
+  - Description: *Some string or number, which from to pick only numbers.*
 
 #### Returns
 - `String`
@@ -342,6 +317,46 @@ Invert object.
 ```JS
 invertObject({ key: 'value' })// => { value: 'key' }
 ```
+### isArray
+
+Checking the item for is an array.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isArray([])
+// => true
+isArray({})
+// => false
+```
+### isBoolean
+
+Checking the item for is a boolean.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isBoolean(true)
+// => true
+isBoolean([])
+// => false
+```
 ### isEmpty
 
 Check is empty object, string, array or other type.
@@ -360,6 +375,66 @@ Check is empty object, string, array or other type.
 #### Example
 ```JS
 isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
+```
+### isNumber
+
+Checking the item for is a number.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isNumber(123)
+// => true
+isNumber([])
+// => false
+```
+### isObject
+
+Checking the item for is an object.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isObject({})
+// => true
+isObject(123)
+// => false
+```
+### isString
+
+Checking the item for is a string.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isString('string')
+// => true
+isString([])
+// => false
 ```
 ### removeCookie
 
@@ -447,7 +522,7 @@ Remove same values.
 
 #### Params
 - `array`
-  - Type: `Array.&lt;String&gt;`
+  - Type: `Array`
   - Description: *Array of strings.*
 
 #### Returns

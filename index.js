@@ -1,5 +1,5 @@
 /**
- * Chober.js - is a collection of methods that are used by programmers every day.
+ * Chober.js - is a collection of useful methods that are used by programmers every day.
  * We decided to put all the methods together so as not to copy them from project to project.
  *
  * @author Valery Strelets
@@ -13,21 +13,26 @@ import { version } from './package';
  * Import all methods.
  */
 import isEmpty from './lib/isEmpty';
+import isArray from './lib/isArray';
+import isNumber from './lib/isNumber';
+import isString from './lib/isString';
+import isObject from './lib/isObject';
+import isBoolean from './lib/isBoolean';
 import getQuery from './lib/getQuery';
-import clone from './lib/clone';
 import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
 import getCookie from './lib/getCookie';
-import removeCookie from './lib/removeCookie';
-import invertObject from './lib/invertObject';
+import getOffset from './lib/getOffset';
+import getType from './lib/getType';
+import setQuery from './lib/setQuery';
 import setCookie from './lib/setCookie';
+import removeCookie from './lib/removeCookie';
+import clone from './lib/clone';
+import invertObject from './lib/invertObject';
 import first from './lib/first';
 import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
-import getOffset from './lib/getOffset';
-import getType from './lib/getType';
-import setQuery from './lib/setQuery';
 import uniq from './lib/uniq';
 
 /**
@@ -43,21 +48,26 @@ const VERSION = version;
 export {
   VERSION,
   isEmpty,
+  isArray,
+  isNumber,
+  isString,
+  isObject,
+  isBoolean,
   getQuery,
-  clone,
   getNumbers,
   getScrollbarWidth,
   getCookie,
-  removeCookie,
-  invertObject,
+  getOffset,
+  getType,
+  setQuery,
   setCookie,
+  removeCookie,
+  clone,
+  invertObject,
   first,
   formatNumber,
   debounce,
   scrollTo,
-  getOffset,
-  getType,
-  setQuery,
   uniq,
 };
 
@@ -69,21 +79,26 @@ class Chober {
     Object.assign(this, {
       VERSION,
       isEmpty,
+      isArray,
+      isNumber,
+      isString,
+      isObject,
+      isBoolean,
       getQuery,
-      clone,
       getNumbers,
       getScrollbarWidth,
       getCookie,
-      removeCookie,
-      invertObject,
+      getOffset,
+      getType,
+      setQuery,
       setCookie,
+      removeCookie,
+      clone,
+      invertObject,
       first,
       formatNumber,
       debounce,
       scrollTo,
-      getOffset,
-      getType,
-      setQuery,
       uniq,
     });
   }
