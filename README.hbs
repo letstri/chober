@@ -12,7 +12,7 @@
 
 ## Quick start
 
-Install with [npm](https://npmjs.com/).
+Install with [npm](https://www.npmjs.com/package/chober).
 
 ```sh
 npm i chober
