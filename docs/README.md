@@ -356,6 +356,7 @@ Checking the item for is an array.
 ```JS
 isArray([])
 // => true
+
 isArray({})
 // => false
 ```
@@ -378,6 +379,7 @@ Checking the item for is a boolean.
 ```JS
 isBoolean(true)
 // => true
+
 isBoolean([])
 // => false
 ```
@@ -421,6 +423,7 @@ Checking the item for is a number.
 ```JS
 isNumber(123)
 // => true
+
 isNumber([])
 // => false
 ```
@@ -443,6 +446,7 @@ Checking the item for is an object.
 ```JS
 isObject({})
 // => true
+
 isObject(123)
 // => false
 ```
@@ -465,6 +469,7 @@ Checking the item for is a string.
 ```JS
 isString('string')
 // => true
+
 isString([])
 // => false
 ```

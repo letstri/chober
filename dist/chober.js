@@ -727,6 +727,7 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * isArray([])
  * // => true
+ *
  * isArray({})
  * // => false
  */
@@ -759,6 +760,7 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * isBoolean(true)
  * // => true
+ *
  * isBoolean([])
  * // => false
  */
@@ -837,6 +839,7 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * isNumber(123)
  * // => true
+ *
  * isNumber([])
  * // => false
  */
@@ -869,6 +872,7 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * isObject({})
  * // => true
+ *
  * isObject(123)
  * // => false
  */
@@ -901,6 +905,7 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * isString('string')
  * // => true
+ *
  * isString([])
  * // => false
  */
