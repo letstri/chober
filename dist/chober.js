@@ -1084,11 +1084,12 @@ function setQuery(query) {
     return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, fieldValue));
   }, {}) : query;
   var newQueryString = Object.keys(newQueryObject).map(function (key) {
+    var fieldValue = key && newQueryObject[key] ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(newQueryObject[key])) : '';
     return Array.isArray(newQueryObject[key]) ? newQueryObject[key].map(function (value) {
-      return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value));
-    }).join('&') : "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(newQueryObject[key]));
+      return value && key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
+    }).join('&') : fieldValue;
   }).join('&');
-  window.history.pushState('', '', "?".concat(decodeURIComponent(newQueryString)));
+  window.history.pushState('', '', newQueryString ? "?".concat(decodeURIComponent(newQueryString)) : '');
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setQuery);
