@@ -587,7 +587,6 @@ function getQuery() {
 
   query.split('&').forEach(function (part) {
     if (!part) return;
-    console.log(123);
     var item = part.split('='); // If item already exists, create an array with this item.
 
     if (Object.prototype.hasOwnProperty.call(objectUrl, item[0])) {
@@ -1091,7 +1090,10 @@ function setQuery(query) {
     return Array.isArray(newQueryObject[key]) ? newQueryObject[key].map(function (value) {
       return value && key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
     }).join('&') : fieldValue;
-  }).join('&');
+  }).filter(function (queryItem) {
+    return queryItem;
+  }) // Remove empty queries
+  .join('&');
   window.history.pushState({}, document.title, newQueryString ? "?".concat(decodeURIComponent(newQueryString)) : '?');
 }
 
