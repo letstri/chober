@@ -31,7 +31,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.0.2/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.0.3/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -124,8 +124,7 @@ Clone any item.
 
 #### Example
 ```JS
-clone([1, null, '3'])
-// => [1, null, '3']
+clone([1, null, '3'])// => [1, null, '3']
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/clone.js" target="_blank">Source code</a>
 * * *
@@ -139,19 +138,17 @@ Useful for implementing behavior that should only happen after a repeated action
 #### Params
 - `func`
   - Type: `function`
-
+  
 - `delay`
   - Type: `Number`
-
+  
 
 #### Returns
 - `function`
 
 #### Example
 ```JS
-window.addEventListener('scroll', debounce(() => {
-  console.log(Math.random());
-}, 100));
+window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/debounce.js" target="_blank">Source code</a>
 * * *
@@ -165,7 +162,7 @@ Returns the first item of array or &#x60;number&#x60; items.
 #### Params
 - `array`
   - Type: `Array`
-
+  
 - `number`
   - Type: `Number`
   - Description: *Number of items to returns.*
@@ -175,11 +172,7 @@ Returns the first item of array or &#x60;number&#x60; items.
 
 #### Example
 ```JS
-first([1, null, '3'])
-// => [1]
-
-first([1, null, '3'], 2)
-// => [1, null]
+first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/first.js" target="_blank">Source code</a>
 * * *
@@ -193,7 +186,7 @@ Format number.
 #### Params
 - `number`
   - Type: `Number,String`
-
+  
 - `symbol`
   - Type: `String`
   - Description: *Symbol to be inserted. Default &#x60; &#x60;.*
@@ -203,11 +196,7 @@ Format number.
 
 #### Example
 ```JS
-formatNumer(1234)
-// => '1 234'
-
-formatNumer('1234', ',')
-// => '1,234'
+formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/formatNumber.js" target="_blank">Source code</a>
 * * *
@@ -249,8 +238,7 @@ Get only numbers from string.
 
 #### Example
 ```JS
-getNumbers('+7 (123) 456-78-90')
-// => '71234567890'
+getNumbers('+7 (123) 456-78-90')// => '71234567890'
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/getNumbers.js" target="_blank">Source code</a>
 * * *
@@ -271,8 +259,7 @@ Get absolute coordinates of an element.
 
 #### Example
 ```JS
-getOffset('#element').left
-// => 8
+getOffset('#element').left// => 8
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/getOffset.js" target="_blank">Source code</a>
 * * *
@@ -293,10 +280,7 @@ Get query from url.
 
 #### Example
 ```JS
-// http://github.com/?value=test&field=hi&field=hello
-
-getQuery()
-// => { value: 'test', field: ['hi', 'hello'] }
+// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/getQuery.js" target="_blank">Source code</a>
 * * *
@@ -330,11 +314,7 @@ Get object type.
 
 #### Example
 ```JS
-getType({})
-// => 'object'
-
-getType([])
-// => 'array'
+getType({})// => 'object'getType([])// => 'array'
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/getType.js" target="_blank">Source code</a>
 * * *
@@ -355,8 +335,7 @@ Invert object.
 
 #### Example
 ```JS
-invertObject({ key: 'value' })
-// => { value: 'key' }
+invertObject({ key: 'value' })// => { value: 'key' }
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/invertObject.js" target="_blank">Source code</a>
 * * *
@@ -375,11 +354,7 @@ Checking the item for is an array.
 
 #### Example
 ```JS
-isArray([])
-// => true
-
-isArray({})
-// => false
+isArray([])// => trueisArray({})// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isArray.js" target="_blank">Source code</a>
 * * *
@@ -398,11 +373,7 @@ Checking the item for is a boolean.
 
 #### Example
 ```JS
-isBoolean(true)
-// => true
-
-isBoolean([])
-// => false
+isBoolean(true)// => trueisBoolean([])// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isBoolean.js" target="_blank">Source code</a>
 * * *
@@ -423,26 +394,7 @@ Check is empty object, string, array or other type.
 
 #### Example
 ```JS
-isEmpty({ test: 'some value' })
-// => false
-
-isEmpty([1, null, '3'])
-// => false
-
-isEmpty('qwe')
-// => false
-
-isEmpty(true)
-// => true
-
-isEmpty(1)
-// => true
-
-isEmpty(undefined)
-// => true
-
-isEmpty(null)
-// => true
+isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isEmpty.js" target="_blank">Source code</a>
 * * *
@@ -461,11 +413,7 @@ Checking the item for is a number.
 
 #### Example
 ```JS
-isNumber(123)
-// => true
-
-isNumber([])
-// => false
+isNumber(123)// => trueisNumber([])// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isNumber.js" target="_blank">Source code</a>
 * * *
@@ -484,11 +432,7 @@ Checking the item for is an object.
 
 #### Example
 ```JS
-isObject({})
-// => true
-
-isObject(123)
-// => false
+isObject({})// => trueisObject(123)// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isObject.js" target="_blank">Source code</a>
 * * *
@@ -507,11 +451,7 @@ Checking the item for is a string.
 
 #### Example
 ```JS
-isString('string')
-// => true
-
-isString([])
-// => false
+isString('string')// => trueisString([])// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isString.js" target="_blank">Source code</a>
 * * *
@@ -596,15 +536,7 @@ Set query to url.
 
 #### Example
 ```JS
-setQuery({ test: 'value' })
-// => /?test=value
-
-setQuery({ test: ['12', '34'] })
-// => /?test=12&test=34
-
-// https://github.com/?test=value&field=test
-setQuery({ test: 'field' }, true)
-// => https://github.com/?test=value&test=field&field=test
+setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// https://github.com/?test=value&field=testsetQuery({ test: 'field' }, true)// => https://github.com/?test=value&test=field&field=test
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/setQuery.js" target="_blank">Source code</a>
 * * *
@@ -625,8 +557,7 @@ Remove same values.
 
 #### Example
 ```JS
-uniq(['test', 'field', 'test'])
-// => ['test', 'field']
+uniq(['test', 'field', 'test'])// => ['test', 'field']
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/uniq.js" target="_blank">Source code</a>
 * * *
