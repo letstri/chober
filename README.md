@@ -28,7 +28,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.0.3/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.0.4/dist/chober.min.js"></script>
 ```
 
 ### npm

@@ -1,6 +1,6 @@
 ![logo](_media/logo.png)
 
-# Chober <small>1.0.3</small>
+# Chober <small>1.0.4</small>
 
 > Is a collection of useful methods.
 
