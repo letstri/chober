@@ -1041,7 +1041,7 @@ __webpack_require__.r(__webpack_exports__);
  * Set query to url.
  *
  * @since 0.3.0
- * @param {Object} object Object to parse in url or object with params.
+ * @param {Object} query Object to parse in url.
  * @param {?Boolean} doesSaveOldQuery Whether to save the old query. Default: false.
  *
  * @example
