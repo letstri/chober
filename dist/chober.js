@@ -830,8 +830,8 @@ __webpack_require__.r(__webpack_exports__);
  * Method to sum two numbers.
  *
  * @since 0.3.0
- * @param {Object} object Object to parse in url.
- * @param {Boolean} isSaveOldQuery Whether to save the old query. Default: false.
+ * @param {Object} object Object to parse in url or object with params.
+ * @param {Boolean} doesSaveOldQuery Whether to save the old query. Default: false.
  *
  * @example
  * setQuery({ test: 'value' })
@@ -846,10 +846,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function setQuery(object) {
-  var isSaveOldQuery = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var doesSaveOldQuery = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   var oldQuery = Object(_getQuery__WEBPACK_IMPORTED_MODULE_2__["default"])();
   var mergedQueries = Object.entries(object).concat(Object.entries(oldQuery));
-  var queryObject = isSaveOldQuery && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
+  var queryObject = doesSaveOldQuery && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
     var fieldName = field[0];
     var fieldValue = field[1];
     var isFieldExist = Object.prototype.hasOwnProperty.call(newQuery, fieldName);
