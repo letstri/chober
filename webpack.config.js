@@ -12,6 +12,8 @@ module.exports = env => ({
     path: path.resolve(__dirname, 'dist'),
     library: LIBRARY_SHORT_NAME,
     libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'typeof self !== \'undefined\' ? self : this',
   },
   optimization: {
     minimizer: [

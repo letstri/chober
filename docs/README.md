@@ -1,17 +1,21 @@
 # Chober.js
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0284a7a536b44fd4beeed40879aa7093)](https://app.codacy.com/app/BrooonS/chober?utm_source=github.com&utm_medium=referral&utm_content=BrooonS/chober&utm_campaign=Badge_Grade_Dashboard)
 [![npm version](https://badge.fury.io/js/chober.svg)](https://brooons.github.io/chober/)
 [![](https://data.jsdelivr.com/v1/package/npm/chober/badge)](https://www.jsdelivr.com/package/npm/chober)
 
+<a class="github-button" href="https://github.com/BrooonS/chober" data-icon="octicon-star" data-show-count="true" aria-label="Star BrooonS/chober on GitHub">Star</a>
+<a class="github-button" href="https://github.com/BrooonS/chober/subscription" data-icon="octicon-eye" data-show-count="true" aria-label="Watch BrooonS/chober on GitHub">Watch</a>
+
 [Docs](https://brooons.github.io/chober/) | [Licence](https://github.com/BrooonS/chober/blob/master/LICENSE)
 
-> A collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
+> A collection of useful methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
 ## Quick start
 
-Install with [npm](https://npmjs.com/).
+Install with [npm](https://www.npmjs.com/package/chober).
 
 ```sh
-$ npm i chober
+npm i chober
 ```
 
 or download and install with `script`.
@@ -27,7 +31,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@0.1.0/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.0.4/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -35,8 +39,16 @@ or cdn
 #### Import one method
 
 ```js
+// ES6
 import { isEmpty } from 'chober';
+```
 
+```js
+// CommonJS
+const { isEmpty } = require('chober');
+```
+
+```JS
 isEmpty([]);
 // => true
 ```
@@ -44,8 +56,16 @@ isEmpty([]);
 #### Import all library and use all methods
 
 ```js
+// ES6
 import _c from 'chober';
+```
 
+```js
+// CommonJS
+const _c = require('chober');
+```
+
+```js
 _c.isEmpty([]);
 // => true
 
@@ -58,8 +78,16 @@ _c.clone({ key: 'value' });
 If you import one method, other methods will not be imported.
 
 ```js
+// ES6
 import isEmpty from 'chober/lib/isEmpty'; // ~600B
+```
 
+```js
+// CommonJS
+const isEmpty = require('chober/lib/isEmpty'); // ~600B
+```
+
+```js
 isEmpty([]);
 // => true
 ```
@@ -75,59 +103,6 @@ isEmpty([]);
 ```js
 _c.isEmpty([]);
 // => true
-```
-
-## Add your methods
-
-If you want to add your methods, read the instructions below.
-
-- Clone repository `git clone https://github.com/BrooonS/chober.git`.
-- Add method to `lib` folder. Example: `lib/yourMethod.js`.
-- Add comments to function params, if they exist.
-- Import method to `index.js`.
-- Run `npm run build` command.
-
-**Example**
-
-```js
-// lib/yourMethod.js
-
-/**
- * Method to sum two numbers.
- *
- * @param {Number} a First number.
- * @param {Number} b Second number.
- * @returns {Number}
- *
- * @example
- * math(2, 2)
- * // => 4
- */
-function math(a, b) {
-  return a + b;
-}
-
-export default math;
-```
-
-```js
-// index.js
-
-import yourMethod from './lib/yourMethod';
-
-export {
-  ... // other methods
-  yourMethod,
-};
-
-class Chober {
-  constructor() {
-    Object.assign(this, {
-      ... // other methods
-      yourMethod,
-    });
-  }
-}
 ```
 
 ## Methods
@@ -151,6 +126,8 @@ Clone any item.
 ```JS
 clone([1, null, '3'])// => [1, null, '3']
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/clone.js" target="_blank">Source code</a>
+* * *
 ### debounce
 
 Useful for implementing behavior that should only happen after a repeated action has completed.
@@ -173,6 +150,8 @@ Useful for implementing behavior that should only happen after a repeated action
 ```JS
 window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/debounce.js" target="_blank">Source code</a>
+* * *
 ### first
 
 Returns the first item of array or &#x60;number&#x60; items.
@@ -195,6 +174,8 @@ Returns the first item of array or &#x60;number&#x60; items.
 ```JS
 first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/first.js" target="_blank">Source code</a>
+* * *
 ### formatNumber
 
 Format number.
@@ -217,6 +198,8 @@ Format number.
 ```JS
 formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/formatNumber.js" target="_blank">Source code</a>
+* * *
 ### getCookie
 
 Get cookie.
@@ -236,6 +219,8 @@ Get cookie.
 ```JS
 getCookie('someCookie')
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getCookie.js" target="_blank">Source code</a>
+* * *
 ### getNumbers
 
 Get only numbers from string.
@@ -245,8 +230,8 @@ Get only numbers from string.
 
 #### Params
 - `string`
-  - Type: `String`
-  - Description: *Some string, which from to pick only numbers.*
+  - Type: `String,Number`
+  - Description: *Some string or number, which from to pick only numbers.*
 
 #### Returns
 - `String`
@@ -255,6 +240,8 @@ Get only numbers from string.
 ```JS
 getNumbers('+7 (123) 456-78-90')// => '71234567890'
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getNumbers.js" target="_blank">Source code</a>
+* * *
 ### getOffset
 
 Get absolute coordinates of an element.
@@ -274,6 +261,8 @@ Get absolute coordinates of an element.
 ```JS
 getOffset('#element').left// => 8
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getOffset.js" target="_blank">Source code</a>
+* * *
 ### getQuery
 
 Get query from url.
@@ -293,6 +282,8 @@ Get query from url.
 ```JS
 // http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getQuery.js" target="_blank">Source code</a>
+* * *
 ### getScrollbarWidth
 
 Get scrollbar width.
@@ -304,6 +295,8 @@ Get scrollbar width.
 #### Returns
 - `Number`
 
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getScrollbarWidth.js" target="_blank">Source code</a>
+* * *
 ### getType
 
 Get object type.
@@ -323,6 +316,8 @@ Get object type.
 ```JS
 getType({})// => 'object'getType([])// => 'array'
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/getType.js" target="_blank">Source code</a>
+* * *
 ### invertObject
 
 Invert object.
@@ -342,6 +337,46 @@ Invert object.
 ```JS
 invertObject({ key: 'value' })// => { value: 'key' }
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/invertObject.js" target="_blank">Source code</a>
+* * *
+### isArray
+
+Checking the item for is an array.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isArray([])// => trueisArray({})// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isArray.js" target="_blank">Source code</a>
+* * *
+### isBoolean
+
+Checking the item for is a boolean.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isBoolean(true)// => trueisBoolean([])// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isBoolean.js" target="_blank">Source code</a>
+* * *
 ### isEmpty
 
 Check is empty object, string, array or other type.
@@ -361,23 +396,65 @@ Check is empty object, string, array or other type.
 ```JS
 isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
 ```
-### preloadImage
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isEmpty.js" target="_blank">Source code</a>
+* * *
+### isNumber
 
-Preload an image by its path.
+Checking the item for is a number.
 
 #### Since
-- 0.1.0
+- 1.0.0
 
 #### Params
-- `imgPath`
-  - Type: `String`
-  - Description: *Path of an image to preload.*
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
 
 
 #### Example
 ```JS
-preloadImage('some/path/to/img')
+isNumber(123)// => trueisNumber([])// => false
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isNumber.js" target="_blank">Source code</a>
+* * *
+### isObject
+
+Checking the item for is an object.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isObject({})// => trueisObject(123)// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isObject.js" target="_blank">Source code</a>
+* * *
+### isString
+
+Checking the item for is a string.
+
+#### Since
+- 1.0.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+
+#### Example
+```JS
+isString('string')// => trueisString([])// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isString.js" target="_blank">Source code</a>
+* * *
 ### removeCookie
 
 Remove cookie.
@@ -395,26 +472,8 @@ Remove cookie.
 ```JS
 removeCookie('testCookie')
 ```
-### uniq
-
-Remove same values.
-
-#### Since
-- 0.3.0
-
-#### Params
-- `array`
-  - Type: `Array.&lt;String&gt;`
-  - Description: *Array of strings.*
-
-#### Returns
-- `Array`
-
-#### Example
-```JS
-uniq(['test', 'field', 'test'])
-// => ['test', 'field']
-```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/removeCookie.js" target="_blank">Source code</a>
+* * *
 ### scrollTo
 
 Scroll to element in DOM.
@@ -423,11 +482,17 @@ Scroll to element in DOM.
 - 0.2.0
 
 #### Params
-- `selector`
-  - Type: `String`
-  - Description: *Class or id.*
+- `element`
+  - Type: `DOMElement`
+  - Description: *Element to which to scroll.*
 
 
+#### Example
+```JS
+scrollTo(document.querySelector('.j-block'))
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/scrollTo.js" target="_blank">Source code</a>
+* * *
 ### setCookie
 
 Set cookie.
@@ -451,9 +516,11 @@ Set cookie.
 ```JS
 setCookie('name', 'value', 60000) // 60000 - one minute
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/setCookie.js" target="_blank">Source code</a>
+* * *
 ### setQuery
 
-Method to sum two numbers.
+Set query to url.
 
 #### Since
 - 0.3.0
@@ -461,25 +528,38 @@ Method to sum two numbers.
 #### Params
 - `object`
   - Type: `Object`
-  - Description: *Object to parse in url.*
-- `isSaveOldQuery`
+  - Description: *Object to parse in url or object with params.*
+- `doesSaveOldQuery`
   - Type: `Boolean`
   - Description: *Whether to save the old query. Default: false.*
 
 
 #### Example
 ```JS
-setQuery({ test: 'value' })
-// => /?test=value
-
-setQuery({ test: ['12', '34'] })
-// => /?test=12&test=34
-
-// https://github.com/?test=value&field=test
-setQuery({ test: 'field' }, true)
-// => https://github.com/?test=value&test=field&field=test
+setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// https://github.com/?test=value&field=testsetQuery({ test: 'field' }, true)// => https://github.com/?test=value&test=field&field=test
 ```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/setQuery.js" target="_blank">Source code</a>
+* * *
+### uniq
 
----
+Remove same values.
+
+#### Since
+- 0.3.0
+
+#### Params
+- `array`
+  - Type: `Array`
+  - Description: *Array of strings.*
+
+#### Returns
+- `Array`
+
+#### Example
+```JS
+uniq(['test', 'field', 'test'])// => ['test', 'field']
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/uniq.js" target="_blank">Source code</a>
+* * *
 
 &copy; Valery Strelets
