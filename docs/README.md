@@ -169,8 +169,7 @@ Decode a string that has special HTML entities
 
 #### Example
 ```JS
-decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')
-// => '<h1>Hi my friend!</h1>'
+decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')// => '<h1>Hi my friend!</h1>'
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/decodeHtml.js" target="_blank">Source code</a>
 * * *
@@ -444,14 +443,7 @@ Checking is equal items.
 
 #### Example
 ```JS
-isEqual([], [])
-// => true
-
-isEqual({ test: 'value' }, { test: 'value' })
-// => true
-
-isEqual(true, false)
-// => false
+isEqual([], [])// => trueisEqual({ test: 'value' }, { test: 'value' })// => trueisEqual(true, false)// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isEqual.js" target="_blank">Source code</a>
 * * *
