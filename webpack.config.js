@@ -13,7 +13,7 @@ module.exports = env => ({
     library: LIBRARY_SHORT_NAME,
     libraryTarget: 'umd',
     umdNamedDefine: true,
-    globalObject: 'typeof self !== \'undefined\' ? self : this',
+    globalObject: 'typeof self === \'undefined\' ? this : self',
   },
   optimization: {
     minimizer: [
