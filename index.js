@@ -27,6 +27,7 @@ import getType from './lib/getType';
 import setQuery from './lib/setQuery';
 import setCookie from './lib/setCookie';
 import removeCookie from './lib/removeCookie';
+import decodeHtml from './lib/decondeHtml';
 import clone from './lib/clone';
 import invertObject from './lib/invertObject';
 import first from './lib/first';
@@ -62,6 +63,7 @@ export {
   setQuery,
   setCookie,
   removeCookie,
+  decodeHtml,
   clone,
   invertObject,
   first,
@@ -93,6 +95,7 @@ class Chober {
       setQuery,
       setCookie,
       removeCookie,
+      decodeHtml,
       clone,
       invertObject,
       first,
