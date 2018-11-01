@@ -10,6 +10,8 @@
 
 > A collection of useful methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.
 
+> You can try to write code in this page. Just open console and start writing.
+
 ## Quick start
 
 Install with [npm](https://www.npmjs.com/package/chober).
