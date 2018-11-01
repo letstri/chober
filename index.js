@@ -18,6 +18,7 @@ import isNumber from './lib/isNumber';
 import isString from './lib/isString';
 import isObject from './lib/isObject';
 import isBoolean from './lib/isBoolean';
+import isEqual from './lib/isEqual';
 import getQuery from './lib/getQuery';
 import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
@@ -54,6 +55,7 @@ export {
   isString,
   isObject,
   isBoolean,
+  isEqual,
   getQuery,
   getNumbers,
   getScrollbarWidth,
@@ -86,6 +88,7 @@ class Chober {
       isString,
       isObject,
       isBoolean,
+      isEqual,
       getQuery,
       getNumbers,
       getScrollbarWidth,
