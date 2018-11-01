@@ -7,7 +7,7 @@
 		exports["_c"] = factory();
 	else
 		root["_c"] = factory();
-})(typeof self !== 'undefined' ? self : this, function() {
+})(typeof self === 'undefined' ? this : self, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -595,9 +595,13 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Object}
  *
  * @example
- * // http://github.com/?value=test&field=hi&field=hello
+ * // /?value=test&field=hi&field=hello
  * getQuery()
  * // => { value: 'test', field: ['hi', 'hello'] }
+ *
+ * // /?value=test&field=hi
+ * getQuery(['value'])
+ * // => { value: ['test'], field: 'hi' }
  */
 
 function getQuery() {

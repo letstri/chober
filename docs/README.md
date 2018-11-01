@@ -126,7 +126,7 @@ Clone any item.
 ```JS
 clone([1, null, '3'])// => [1, null, '3']
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/clone.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/clone.js" target="_blank">Source code</a>
 * * *
 ### debounce
 
@@ -150,7 +150,7 @@ Useful for implementing behavior that should only happen after a repeated action
 ```JS
 window.addEventListener('scroll', debounce(() => console.log(Math.random()), 100))
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/debounce.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/debounce.js" target="_blank">Source code</a>
 * * *
 ### decodeHtml
 
@@ -171,7 +171,7 @@ Decode a string that has special HTML entities
 ```JS
 decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')// => '<h1>Hi my friend!</h1>'
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/decodeHtml.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/decodeHtml.js" target="_blank">Source code</a>
 * * *
 ### first
 
@@ -195,7 +195,7 @@ Returns the first item of array or &#x60;number&#x60; items.
 ```JS
 first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/first.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/first.js" target="_blank">Source code</a>
 * * *
 ### formatNumber
 
@@ -219,7 +219,7 @@ Format number.
 ```JS
 formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/formatNumber.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/formatNumber.js" target="_blank">Source code</a>
 * * *
 ### getCookie
 
@@ -240,7 +240,7 @@ Get cookie.
 ```JS
 getCookie('someCookie')
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getCookie.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getCookie.js" target="_blank">Source code</a>
 * * *
 ### getNumbers
 
@@ -261,7 +261,7 @@ Get only numbers from string.
 ```JS
 getNumbers('+7 (123) 456-78-90')// => '71234567890'
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getNumbers.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getNumbers.js" target="_blank">Source code</a>
 * * *
 ### getOffset
 
@@ -282,7 +282,7 @@ Get absolute coordinates of an element.
 ```JS
 getOffset('#element').left// => 8
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getOffset.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getOffset.js" target="_blank">Source code</a>
 * * *
 ### getQuery
 
@@ -301,9 +301,9 @@ Get query from url.
 
 #### Example
 ```JS
-// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
+// /?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }// /?value=test&field=higetQuery(['value'])// => { value: ['test'], field: 'hi' }
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getQuery.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getQuery.js" target="_blank">Source code</a>
 * * *
 ### getScrollbarWidth
 
@@ -316,7 +316,7 @@ Get scrollbar width.
 #### Returns
 - `Number`
 
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getScrollbarWidth.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getScrollbarWidth.js" target="_blank">Source code</a>
 * * *
 ### getType
 
@@ -337,7 +337,7 @@ Get object type.
 ```JS
 getType({})// => 'object'getType([])// => 'array'
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/getType.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/getType.js" target="_blank">Source code</a>
 * * *
 ### invertObject
 
@@ -358,7 +358,7 @@ Invert object.
 ```JS
 invertObject({ key: 'value' })// => { value: 'key' }
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/invertObject.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/invertObject.js" target="_blank">Source code</a>
 * * *
 ### isArray
 
@@ -379,7 +379,7 @@ Checking the item for is an array.
 ```JS
 isArray([])// => trueisArray({})// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isArray.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isArray.js" target="_blank">Source code</a>
 * * *
 ### isBoolean
 
@@ -400,7 +400,7 @@ Checking the item for is a boolean.
 ```JS
 isBoolean(true)// => trueisBoolean([])// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isBoolean.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isBoolean.js" target="_blank">Source code</a>
 * * *
 ### isEmpty
 
@@ -421,7 +421,7 @@ Check is empty object, string, array or other type.
 ```JS
 isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => falseisEmpty('qwe')// => falseisEmpty(true)// => trueisEmpty(1)// => trueisEmpty(undefined)// => trueisEmpty(null)// => true
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isEmpty.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isEmpty.js" target="_blank">Source code</a>
 * * *
 ### isEqual
 
@@ -445,7 +445,7 @@ Checking is equal items.
 ```JS
 isEqual([], [])// => trueisEqual({ test: 'value' }, { test: 'value' })// => trueisEqual(true, false)// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isEqual.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isEqual.js" target="_blank">Source code</a>
 * * *
 ### isNumber
 
@@ -466,7 +466,7 @@ Checking the item for is a number.
 ```JS
 isNumber(123)// => trueisNumber([])// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isNumber.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isNumber.js" target="_blank">Source code</a>
 * * *
 ### isObject
 
@@ -487,7 +487,7 @@ Checking the item for is an object.
 ```JS
 isObject({})// => trueisObject(123)// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isObject.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isObject.js" target="_blank">Source code</a>
 * * *
 ### isString
 
@@ -508,7 +508,7 @@ Checking the item for is a string.
 ```JS
 isString('string')// => trueisString([])// => false
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/isString.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isString.js" target="_blank">Source code</a>
 * * *
 ### removeCookie
 
@@ -527,7 +527,7 @@ Remove cookie.
 ```JS
 removeCookie('testCookie')
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/removeCookie.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/removeCookie.js" target="_blank">Source code</a>
 * * *
 ### scrollTo
 
@@ -546,7 +546,7 @@ Scroll to element in DOM.
 ```JS
 scrollTo(document.querySelector('.j-block'))
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/scrollTo.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/scrollTo.js" target="_blank">Source code</a>
 * * *
 ### setCookie
 
@@ -571,7 +571,7 @@ Set cookie.
 ```JS
 setCookie('name', 'value', 60000) // 60000 - one minute
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/setCookie.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/setCookie.js" target="_blank">Source code</a>
 * * *
 ### setQuery
 
@@ -602,7 +602,7 @@ Set query to url.
 ```JS
 setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// /?test=value&field=testsetQuery({ test: 'field' }, { isSaveOld: true })// => /?test=value&test=field&field=test// /?test=value#someHashsetQuery({ test: 'value' }, { isSaveHash: false })// => /?test=value
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/setQuery.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/setQuery.js" target="_blank">Source code</a>
 * * *
 ### uniq
 
@@ -623,7 +623,7 @@ Remove same values from array.
 ```JS
 uniq(['test', 'field', 'test'])// => ['test', 'field']uniq([{ test: 'value' }, { test: 'value' }])// => [{ test: 'value' }]uniq([['someValue'], ['someOtherValue'], ['someValue']])// => [['someValue'], ['someOtherValue']]
 ```
-<a href="https://github.com/BrooonS/chober/tree/master/lib/uniq.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/uniq.js" target="_blank">Source code</a>
 * * *
 
 &copy; Valery Strelets
