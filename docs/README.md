@@ -31,7 +31,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.0.4/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.1.0/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -148,9 +148,30 @@ Useful for implementing behavior that should only happen after a repeated action
 
 #### Example
 ```JS
-window.addEventListener('scroll', debounce(() => {  console.log(Math.random());}, 100));
+window.addEventListener('scroll', debounce(() => console.log(Math.random()), 100))
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/debounce.js" target="_blank">Source code</a>
+* * *
+### decodeHtml
+
+Decode a string that has special HTML entities
+
+#### Since
+- 1.1.0
+
+#### Params
+- `html`
+  - Type: `String`
+  - Description: *Html to decode.*
+
+#### Returns
+- `String`
+
+#### Example
+```JS
+decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')// => '<h1>Hi my friend!</h1>'
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/decodeHtml.js" target="_blank">Source code</a>
 * * *
 ### first
 
@@ -273,14 +294,14 @@ Get query from url.
 #### Params
 - `arrayFields`
   - Type: `Array`
-  - Description: *Fields that must be an arrays.*
+  - Description: *Fields that must be arrays.*
 
 #### Returns
 - `Object`
 
 #### Example
 ```JS
-// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
+// http://github.com/?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/getQuery.js" target="_blank">Source code</a>
 * * *
@@ -351,6 +372,8 @@ Checking the item for is an array.
   - Type: `Any`
   - Description: *Item to check.*
 
+#### Returns
+- `Boolean`
 
 #### Example
 ```JS
@@ -370,6 +393,8 @@ Checking the item for is a boolean.
   - Type: `Any`
   - Description: *Item to check.*
 
+#### Returns
+- `Boolean`
 
 #### Example
 ```JS
@@ -398,6 +423,30 @@ isEmpty({ test: 'some value' })// => falseisEmpty([1, null, '3'])// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isEmpty.js" target="_blank">Source code</a>
 * * *
+### isEqual
+
+Checking is equal items.
+
+#### Since
+- 1.1.0
+
+#### Params
+- `firstItem`
+  - Type: `Any`
+  - Description: *First item to check.*
+- `secondItem`
+  - Type: `Any`
+  - Description: *Second item to check.*
+
+#### Returns
+- `Boolean`
+
+#### Example
+```JS
+isEqual([], [])// => trueisEqual({ test: 'value' }, { test: 'value' })// => trueisEqual(true, false)// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isEqual.js" target="_blank">Source code</a>
+* * *
 ### isNumber
 
 Checking the item for is a number.
@@ -410,6 +459,8 @@ Checking the item for is a number.
   - Type: `Any`
   - Description: *Item to check.*
 
+#### Returns
+- `Boolean`
 
 #### Example
 ```JS
@@ -429,6 +480,8 @@ Checking the item for is an object.
   - Type: `Any`
   - Description: *Item to check.*
 
+#### Returns
+- `Boolean`
 
 #### Example
 ```JS
@@ -448,6 +501,8 @@ Checking the item for is a string.
   - Type: `Any`
   - Description: *Item to check.*
 
+#### Returns
+- `Boolean`
 
 #### Example
 ```JS
@@ -526,23 +581,32 @@ Set query to url.
 - 0.3.0
 
 #### Params
-- `object`
+- `query`
   - Type: `Object`
   - Description: *Object to parse in url.*
-- `isSaveOldQuery`
+- `params`
+  - Type: `Object`
+  - Description: *Object with params.*
+- `params.isSaveOld`
   - Type: `Boolean`
-  - Description: *Whether to save the old query. Default: false.*
+  - Description: *Does save old query. Default: false.*
+- `params.isSaveHash`
+  - Type: `Boolean`
+  - Description: *Does save hash. Default: true.*
+- `params.isSaveEmptyFields`
+  - Type: `Boolean`
+  - Description: *Does save empty fields. Default: false.*
 
 
 #### Example
 ```JS
-setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// https://github.com/?test=value&field=testsetQuery({ test: 'field' }, true)// => https://github.com/?test=value&test=field&field=test
+setQuery({ test: 'value' })// => /?test=valuesetQuery({ test: ['12', '34'] })// => /?test=12&test=34// /?test=value&field=testsetQuery({ test: 'field' }, { isSaveOld: true })// => /?test=value&test=field&field=test// /?test=value#someHashsetQuery({ test: 'value' }, { isSaveHash: false })// => /?test=value
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/setQuery.js" target="_blank">Source code</a>
 * * *
 ### uniq
 
-Remove same values.
+Remove same values from array.
 
 #### Since
 - 0.3.0
@@ -550,14 +614,14 @@ Remove same values.
 #### Params
 - `array`
   - Type: `Array`
-  - Description: *Array of strings.*
+  - Description: *Array of values.*
 
 #### Returns
 - `Array`
 
 #### Example
 ```JS
-uniq(['test', 'field', 'test'])// => ['test', 'field']
+uniq(['test', 'field', 'test'])// => ['test', 'field']uniq([{ test: 'value' }, { test: 'value' }])// => [{ test: 'value' }]uniq([['someValue'], ['someOtherValue'], ['someValue']])// => [['someValue'], ['someOtherValue']]
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/uniq.js" target="_blank">Source code</a>
 * * *

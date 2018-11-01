@@ -18,6 +18,7 @@ import isNumber from './lib/isNumber';
 import isString from './lib/isString';
 import isObject from './lib/isObject';
 import isBoolean from './lib/isBoolean';
+import isEqual from './lib/isEqual';
 import getQuery from './lib/getQuery';
 import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
@@ -27,6 +28,7 @@ import getType from './lib/getType';
 import setQuery from './lib/setQuery';
 import setCookie from './lib/setCookie';
 import removeCookie from './lib/removeCookie';
+import decodeHtml from './lib/decondeHtml';
 import clone from './lib/clone';
 import invertObject from './lib/invertObject';
 import first from './lib/first';
@@ -53,6 +55,7 @@ export {
   isString,
   isObject,
   isBoolean,
+  isEqual,
   getQuery,
   getNumbers,
   getScrollbarWidth,
@@ -62,6 +65,7 @@ export {
   setQuery,
   setCookie,
   removeCookie,
+  decodeHtml,
   clone,
   invertObject,
   first,
@@ -84,6 +88,7 @@ class Chober {
       isString,
       isObject,
       isBoolean,
+      isEqual,
       getQuery,
       getNumbers,
       getScrollbarWidth,
@@ -93,6 +98,7 @@ class Chober {
       setQuery,
       setCookie,
       removeCookie,
+      decodeHtml,
       clone,
       invertObject,
       first,

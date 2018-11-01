@@ -7,7 +7,6 @@
   },
   "globals": {
     "window": true,
-    "document": true,
-    "Image": true
+    "document": true
   }
 }
