@@ -1148,6 +1148,7 @@ function setQuery(query) {
       _ref$isSaveEmptyField = _ref.isSaveEmptyFields,
       isSaveEmptyFields = _ref$isSaveEmptyField === void 0 ? false : _ref$isSaveEmptyField;
 
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
   var localQuery = query || {};
   var oldQuery = isSaveOld && Object(_getQuery__WEBPACK_IMPORTED_MODULE_2__["default"])();
   var mergedQueries = Object.entries(localQuery).concat(Object.entries(oldQuery));
@@ -1155,13 +1156,18 @@ function setQuery(query) {
   var newQueryObject = isSaveOld && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
     var fieldName = field[0];
     var fieldValue = field[1];
-    var isFieldExist = Object.prototype.hasOwnProperty.call(newQuery, fieldName);
+    var isFieldExistInNewQuery = hasOwnProperty.call(newQuery, fieldName);
+    var isFieldExistInOldQuery = hasOwnProperty.call(oldQuery, fieldName);
 
-    if (isFieldExist) {
+    if (isFieldExistInNewQuery && !isFieldExistInOldQuery) {
       var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
       var arrayValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(newQuery[fieldName]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
       var newValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(fieldValue) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, newValue));
+    }
+
+    if (isFieldExistInNewQuery && isFieldExistInOldQuery) {
+      return newQuery;
     }
 
     return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, fieldValue));
@@ -1360,7 +1366,7 @@ module.exports = _objectSpread;
 /*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"1.1.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.23.1","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"1.1.1","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.js.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober.js/issues"},"homepage":"https://github.com/BrooonS/chober.js#readme","devDependencies":{"@babel/core":"^7.1.2","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.0","@babel/runtime":"^7.1.2","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.2.1","eslint":"^5.6.1","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.23.1","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
