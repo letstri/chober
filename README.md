@@ -2,6 +2,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0284a7a536b44fd4beeed40879aa7093)](https://app.codacy.com/app/BrooonS/chober?utm_source=github.com&utm_medium=referral&utm_content=BrooonS/chober&utm_campaign=Badge_Grade_Dashboard)
 [![npm version](https://badge.fury.io/js/chober.svg)](https://brooons.github.io/chober/)
 [![](https://data.jsdelivr.com/v1/package/npm/chober/badge)](https://www.jsdelivr.com/package/npm/chober)
+[![](https://travis-ci.org/BrooonS/chober.svg?branch=master)](https://brooons.github.io/chober/)
 
 [Docs](https://brooons.github.io/chober/) | [Licence](https://github.com/BrooonS/chober/blob/master/LICENSE)
 
