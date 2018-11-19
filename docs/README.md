@@ -31,7 +31,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.1.0/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.2.0/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -196,6 +196,28 @@ Returns the first item of array or &#x60;number&#x60; items.
 first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/first.js" target="_blank">Source code</a>
+* * *
+### flatten
+
+Flatten an array.
+
+#### Since
+- 1.2.0
+
+#### Params
+- `array`
+  - Type: `Array`
+  - Description: *Array for flat.*
+
+#### Returns
+- `Array`
+
+#### Example
+```JS
+flatten([123, [456, [567, [890]]]])
+// => [123, 456, 567, 890]
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/flatten.js" target="_blank">Source code</a>
 * * *
 ### formatNumber
 
@@ -509,6 +531,31 @@ Checking the item for is a string.
 isString('string')// => trueisString([])// => false
 ```
 <a href="https://github.com/BrooonS/chober/tree/master/lib/isString.js" target="_blank">Source code</a>
+* * *
+### isUndefined
+
+Flatten an array.
+
+#### Since
+- 1.2.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+#### Returns
+- `Boolean`
+
+#### Example
+```JS
+isUndefined(undefined)
+// => true
+
+isUndefined('testValue')
+// => false
+```
+<a href="https://github.com/BrooonS/chober/tree/master/lib/isUndefined.js" target="_blank">Source code</a>
 * * *
 ### removeCookie
 
