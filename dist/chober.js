@@ -7,7 +7,7 @@
 		exports["_c"] = factory();
 	else
 		root["_c"] = factory();
-})(typeof self !== 'undefined' ? self : this, function() {
+})(typeof self === 'undefined' ? this : self, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -729,9 +729,13 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Object}
  *
  * @example
- * // http://github.com/?value=test&field=hi&field=hello
+ * // /?value=test&field=hi&field=hello
  * getQuery()
  * // => { value: 'test', field: ['hi', 'hello'] }
+ *
+ * // /?value=test&field=hi
+ * getQuery(['value'])
+ * // => { value: ['test'], field: 'hi' }
  */
 
 function getQuery() {
@@ -1325,6 +1329,7 @@ function setQuery(query) {
       _ref$isSaveEmptyField = _ref.isSaveEmptyFields,
       isSaveEmptyFields = _ref$isSaveEmptyField === void 0 ? false : _ref$isSaveEmptyField;
 
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
   var localQuery = query ? Object.entries(query).reduce(function (acc, field) {
     var fieldName = field[0];
     var fieldValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(field[1]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_flatten__WEBPACK_IMPORTED_MODULE_6__["default"])(field[1]).map(function (value) {
@@ -1338,13 +1343,18 @@ function setQuery(query) {
   var newQueryObject = isSaveOld && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
     var fieldName = field[0];
     var fieldValue = field[1];
-    var isFieldExist = Object.prototype.hasOwnProperty.call(newQuery, fieldName);
+    var isFieldExistInNewQuery = hasOwnProperty.call(newQuery, fieldName);
+    var isFieldExistInOldQuery = hasOwnProperty.call(oldQuery, fieldName);
 
-    if (isFieldExist) {
+    if (isFieldExistInNewQuery && !isFieldExistInOldQuery) {
       var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
       var arrayValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(newQuery[fieldName]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
       var newValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(fieldValue) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, newValue));
+    }
+
+    if (isFieldExistInNewQuery && isFieldExistInOldQuery) {
+      return newQuery;
     }
 
     return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, fieldName, fieldValue));
