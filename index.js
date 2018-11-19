@@ -19,6 +19,7 @@ import isString from './lib/isString';
 import isObject from './lib/isObject';
 import isBoolean from './lib/isBoolean';
 import isEqual from './lib/isEqual';
+import isUndefined from './lib/isUndefined';
 import getQuery from './lib/getQuery';
 import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
@@ -32,6 +33,7 @@ import decodeHtml from './lib/decondeHtml';
 import clone from './lib/clone';
 import invertObject from './lib/invertObject';
 import first from './lib/first';
+import flatten from './lib/flatten';
 import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
@@ -56,6 +58,7 @@ export {
   isObject,
   isBoolean,
   isEqual,
+  isUndefined,
   getQuery,
   getNumbers,
   getScrollbarWidth,
@@ -69,6 +72,7 @@ export {
   clone,
   invertObject,
   first,
+  flatten,
   formatNumber,
   debounce,
   scrollTo,
@@ -89,6 +93,7 @@ class Chober {
       isObject,
       isBoolean,
       isEqual,
+      isUndefined,
       getQuery,
       getNumbers,
       getScrollbarWidth,
@@ -102,6 +107,7 @@ class Chober {
       clone,
       invertObject,
       first,
+      flatten,
       formatNumber,
       debounce,
       scrollTo,
