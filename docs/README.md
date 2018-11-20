@@ -34,7 +34,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.2.1/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.2.2/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -200,7 +200,7 @@ first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/first.js" target="_blank">Source code</a>
 * * *
-### flatten
+### flattenDeep
 
 Flatten an array.
 
@@ -217,10 +217,10 @@ Flatten an array.
 
 #### Example
 ```JS
-flatten([123, [456, [567, [890]]]])
+flattenDeep([123, [456, [567, [890]]]])
 // => [123, 456, 567, 890]
 ```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/flatten.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/flattenDeep.js" target="_blank">Source code</a>
 * * *
 ### formatNumber
 

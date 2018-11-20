@@ -33,7 +33,7 @@ import decodeHtml from './lib/decondeHtml';
 import clone from './lib/clone';
 import invertObject from './lib/invertObject';
 import first from './lib/first';
-import flatten from './lib/flatten';
+import flattenDeep from './lib/flattenDeep';
 import formatNumber from './lib/formatNumber';
 import debounce from './lib/debounce';
 import scrollTo from './lib/scrollTo';
@@ -72,7 +72,7 @@ export {
   clone,
   invertObject,
   first,
-  flatten,
+  flattenDeep,
   formatNumber,
   debounce,
   scrollTo,
@@ -107,7 +107,7 @@ class Chober {
       clone,
       invertObject,
       first,
-      flatten,
+      flattenDeep,
       formatNumber,
       debounce,
       scrollTo,
