@@ -34,7 +34,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.2.2/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@1.2.3/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -217,8 +217,7 @@ Flatten an array.
 
 #### Example
 ```JS
-flattenDeep([123, [456, [567, [890]]]])
-// => [123, 456, 567, 890]
+flattenDeep([123, [456, [567, [890]]]])// => [123, 456, 567, 890]
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/flattenDeep.js" target="_blank">Source code</a>
 * * *
@@ -552,11 +551,7 @@ Checking the item for is a undefined.
 
 #### Example
 ```JS
-isUndefined(undefined)
-// => true
-
-isUndefined('testValue')
-// => false
+isUndefined(undefined)// => trueisUndefined('testValue')// => false
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/isUndefined.js" target="_blank">Source code</a>
 * * *
