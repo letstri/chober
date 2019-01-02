@@ -47,9 +47,9 @@ import uniq from './lib/uniq';
 const VERSION = version;
 
 /**
- * Export all methods as a separate modules.
+ * Export one module with all methods.
  */
-export {
+export default {
   VERSION,
   isEmpty,
   isArray,
@@ -78,42 +78,3 @@ export {
   scrollTo,
   uniq,
 };
-
-/**
- * Export one module with all methods.
- */
-class Chober {
-  constructor() {
-    Object.assign(this, {
-      VERSION,
-      isEmpty,
-      isArray,
-      isNumber,
-      isString,
-      isObject,
-      isBoolean,
-      isEqual,
-      isUndefined,
-      getQuery,
-      getNumbers,
-      getScrollbarWidth,
-      getCookie,
-      getOffset,
-      getType,
-      setQuery,
-      setCookie,
-      removeCookie,
-      decodeHtml,
-      clone,
-      invertObject,
-      first,
-      flattenDeep,
-      formatNumber,
-      debounce,
-      scrollTo,
-      uniq,
-    });
-  }
-}
-
-export default new Chober();
