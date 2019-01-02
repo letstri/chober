@@ -1,6 +1,6 @@
 {
   "name": "chober",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.",
   "main": "dist/chober.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BrooonS/chober.js.git"
+    "url": "git+https://github.com/BrooonS/chober.git"
   },
   "keywords": [
     "webpack",
@@ -54,9 +54,9 @@
   "author": "Valery Strelets",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BrooonS/chober.js/issues"
+    "url": "https://github.com/BrooonS/chober/issues"
   },
-  "homepage": "https://github.com/BrooonS/chober.js#readme",
+  "homepage": "https://github.com/BrooonS/chober#readme",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
