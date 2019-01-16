@@ -20,6 +20,7 @@ import isObject from './lib/isObject';
 import isBoolean from './lib/isBoolean';
 import isEqual from './lib/isEqual';
 import isUndefined from './lib/isUndefined';
+import formatQuery from './lib/formatQuery';
 import getQuery from './lib/getQuery';
 import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
@@ -59,6 +60,7 @@ export default {
   isBoolean,
   isEqual,
   isUndefined,
+  formatQuery,
   getQuery,
   getNumbers,
   getScrollbarWidth,
