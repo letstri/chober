@@ -1337,7 +1337,24 @@ function setCookie(key, value) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _formatQuery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./formatQuery */ "./lib/formatQuery.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _getQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getQuery */ "./lib/getQuery.js");
+/* harmony import */ var _isEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isEmpty */ "./lib/isEmpty.js");
+/* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
+/* harmony import */ var _uniq__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./uniq */ "./lib/uniq.js");
+/* harmony import */ var _flattenDeep__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./flattenDeep */ "./lib/flattenDeep.js");
+
+
+
+
+
+
+
 
 /**
  * Set query to url.
@@ -1374,12 +1391,62 @@ function setQuery(query) {
       _ref$isSaveEmptyField = _ref.isSaveEmptyFields,
       isSaveEmptyFields = _ref$isSaveEmptyField === void 0 ? false : _ref$isSaveEmptyField;
 
-  var newQueryString = Object(_formatQuery__WEBPACK_IMPORTED_MODULE_0__["default"])(query, {
-    isSaveOld: isSaveOld,
-    isSaveEmptyFields: isSaveEmptyFields
-  });
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
+  var localQuery = query ? Object.entries(query).reduce(function (acc, field) {
+    var fieldName = field[0];
+    var fieldValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(field[1]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_flattenDeep__WEBPACK_IMPORTED_MODULE_7__["default"])(field[1]).map(function (value) {
+      return String(value);
+    })) : field[1];
+    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, fieldValue));
+  }, {}) : {};
+  var oldQuery = isSaveOld && Object(_getQuery__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  var mergedQueries = isSaveOld && Object.entries(localQuery).concat(Object.entries(oldQuery));
   var hash = isSaveHash && window.location.href.split('#')[1];
-  window.history.pushState({}, document.title, newQueryString ? "?".concat(decodeURIComponent(newQueryString)).concat(hash ? "#".concat(hash) : '') : window.location.href.split('?')[0].split('#')[0] + (hash ? "#".concat(hash) : ''));
+  var newQueryObject = isSaveOld && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, field) {
+    var fieldName = field[0];
+    var fieldValue = field[1];
+    var isFieldExistInNewQuery = hasOwnProperty.call(newQuery, fieldName);
+    var isFieldExistInOldQuery = hasOwnProperty.call(oldQuery, fieldName);
+
+    if (isFieldExistInNewQuery && !isFieldExistInOldQuery) {
+      var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
+      var arrayValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(newQuery[fieldName]).concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(fieldValue))) : textValue;
+      var newValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(fieldValue).concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(newQuery[fieldName]))) : arrayValue;
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, newValue));
+    }
+
+    if (isFieldExistInNewQuery && isFieldExistInOldQuery) {
+      return newQuery;
+    }
+
+    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, fieldValue));
+  }, {}) : localQuery;
+  var newQueryString = Object.keys(newQueryObject).map(function (key) {
+    if (key === '&') return '';
+    var value = newQueryObject[key];
+    var fieldValue;
+
+    if (isSaveEmptyFields) {
+      fieldValue = key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
+    } else {
+      fieldValue = key && value ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
+    }
+
+    return Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(value) ? value.map(function (arrayValue) {
+      if (isSaveEmptyFields) {
+        return key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(arrayValue)) : '';
+      }
+
+      return key && arrayValue ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(arrayValue)) : '';
+    }).filter(function (queryItem) {
+      return queryItem;
+    }) // Remove empty queries
+    .join('&') : fieldValue;
+  }).filter(function (queryItem) {
+    return queryItem;
+  }) // Remove empty queries
+  .join('&');
+  window.history.pushState({}, document.title, newQueryString ? "?".concat(newQueryString).concat(hash ? "#".concat(hash) : '') : window.location.href.split('?')[0].split('#')[0] + (hash ? "#".concat(hash) : ''));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setQuery);
@@ -1664,7 +1731,7 @@ module.exports = _toConsumableArray;
 /*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"1.2.4","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","flatten","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"1.2.5","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","flatten","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
