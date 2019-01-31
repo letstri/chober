@@ -115,24 +115,26 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_isBoolean__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/isBoolean */ "./lib/isBoolean.js");
 /* harmony import */ var _lib_isEqual__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/isEqual */ "./lib/isEqual.js");
 /* harmony import */ var _lib_isUndefined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/isUndefined */ "./lib/isUndefined.js");
-/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
-/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
-/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
-/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
-/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
-/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
-/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
-/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
-/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
-/* harmony import */ var _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/decondeHtml */ "./lib/decondeHtml.js");
-/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
-/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
-/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
-/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
-/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
-/* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
-/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
-/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
+/* harmony import */ var _lib_isNil__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/isNil */ "./lib/isNil.js");
+/* harmony import */ var _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/isFunction */ "./lib/isFunction.js");
+/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
+/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
+/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
+/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
+/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
+/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
+/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
+/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
+/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
+/* harmony import */ var _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/decondeHtml */ "./lib/decondeHtml.js");
+/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
+/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
+/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
+/* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
+/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
+/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
 /**
  * Chober.js - is a collection of useful methods that are used by programmers every day.
  * We decided to put all the methods together so as not to copy them from project to project.
@@ -145,6 +147,8 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
+
 
 
 
@@ -193,24 +197,26 @@ var VERSION = _package__WEBPACK_IMPORTED_MODULE_0__["version"];
   isBoolean: _lib_isBoolean__WEBPACK_IMPORTED_MODULE_6__["default"],
   isEqual: _lib_isEqual__WEBPACK_IMPORTED_MODULE_7__["default"],
   isUndefined: _lib_isUndefined__WEBPACK_IMPORTED_MODULE_8__["default"],
-  getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_9__["default"],
-  getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_10__["default"],
-  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_11__["default"],
-  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_12__["default"],
-  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_13__["default"],
-  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_14__["default"],
-  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_15__["default"],
-  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_16__["default"],
-  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_17__["default"],
-  decodeHtml: _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_18__["default"],
-  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_19__["default"],
-  invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_20__["default"],
-  first: _lib_first__WEBPACK_IMPORTED_MODULE_21__["default"],
-  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_22__["default"],
-  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_23__["default"],
-  debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_24__["default"],
-  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_25__["default"],
-  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_26__["default"]
+  isNil: _lib_isNil__WEBPACK_IMPORTED_MODULE_9__["default"],
+  isFunction: _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__["default"],
+  getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__["default"],
+  getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__["default"],
+  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__["default"],
+  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__["default"],
+  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__["default"],
+  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_16__["default"],
+  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__["default"],
+  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
+  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__["default"],
+  decodeHtml: _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__["default"],
+  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_21__["default"],
+  invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__["default"],
+  first: _lib_first__WEBPACK_IMPORTED_MODULE_23__["default"],
+  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__["default"],
+  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__["default"],
+  debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_26__["default"],
+  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__["default"],
+  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_28__["default"]
 });
 
 /***/ }),
@@ -956,6 +962,83 @@ function isEqual(firstItem, secondItem) {
 
 /***/ }),
 
+/***/ "./lib/isFunction.js":
+/*!***************************!*\
+  !*** ./lib/isFunction.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _getType__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getType */ "./lib/getType.js");
+
+/**
+ * Checking the item for is a function.
+ *
+ * @since 1.3.0
+ * @param {Any} item Item to check.
+ * @returns {Boolean}
+ *
+ * @example
+ * isFunction(() => {})
+ * // => true
+ *
+ * isFunction(null)
+ * // => false
+ *
+ * isFunction(false)
+ * // => false
+ *
+ * isFunction([])
+ * // => false
+ */
+
+function isFunction(item) {
+  return Object(_getType__WEBPACK_IMPORTED_MODULE_0__["default"])(item) === 'function';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (isFunction);
+
+/***/ }),
+
+/***/ "./lib/isNil.js":
+/*!**********************!*\
+  !*** ./lib/isNil.js ***!
+  \**********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * Checking the item for is a null or undefined.
+ *
+ * @since 1.3.0
+ * @param {Any} item Item to check.
+ * @returns {Boolean}
+ *
+ * @example
+ * isNil(undefined)
+ * // => true
+ *
+ * isNil(null)
+ * // => true
+ *
+ * isNil(false)
+ * // => false
+ *
+ * isNil('')
+ * // => false
+ */
+function isNil(item) {
+  return item === undefined || item === null;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (isNil);
+
+/***/ }),
+
 /***/ "./lib/isNumber.js":
 /*!*************************!*\
   !*** ./lib/isNumber.js ***!
@@ -1545,7 +1628,7 @@ module.exports = _toConsumableArray;
 /*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"1.2.5","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","flatten","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"1.3.1","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","watch":"webpack --env development --config webpack.config.js --watch","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","isNil","isFunction","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","flatten","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
