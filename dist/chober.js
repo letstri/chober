@@ -249,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var CIRCULAR_NAME = '[Circular]';
 /**
- * Clone any item.
+ * Clone any item with nested items.
  *
  * @since 0.1.0
  * @param {Any} item Some item to clone.
@@ -265,8 +265,8 @@ function clone(item) {
     throw new Error('[chober]: nothing to clone.');
   }
 
-  var objectClone = function objectClone(object) {
-    var getCircularKeys = Object.keys(object).reduce(function (acc, key) {
+  var cloneObject = function cloneObject(object) {
+    var circularKeys = Object.keys(object).reduce(function (acc, key) {
       try {
         JSON.stringify(object[key]);
         return acc;
@@ -274,14 +274,14 @@ function clone(item) {
         return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(acc).concat([key]);
       }
     }, []);
-    var fixedObject = getCircularKeys.reduce(function (acc, key) {
+    var fixedObject = circularKeys.reduce(function (acc, key) {
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, key, CIRCULAR_NAME));
     }, object);
     return JSON.parse(JSON.stringify(fixedObject));
   };
 
-  var arrayClone = function arrayClone(array) {
-    var getCircularIndexes = array.reduce(function (acc, arrayItem, index) {
+  var cloneArray = function cloneArray(array) {
+    var circularIndexes = array.reduce(function (acc, arrayItem, index) {
       try {
         JSON.stringify(arrayItem);
         return acc;
@@ -289,7 +289,7 @@ function clone(item) {
         return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(acc).concat([index]);
       }
     }, []);
-    var fixedArray = getCircularIndexes.reduce(function (acc, index) {
+    var fixedArray = circularIndexes.reduce(function (acc, index) {
       acc[index] = CIRCULAR_NAME;
       return acc;
     }, array);
@@ -300,7 +300,7 @@ function clone(item) {
     return JSON.parse(JSON.stringify(item));
   } catch (error) {
     if (Object(_isObject__WEBPACK_IMPORTED_MODULE_5__["default"])(item)) {
-      var fixedObject = objectClone(item);
+      var fixedObject = cloneObject(item);
 
       if (!Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(fixedObject)) {
         return fixedObject;
@@ -308,7 +308,7 @@ function clone(item) {
     }
 
     if (Object(_isArray__WEBPACK_IMPORTED_MODULE_6__["default"])(item)) {
-      var fixedArray = arrayClone(item);
+      var fixedArray = cloneArray(item);
 
       if (!Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(fixedArray)) {
         return fixedArray;
@@ -645,12 +645,12 @@ function getOffset(selector) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
 
 
@@ -677,33 +677,38 @@ function getQuery() {
   var arrayFields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var query = window.location.search.substr(1);
   var objectUrl = {};
-  if (!query) return {}; // Set default array fields to objectUrl
+  if (query === '') return {}; // Set default array fields to objectUrl
 
-  if (arrayFields.length) {
-    _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default()(objectUrl, arrayFields.reduce(function (object, field) {
-      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, object, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, field, []));
-    }, {}));
+  if (arrayFields.length !== 0) {
+    objectUrl = arrayFields.reduce(function (object, field) {
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, object, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, field, []));
+    }, {});
   }
 
   query.split('&').forEach(function (part) {
     if (!part) return;
-    var item = part.split('='); // If item already exists, create an array with this item.
 
-    if (Object.prototype.hasOwnProperty.call(objectUrl, item[0])) {
-      if (Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(objectUrl[item[0]])) {
-        objectUrl[item[0]].push(item[1]);
+    var _part$split = part.split('='),
+        _part$split2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_part$split, 2),
+        key = _part$split2[0],
+        value = _part$split2[1]; // If item already exists, create an array with this item.
+
+
+    if (Object.prototype.hasOwnProperty.call(objectUrl, key)) {
+      if (Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(objectUrl[key])) {
+        objectUrl[key].push(value);
       } else {
-        objectUrl[item[0]] = [objectUrl[item[0]], item[1]];
+        objectUrl[key] = [objectUrl[key], value];
       }
     } // Decode URI if array and if only one key.
 
 
-    if (Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(objectUrl[item[0]])) {
-      objectUrl[item[0]].forEach(function (url, index) {
-        objectUrl[item[0]][index] = decodeURIComponent(url);
+    if (Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(objectUrl[key])) {
+      objectUrl[key].forEach(function (url, index) {
+        objectUrl[key][index] = decodeURIComponent(url);
       });
     } else {
-      objectUrl[item[0]] = decodeURIComponent(item[1]);
+      objectUrl[key] = decodeURIComponent(value);
     }
   });
   return objectUrl;
@@ -1462,6 +1467,21 @@ function uniq() {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+module.exports = _arrayWithHoles;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
@@ -1509,35 +1529,6 @@ module.exports = _defineProperty;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/extends.js":
-/*!********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-module.exports = _extends;
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
@@ -1550,6 +1541,58 @@ function _iterableToArray(iter) {
 }
 
 module.exports = _iterableToArray;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+module.exports = _iterableToArrayLimit;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableRest.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+
+module.exports = _nonIterableRest;
 
 /***/ }),
 
@@ -1597,6 +1640,27 @@ function _objectSpread(target) {
 }
 
 module.exports = _objectSpread;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/slicedToArray.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles */ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js");
+
+var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit */ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js");
+
+var nonIterableRest = __webpack_require__(/*! ./nonIterableRest */ "./node_modules/@babel/runtime/helpers/nonIterableRest.js");
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray;
 
 /***/ }),
 
