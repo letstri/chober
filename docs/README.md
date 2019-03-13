@@ -471,6 +471,58 @@ isEqual([], [])// => trueisEqual({ test: 'value' }, { test: 'value' })// => 
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/isEqual.js" target="_blank">Source code</a>
 * * *
+### isFunction
+
+Checking the item for is a function.
+
+#### Since
+- 1.3.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+#### Returns
+- `Boolean`
+
+#### Example
+```JS
+isFunction(() => {})// => trueisFunction(null)// => falseisFunction(false)// => falseisFunction([])// => false
+```
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isFunction.js" target="_blank">Source code</a>
+* * *
+### isNil
+
+Checking the item for is a null or undefined.
+
+#### Since
+- 1.3.0
+
+#### Params
+- `item`
+  - Type: `Any`
+  - Description: *Item to check.*
+
+#### Returns
+- `Boolean`
+
+#### Example
+```JS
+isNil(undefined)
+// => true
+
+isNil(null)
+// => true
+
+isNil(false)
+// => false
+
+isNil('')
+// => false
+```
+<a href="https://github.com/BrooonS/chober/blob/master/lib/isNil.js" target="_blank">Source code</a>
+* * *
 ### isNumber
 
 Checking the item for is a number.
