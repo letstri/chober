@@ -115,25 +115,26 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_isBoolean__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/isBoolean */ "./lib/isBoolean.js");
 /* harmony import */ var _lib_isEqual__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/isEqual */ "./lib/isEqual.js");
 /* harmony import */ var _lib_isUndefined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/isUndefined */ "./lib/isUndefined.js");
-/* harmony import */ var _lib_formatQuery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/formatQuery */ "./lib/formatQuery.js");
-/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
-/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
-/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
-/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
-/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
-/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
-/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
-/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
-/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
-/* harmony import */ var _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/decondeHtml */ "./lib/decondeHtml.js");
-/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
-/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
-/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
-/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
-/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
-/* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
-/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
-/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
+/* harmony import */ var _lib_isNil__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/isNil */ "./lib/isNil.js");
+/* harmony import */ var _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/isFunction */ "./lib/isFunction.js");
+/* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
+/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
+/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
+/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
+/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
+/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
+/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
+/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
+/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
+/* harmony import */ var _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/decondeHtml */ "./lib/decondeHtml.js");
+/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
+/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
+/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
+/* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
+/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
+/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
 /**
  * Chober.js - is a collection of useful methods that are used by programmers every day.
  * We decided to put all the methods together so as not to copy them from project to project.
@@ -146,6 +147,7 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
+
 
 
 
@@ -195,25 +197,26 @@ var VERSION = _package__WEBPACK_IMPORTED_MODULE_0__["version"];
   isBoolean: _lib_isBoolean__WEBPACK_IMPORTED_MODULE_6__["default"],
   isEqual: _lib_isEqual__WEBPACK_IMPORTED_MODULE_7__["default"],
   isUndefined: _lib_isUndefined__WEBPACK_IMPORTED_MODULE_8__["default"],
-  formatQuery: _lib_formatQuery__WEBPACK_IMPORTED_MODULE_9__["default"],
-  getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_10__["default"],
-  getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_11__["default"],
-  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_12__["default"],
-  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__["default"],
-  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__["default"],
-  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_15__["default"],
-  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__["default"],
-  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__["default"],
-  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
-  decodeHtml: _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_19__["default"],
-  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_20__["default"],
-  invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_21__["default"],
-  first: _lib_first__WEBPACK_IMPORTED_MODULE_22__["default"],
-  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_23__["default"],
-  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_24__["default"],
-  debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_25__["default"],
-  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_26__["default"],
-  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_27__["default"]
+  isNil: _lib_isNil__WEBPACK_IMPORTED_MODULE_9__["default"],
+  isFunction: _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__["default"],
+  getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__["default"],
+  getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__["default"],
+  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__["default"],
+  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__["default"],
+  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__["default"],
+  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_16__["default"],
+  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__["default"],
+  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
+  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__["default"],
+  decodeHtml: _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__["default"],
+  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_21__["default"],
+  invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__["default"],
+  first: _lib_first__WEBPACK_IMPORTED_MODULE_23__["default"],
+  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__["default"],
+  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__["default"],
+  debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_26__["default"],
+  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__["default"],
+  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_28__["default"]
 });
 
 /***/ }),
@@ -246,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var CIRCULAR_NAME = '[Circular]';
 /**
- * Clone any item.
+ * Clone any item with nested items.
  *
  * @since 0.1.0
  * @param {Any} item Some item to clone.
@@ -262,8 +265,8 @@ function clone(item) {
     throw new Error('[chober]: nothing to clone.');
   }
 
-  var objectClone = function objectClone(object) {
-    var getCircularKeys = Object.keys(object).reduce(function (acc, key) {
+  var cloneObject = function cloneObject(object) {
+    var circularKeys = Object.keys(object).reduce(function (acc, key) {
       try {
         JSON.stringify(object[key]);
         return acc;
@@ -271,14 +274,14 @@ function clone(item) {
         return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(acc).concat([key]);
       }
     }, []);
-    var fixedObject = getCircularKeys.reduce(function (acc, key) {
+    var fixedObject = circularKeys.reduce(function (acc, key) {
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, key, CIRCULAR_NAME));
     }, object);
     return JSON.parse(JSON.stringify(fixedObject));
   };
 
-  var arrayClone = function arrayClone(array) {
-    var getCircularIndexes = array.reduce(function (acc, arrayItem, index) {
+  var cloneArray = function cloneArray(array) {
+    var circularIndexes = array.reduce(function (acc, arrayItem, index) {
       try {
         JSON.stringify(arrayItem);
         return acc;
@@ -286,7 +289,7 @@ function clone(item) {
         return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(acc).concat([index]);
       }
     }, []);
-    var fixedArray = getCircularIndexes.reduce(function (acc, index) {
+    var fixedArray = circularIndexes.reduce(function (acc, index) {
       acc[index] = CIRCULAR_NAME;
       return acc;
     }, array);
@@ -297,7 +300,7 @@ function clone(item) {
     return JSON.parse(JSON.stringify(item));
   } catch (error) {
     if (Object(_isObject__WEBPACK_IMPORTED_MODULE_5__["default"])(item)) {
-      var fixedObject = objectClone(item);
+      var fixedObject = cloneObject(item);
 
       if (!Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(fixedObject)) {
         return fixedObject;
@@ -305,7 +308,7 @@ function clone(item) {
     }
 
     if (Object(_isArray__WEBPACK_IMPORTED_MODULE_6__["default"])(item)) {
-      var fixedArray = arrayClone(item);
+      var fixedArray = cloneArray(item);
 
       if (!Object(_isEmpty__WEBPACK_IMPORTED_MODULE_3__["default"])(fixedArray)) {
         return fixedArray;
@@ -503,125 +506,6 @@ function formatNumber(number) {
 
 /***/ }),
 
-/***/ "./lib/formatQuery.js":
-/*!****************************!*\
-  !*** ./lib/formatQuery.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _getQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getQuery */ "./lib/getQuery.js");
-/* harmony import */ var _isEmpty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isEmpty */ "./lib/isEmpty.js");
-/* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
-/* harmony import */ var _uniq__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./uniq */ "./lib/uniq.js");
-/* harmony import */ var _flattenDeep__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./flattenDeep */ "./lib/flattenDeep.js");
-
-
-
-
-
-
-
-
-/**
- * Format query for url.
- *
- * @since 1.3.0
- * @param {Object} query Object to parse in query.
- * @param {?Object} params Object with params.
- * @param {?Boolean} params.isSaveOld Does save old query. Default: false.
- * @param {?Boolean} params.isSaveEmptyFields Does save empty fields. Default: false.
- *
- * @example
- * formatQuery({ test: 'value' })
- * // => test=value
- *
- * formatQuery({ test: ['12', '34'] })
- * // => test=12&test=34
- *
- * // /?test=value&field=test
- * formatQuery({ test: 'field' }, { isSaveOld: true })
- * // => test=value&test=field&field=test
- */
-
-function formatQuery(query) {
-  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-      _ref$isSaveOld = _ref.isSaveOld,
-      isSaveOld = _ref$isSaveOld === void 0 ? false : _ref$isSaveOld,
-      _ref$isSaveEmptyField = _ref.isSaveEmptyFields,
-      isSaveEmptyFields = _ref$isSaveEmptyField === void 0 ? false : _ref$isSaveEmptyField;
-
-  var hasOwnProperty = Object.prototype.hasOwnProperty;
-  var localQuery = query ? Object.entries(query).reduce(function (acc, field) {
-    var fieldName = field[0];
-    var fieldValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(field[1]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_flattenDeep__WEBPACK_IMPORTED_MODULE_7__["default"])(field[1]).map(function (value) {
-      return String(value);
-    })) : field[1];
-    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, fieldValue));
-  }, {}) : {};
-  var oldQuery = isSaveOld && Object(_getQuery__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  var mergedQueries = isSaveOld && Object.entries(localQuery).concat(Object.entries(oldQuery));
-  var newQueryObject = isSaveOld && !Object(_isEmpty__WEBPACK_IMPORTED_MODULE_4__["default"])(oldQuery) ? mergedQueries.reduce(function (newQuery, _ref2) {
-    var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
-        fieldName = _ref3[0],
-        fieldValue = _ref3[1];
-
-    var isFieldExistInNewQuery = hasOwnProperty.call(newQuery, fieldName);
-    var isFieldExistInOldQuery = hasOwnProperty.call(oldQuery, fieldName);
-
-    if (isFieldExistInNewQuery && !isFieldExistInOldQuery) {
-      var textValue = newQuery[fieldName] === fieldValue ? fieldValue : [newQuery[fieldName], fieldValue];
-      var arrayValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(newQuery[fieldName]) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(newQuery[fieldName].concat(fieldValue)) : textValue;
-      var newValue = Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(fieldValue) ? Object(_uniq__WEBPACK_IMPORTED_MODULE_6__["default"])(fieldValue.concat(newQuery[fieldName])) : arrayValue;
-      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, newValue));
-    }
-
-    if (isFieldExistInNewQuery && isFieldExistInOldQuery) {
-      return newQuery;
-    }
-
-    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, newQuery, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, fieldName, fieldValue));
-  }, {}) : localQuery;
-  var queryString = Object.keys(newQueryObject).map(function (key) {
-    if (key === '&') return '';
-    var value = newQueryObject[key];
-    var fieldValue;
-
-    if (isSaveEmptyFields) {
-      fieldValue = key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
-    } else {
-      fieldValue = key && value ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(value)) : '';
-    }
-
-    return Object(_isArray__WEBPACK_IMPORTED_MODULE_5__["default"])(value) ? value.map(function (arrayValue) {
-      if (isSaveEmptyFields) {
-        return key ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(arrayValue)) : '';
-      }
-
-      return key && arrayValue ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(arrayValue)) : '';
-    }).filter(function (queryItem) {
-      return queryItem;
-    }) // Remove empty queries
-    .join('&') : fieldValue;
-  }).filter(function (queryItem) {
-    return queryItem;
-  }) // Remove empty queries
-  .join('&');
-  return queryString;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (formatQuery);
-
-/***/ }),
-
 /***/ "./lib/getCookie.js":
 /*!**************************!*\
   !*** ./lib/getCookie.js ***!
@@ -793,9 +677,9 @@ function getQuery() {
   var arrayFields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var query = window.location.search.substr(1);
   var objectUrl = {};
-  if (!query) return {}; // Set default array fields to objectUrl
+  if (query === '') return {}; // Set default array fields to objectUrl
 
-  if (arrayFields.length) {
+  if (arrayFields.length !== 0) {
     objectUrl = arrayFields.reduce(function (object, field) {
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, object, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, field, []));
     }, {});
@@ -807,7 +691,7 @@ function getQuery() {
     var _part$split = part.split('='),
         _part$split2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_part$split, 2),
         key = _part$split2[0],
-        value = _part$split2[1]; // If item already exists, create an array with this item
+        value = _part$split2[1]; // If item already exists, create an array with this item.
 
 
     if (Object.prototype.hasOwnProperty.call(objectUrl, key)) {
@@ -816,7 +700,7 @@ function getQuery() {
       } else {
         objectUrl[key] = [objectUrl[key], value];
       }
-    } // Decode URI if array and if only one key
+    } // Decode URI if array and if only one key.
 
 
     if (Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(objectUrl[key])) {

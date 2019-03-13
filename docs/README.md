@@ -112,7 +112,7 @@ _c.isEmpty([]);
 
 ### clone
 
-Clone any item.
+Clone any item with nested items.
 
 #### Since
 - 0.1.0
@@ -509,17 +509,7 @@ Checking the item for is a null or undefined.
 
 #### Example
 ```JS
-isNil(undefined)
-// => true
-
-isNil(null)
-// => true
-
-isNil(false)
-// => false
-
-isNil('')
-// => false
+isNil(undefined)// => trueisNil(null)// => trueisNil(false)// => falseisNil('')// => false
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/isNil.js" target="_blank">Source code</a>
 * * *
