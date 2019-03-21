@@ -332,6 +332,8 @@ function clone(item) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
+
 /**
  * Useful for implementing behavior that should only happen after a repeated action has completed.
  *
@@ -343,26 +345,53 @@ __webpack_require__.r(__webpack_exports__);
  * @example
  * window.addEventListener('scroll', debounce(() => console.log(Math.random()), 100))
  */
-function debounce(func, delay) {
+
+function debounce(func) {
   var _this = this;
 
-  if (!(func || delay)) {
-    throw new Error('[chober]: function or delay is not passed.');
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+
+  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(func)) {
+    throw new Error('[chober]: function is not passed.');
   }
 
-  var timer = null;
+  var timeout;
+  var args;
+  var context;
+  var timestamp;
+  var result;
+
+  function later() {
+    var last = Date.now() - timestamp;
+
+    if (last < wait && last >= 0) {
+      timeout = setTimeout(later, wait - last);
+    } else {
+      timeout = null;
+      result = func.apply(context, args);
+      args = null;
+      context = args;
+    }
+  }
+
   return function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+    context = _this;
+
+    for (var _len = arguments.length, localArgs = new Array(_len), _key = 0; _key < _len; _key++) {
+      localArgs[_key] = arguments[_key];
     }
 
-    var onComplete = function onComplete() {
-      func.apply(_this, args);
-      timer = null;
-    };
+    args = localArgs;
+    timestamp = Date.now();
 
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(onComplete, delay);
+    if (!timeout) {
+      timeout = setTimeout(later, wait);
+      result = func.apply(context, args);
+      args = null;
+      context = args;
+    }
+
+    return result;
   };
 }
 
@@ -734,7 +763,19 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Number}
  */
 function getScrollbarWidth() {
-  return window.innerWidth - document.documentElement.clientWidth;
+  var outer = document.createElement('div');
+  outer.style.visibility = 'hidden';
+  outer.style.width = '100px';
+  outer.style.msOverflowStyle = 'scrollbar';
+  document.body.appendChild(outer);
+  var widthNoScroll = outer.offsetWidth;
+  outer.style.overflow = 'scroll';
+  var inner = document.createElement('div');
+  inner.style.width = '100%';
+  outer.appendChild(inner);
+  var widthWithScroll = inner.offsetWidth;
+  outer.parentNode.removeChild(outer);
+  return widthNoScroll - widthWithScroll;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (getScrollbarWidth);
