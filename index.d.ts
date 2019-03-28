@@ -2,6 +2,8 @@ export function clone(item: any): any;
 
 export function flattenDeep(array: Array<any>): Array<any>;
 
+export function formatQuery(object: object): string;
+
 export function formatNumber(number: number | string, symbol: string): string;
 
 export function getCookie(key: string): string;
