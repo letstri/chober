@@ -6,7 +6,16 @@ export function formatNumber(number: number | string, symbol: string): string;
 
 export function getCookie(key: string): string;
 
-export function getOffset(selector: string): object;
+interface getOffsetConfig {
+  x: number,
+  y: number,
+  left: number,
+  top: number,
+  right: number,
+  bottom: number,
+}
+
+export function getOffset(selector: string): getOffsetConfig;
 
 export function getQuery(arrayFields: Array<string>): object;
 
