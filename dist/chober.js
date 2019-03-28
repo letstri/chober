@@ -118,23 +118,20 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_isNil__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/isNil */ "./lib/isNil.js");
 /* harmony import */ var _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/isFunction */ "./lib/isFunction.js");
 /* harmony import */ var _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./lib/getQuery */ "./lib/getQuery.js");
-/* harmony import */ var _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getNumbers */ "./lib/getNumbers.js");
-/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
-/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
-/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
-/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
-/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
-/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
-/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
-/* harmony import */ var _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/decondeHtml */ "./lib/decondeHtml.js");
-/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
-/* harmony import */ var _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/invertObject */ "./lib/invertObject.js");
-/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
-/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
-/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
-/* harmony import */ var _lib_debounce__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lib/debounce */ "./lib/debounce.js");
-/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
-/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
+/* harmony import */ var _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./lib/getScrollbarWidth */ "./lib/getScrollbarWidth.js");
+/* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
+/* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
+/* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
+/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
+/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
+/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
+/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
+/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
+/* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
+/* harmony import */ var _lib_formatQuery__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/formatQuery */ "./lib/formatQuery.js");
+/* harmony import */ var _lib_scrollTo__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./lib/scrollTo */ "./lib/scrollTo.js");
+/* harmony import */ var _lib_uniq__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./lib/uniq */ "./lib/uniq.js");
 /**
  * Chober.js - is a collection of useful methods that are used by programmers every day.
  * We decided to put all the methods together so as not to copy them from project to project.
@@ -147,9 +144,6 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /**
  * Import all methods.
  */
-
-
-
 
 
 
@@ -200,23 +194,20 @@ var VERSION = _package__WEBPACK_IMPORTED_MODULE_0__["version"];
   isNil: _lib_isNil__WEBPACK_IMPORTED_MODULE_9__["default"],
   isFunction: _lib_isFunction__WEBPACK_IMPORTED_MODULE_10__["default"],
   getQuery: _lib_getQuery__WEBPACK_IMPORTED_MODULE_11__["default"],
-  getNumbers: _lib_getNumbers__WEBPACK_IMPORTED_MODULE_12__["default"],
-  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_13__["default"],
-  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_14__["default"],
-  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_15__["default"],
-  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_16__["default"],
-  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__["default"],
-  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
-  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__["default"],
-  decodeHtml: _lib_decondeHtml__WEBPACK_IMPORTED_MODULE_20__["default"],
-  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_21__["default"],
-  invertObject: _lib_invertObject__WEBPACK_IMPORTED_MODULE_22__["default"],
-  first: _lib_first__WEBPACK_IMPORTED_MODULE_23__["default"],
-  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_24__["default"],
-  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_25__["default"],
-  debounce: _lib_debounce__WEBPACK_IMPORTED_MODULE_26__["default"],
-  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_27__["default"],
-  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_28__["default"]
+  getScrollbarWidth: _lib_getScrollbarWidth__WEBPACK_IMPORTED_MODULE_12__["default"],
+  getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__["default"],
+  getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__["default"],
+  getType: _lib_getType__WEBPACK_IMPORTED_MODULE_15__["default"],
+  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__["default"],
+  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__["default"],
+  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
+  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_19__["default"],
+  first: _lib_first__WEBPACK_IMPORTED_MODULE_20__["default"],
+  flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_21__["default"],
+  formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_22__["default"],
+  formatQuery: _lib_formatQuery__WEBPACK_IMPORTED_MODULE_23__["default"],
+  scrollTo: _lib_scrollTo__WEBPACK_IMPORTED_MODULE_24__["default"],
+  uniq: _lib_uniq__WEBPACK_IMPORTED_MODULE_25__["default"]
 });
 
 /***/ }),
@@ -320,112 +311,6 @@ function clone(item) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (clone);
-
-/***/ }),
-
-/***/ "./lib/debounce.js":
-/*!*************************!*\
-  !*** ./lib/debounce.js ***!
-  \*************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
-
-/**
- * Useful for implementing behavior that should only happen after a repeated action has completed.
- *
- * @since 0.1.0
- * @param {Function} func
- * @param {Number} delay
- * @returns {Function}
- *
- * @example
- * window.addEventListener('scroll', debounce(() => console.log(Math.random()), 100))
- */
-
-function debounce(func) {
-  var _this = this;
-
-  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-
-  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(func)) {
-    throw new Error('[chober]: function is not passed.');
-  }
-
-  var timeout;
-  var args;
-  var context;
-  var timestamp;
-  var result;
-
-  function later() {
-    var last = Date.now() - timestamp;
-
-    if (last < wait && last >= 0) {
-      timeout = setTimeout(later, wait - last);
-    } else {
-      timeout = null;
-      result = func.apply(context, args);
-      args = null;
-      context = args;
-    }
-  }
-
-  return function () {
-    context = _this;
-
-    for (var _len = arguments.length, localArgs = new Array(_len), _key = 0; _key < _len; _key++) {
-      localArgs[_key] = arguments[_key];
-    }
-
-    args = localArgs;
-    timestamp = Date.now();
-
-    if (!timeout) {
-      timeout = setTimeout(later, wait);
-      result = func.apply(context, args);
-      args = null;
-      context = args;
-    }
-
-    return result;
-  };
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (debounce);
-
-/***/ }),
-
-/***/ "./lib/decondeHtml.js":
-/*!****************************!*\
-  !*** ./lib/decondeHtml.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/**
- * Decode a string that has special HTML entities
- *
- * @since 1.1.0
- * @param {String} html Html to decode.
- * @returns {String}
- *
- * @example
- * decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')
- * // => '<h1>Hi my friend!</h1>'
- */
-function decodeHtml(html) {
-  var text = document.createElement('textarea');
-  text.innerHTML = html;
-  return text.value;
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (decodeHtml);
 
 /***/ }),
 
@@ -535,6 +420,61 @@ function formatNumber(number) {
 
 /***/ }),
 
+/***/ "./lib/formatQuery.js":
+/*!****************************!*\
+  !*** ./lib/formatQuery.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _isObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isObject */ "./lib/isObject.js");
+/* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
+
+
+
+/**
+ * Get query from url.
+ *
+ * @since 0.1.0
+ * @param {?Array} arrayFields Fields that must be arrays.
+ * @returns {Object}
+ *
+ * @example
+ * const query = { value: 'test', field: ['hi', 'hello'] };
+ * formatQuery(query)
+ * // => value=test&field=hi&field=hello
+ *
+ * const query = { value: ['test'], field: 'hi' }
+ * formatQuery(query, true)
+ * // => value[]=test&field=hi
+ */
+
+function formatQuery(object) {
+  var isArrayShown = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  if (!Object(_isObject__WEBPACK_IMPORTED_MODULE_1__["default"])(object)) {
+    throw new Error('[chober]: param is not an object.');
+  }
+
+  return Object.entries(object).map(function (_ref) {
+    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    return Object(_isArray__WEBPACK_IMPORTED_MODULE_2__["default"])(value) ? value.map(function (item) {
+      return "".concat(key).concat(isArrayShown ? '[]' : '', "=").concat(item);
+    }).join('&') : "".concat(key, "=").concat(value);
+  }).join('&');
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (formatQuery);
+
+/***/ }),
+
 /***/ "./lib/getCookie.js":
 /*!**************************!*\
   !*** ./lib/getCookie.js ***!
@@ -579,43 +519,6 @@ function getCookie(key) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (getCookie);
-
-/***/ }),
-
-/***/ "./lib/getNumbers.js":
-/*!***************************!*\
-  !*** ./lib/getNumbers.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
-/* harmony import */ var _isString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isString */ "./lib/isString.js");
-
-
-/**
- * Get only numbers from string.
- *
- * @since 0.1.0
- * @param {String|Number} string Some string or number, which from to pick only numbers.
- * @returns {String}
- *
- * @example
- * getNumbers('+7 (123) 456-78-90')
- * // => '71234567890'
- */
-
-function getNumbers(string) {
-  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(string) || !Object(_isString__WEBPACK_IMPORTED_MODULE_1__["default"])(string)) {
-    return '';
-  }
-
-  return String(string).replace(/\D+/g, '');
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (getNumbers);
 
 /***/ }),
 
@@ -805,54 +708,11 @@ __webpack_require__.r(__webpack_exports__);
  * getType([])
  * // => 'array'
  */
-function getType(object) {
-  return Object.prototype.toString.call(object).replace(/^\[object (.+)\]$/, '$1').toLowerCase();
+function getType(item) {
+  return Object.prototype.toString.call(item).replace(/^\[object (.+)\]$/, '$1').toLowerCase();
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (getType);
-
-/***/ }),
-
-/***/ "./lib/invertObject.js":
-/*!*****************************!*\
-  !*** ./lib/invertObject.js ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
-
-
-
-/**
- * Invert object.
- *
- * @since 0.1.0
- * @param {Object} object Some object to invert.
- * @returns {Object}
- *
- * @example
- * invertObject({ key: 'value' })
- * // => { value: 'key' }
- */
-
-function invertObject(object) {
-  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_2__["default"])(object)) {
-    throw new Error('[chober]: object is not passed.');
-  }
-
-  return object && Object.entries(object).reduce(function (newObject, item) {
-    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, newObject, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, item[1], item[0]));
-  }, {});
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (invertObject);
 
 /***/ }),
 
@@ -1459,12 +1319,10 @@ function setQuery(query) {
       return key && arrayValue ? "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(arrayValue)) : '';
     }).filter(function (queryItem) {
       return queryItem;
-    }) // Remove empty queries
-    .join('&') : fieldValue;
+    }).join('&') : fieldValue;
   }).filter(function (queryItem) {
     return queryItem;
-  }) // Remove empty queries
-  .join('&');
+  }).join('&');
   window.history.pushState({}, document.title, newQueryString ? "?".concat(newQueryString).concat(hash ? "#".concat(hash) : '') : window.location.href.split('?')[0].split('#')[0] + (hash ? "#".concat(hash) : ''));
 }
 
@@ -1747,10 +1605,10 @@ module.exports = _toConsumableArray;
 /*!**********************!*\
   !*** ./package.json ***!
   \**********************/
-/*! exports provided: name, version, description, main, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
+/*! exports provided: name, version, description, main, types, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"1.3.2","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","scripts":{"start":"webpack --env development --config webpack.config.js --watch","prod":"webpack --env production --config webpack.config.js","dev":"webpack --env development --config webpack.config.js","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","isNil","isFunction","getQuery","getNumbers","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","decodeHtml","clone","invertObject","first","flatten","formatNumber","debounce","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"1.3.2","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","types":"index.d.ts","scripts":{"start":"webpack --env development --watch","prod":"webpack --env production","dev":"webpack --env development","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve ./docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isBoolean","isUndefined","isNil","isFunction","getQuery","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","clone","invertObject","first","flatten","formatNumber","formatQuery","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
