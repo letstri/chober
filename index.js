@@ -34,6 +34,7 @@ import clone from './lib/clone';
 import first from './lib/first';
 import flattenDeep from './lib/flattenDeep';
 import formatNumber from './lib/formatNumber';
+import formatQuery from './lib/formatQuery';
 import scrollTo from './lib/scrollTo';
 import uniq from './lib/uniq';
 
@@ -71,6 +72,7 @@ export default {
   first,
   flattenDeep,
   formatNumber,
+  formatQuery,
   scrollTo,
   uniq,
 };

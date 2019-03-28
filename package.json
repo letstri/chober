@@ -36,7 +36,6 @@
     "isNil",
     "isFunction",
     "getQuery",
-    "getNumbers",
     "getScrollbarWidth",
     "getCookie",
     "getOffset",
@@ -49,6 +48,7 @@
     "first",
     "flatten",
     "formatNumber",
+    "formatQuery",
     "scrollTo",
     "uniq"
   ],
