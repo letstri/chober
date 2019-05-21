@@ -295,7 +295,7 @@ Get absolute coordinates of an element.
 - 0.1.0
 
 #### Params
-- `selector`
+- `item`
   - Type: `String`
   - Description: *Selector of HTML element to get coordinates of.*
 
@@ -624,7 +624,7 @@ Scroll to element in DOM.
 - 0.2.0
 
 #### Params
-- `element`
+- `item`
   - Type: `DOMElement`
   - Description: *Element to which to scroll.*
 
