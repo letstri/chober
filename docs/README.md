@@ -131,75 +131,6 @@ clone([1, null, '3'])// => [1, null, '3']
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/clone.js" target="_blank">Source code</a>
 * * *
-### debounce
-
-Useful for implementing behavior that should only happen after a repeated action has completed.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `func`
-  - Type: `function`
-  
-- `delay`
-  - Type: `Number`
-  
-
-#### Returns
-- `function`
-
-#### Example
-```JS
-window.addEventListener('scroll', debounce(() => console.log(Math.random()), 100))
-```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/debounce.js" target="_blank">Source code</a>
-* * *
-### decodeHtml
-
-Decode a string that has special HTML entities
-
-#### Since
-- 1.1.0
-
-#### Params
-- `html`
-  - Type: `String`
-  - Description: *Html to decode.*
-
-#### Returns
-- `String`
-
-#### Example
-```JS
-decodeHtml('<h1>Hi&nbsp;my&nbsp;friend!</h1>')// => '<h1>Hi my friend!</h1>'
-```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/decodeHtml.js" target="_blank">Source code</a>
-* * *
-### first
-
-Returns the first item of array or &#x60;number&#x60; items.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `array`
-  - Type: `Array`
-  
-- `number`
-  - Type: `Number`
-  - Description: *Number of items to returns.*
-
-#### Returns
-- `Array`
-
-#### Example
-```JS
-first([1, null, '3'])// => [1]first([1, null, '3'], 2)// => [1, null]
-```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/first.js" target="_blank">Source code</a>
-* * *
 ### flattenDeep
 
 Flatten an array.
@@ -241,9 +172,36 @@ Format number.
 
 #### Example
 ```JS
-formatNumer(1234)// => '1 234'formatNumer('1234', ',')// => '1,234'
+formatNumber(1234)// => '1 234'formatNumber('1234', ',')// => '1,234'
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/formatNumber.js" target="_blank">Source code</a>
+* * *
+### formatQuery
+
+Format query to set to url.
+
+#### Since
+- 2.0.0
+
+#### Params
+- `arrayFields`
+  - Type: `Array`
+  - Description: *Fields that must be arrays.*
+
+#### Returns
+- `Object`
+
+#### Example
+```JS
+const query = { value: 'test', field: ['hi', 'hello'] };
+formatQuery(query)
+// => value=test&field=hi&field=hello
+
+const query = { value: ['test'], field: 'hi' }
+formatQuery(query, true)
+// => value[]=test&field=hi
+```
+<a href="https://github.com/BrooonS/chober/blob/master/lib/formatQuery.js" target="_blank">Source code</a>
 * * *
 ### getCookie
 
@@ -266,27 +224,6 @@ getCookie('someCookie')
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/getCookie.js" target="_blank">Source code</a>
 * * *
-### getNumbers
-
-Get only numbers from string.
-
-#### Since
-- 0.1.0
-
-#### Params
-- `string`
-  - Type: `String,Number`
-  - Description: *Some string or number, which from to pick only numbers.*
-
-#### Returns
-- `String`
-
-#### Example
-```JS
-getNumbers('+7 (123) 456-78-90')// => '71234567890'
-```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/getNumbers.js" target="_blank">Source code</a>
-* * *
 ### getOffset
 
 Get absolute coordinates of an element.
@@ -296,15 +233,15 @@ Get absolute coordinates of an element.
 
 #### Params
 - `item`
-  - Type: `String`
-  - Description: *Selector of HTML element to get coordinates of.*
+  - Type: `String,HTMLElement`
+  - Description: *Selector or HTML element to get coordinates of.*
 
 #### Returns
 - `Object`
 
 #### Example
 ```JS
-getOffset('#element').left// => 8
+getOffset('.j-block').left// => 8getOffset(document.querySelector('.j-block')).left// => 8
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/getOffset.js" target="_blank">Source code</a>
 * * *
@@ -325,7 +262,7 @@ Get query from url.
 
 #### Example
 ```JS
-// /?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }// /?value=test&field=higetQuery(['value'])// => { value: ['test'], field: 'hi' }
+// /?value=test&field=hi&field=hellogetQuery()// => { value: 'test', field: ['hi', 'hello'] }// /?value=test&field=higetQuery({ arrays: ['value'] })// => { value: ['test'], field: 'hi' }// /?value=test&field=hi&value=123&test=truegetQuery()// => { value: ['test', 123], field: 'hi', test: true }
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/getQuery.js" target="_blank">Source code</a>
 * * *
@@ -363,26 +300,61 @@ getType({})// => 'object'getType([])// => 'array'
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/getType.js" target="_blank">Source code</a>
 * * *
-### invertObject
+### groupBy
 
-Invert object.
+Group items of an array by their specific property.
 
 #### Since
-- 0.1.0
+- 2.0.0
 
 #### Params
-- `object`
-  - Type: `Object`
-  - Description: *Some object to invert.*
+- `arr`
+  - Type: `Array`
+  - Description: *An array/collection to group.*
+- `param`
+  - Type: `String`
+  - Description: *A parameter of array&#x27;s item to group by.*
+- `withoutKeys`
+  - Type: `Boolean`
+  - Description: *Remove keys from object and get an array.*
 
 #### Returns
 - `Object`
 
 #### Example
 ```JS
-invertObject({ key: 'value' })// => { value: 'key' }
+const array = [
+  { id: 1, prop1: 'a', prop2: ['d', 'y'] },
+  { id: 2, prop1: 'a', prop2: 'c' },
+  { id: 3, prop1: 'b', prop2: 'd' },
+];
+
+groupBy(array, 'prop2');
+// => {
+//   d: [
+//     { id: 1, prop1: 'a', prop2: ['d',  'y'] },
+//     { id: 3, prop1: 'b', prop2: 'd' }
+//   ],
+//   y: [
+//     { id: 1, prop1: 'a', prop2: ['d', 'y'] }
+//   ],
+//   c: [
+//     { id: 2, prop1: 'a', prop2: 'c' }
+//   ]
+// }
+
+groupBy(array, 'prop1', true);
+// => [
+//   [
+//     { id: 1, prop1: 'a', prop2: ['d', 'y'] },
+//     { id: 2, prop1: 'a', prop2: 'c' },
+//   ],
+//   [
+//     { id: 3, prop1: 'b', prop2: 'd' },
+//   ],
+// ]
 ```
-<a href="https://github.com/BrooonS/chober/blob/master/lib/invertObject.js" target="_blank">Source code</a>
+<a href="https://github.com/BrooonS/chober/blob/master/lib/groupBy.js" target="_blank">Source code</a>
 * * *
 ### isArray
 
@@ -625,13 +597,13 @@ Scroll to element in DOM.
 
 #### Params
 - `item`
-  - Type: `DOMElement`
-  - Description: *Element to which to scroll.*
+  - Type: `String,HTMLElement`
+  - Description: *Selector or HTML element to which to scroll.*
 
 
 #### Example
 ```JS
-scrollTo(document.querySelector('.j-block'))
+scrollTo(document.querySelector('.j-block'))scrollTo('.j-block')
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/scrollTo.js" target="_blank">Source code</a>
 * * *

@@ -23,21 +23,18 @@ import isUndefined from './lib/isUndefined';
 import isNil from './lib/isNil';
 import isFunction from './lib/isFunction';
 import getQuery from './lib/getQuery';
-import getNumbers from './lib/getNumbers';
 import getScrollbarWidth from './lib/getScrollbarWidth';
 import getCookie from './lib/getCookie';
 import getOffset from './lib/getOffset';
 import getType from './lib/getType';
+import groupBy from './lib/groupBy';
 import setQuery from './lib/setQuery';
 import setCookie from './lib/setCookie';
 import removeCookie from './lib/removeCookie';
-import decodeHtml from './lib/decondeHtml';
 import clone from './lib/clone';
-import invertObject from './lib/invertObject';
-import first from './lib/first';
 import flattenDeep from './lib/flattenDeep';
 import formatNumber from './lib/formatNumber';
-import debounce from './lib/debounce';
+import formatQuery from './lib/formatQuery';
 import scrollTo from './lib/scrollTo';
 import uniq from './lib/uniq';
 
@@ -64,21 +61,18 @@ export default {
   isNil,
   isFunction,
   getQuery,
-  getNumbers,
   getScrollbarWidth,
   getCookie,
   getOffset,
   getType,
+  groupBy,
   setQuery,
   setCookie,
   removeCookie,
-  decodeHtml,
   clone,
-  invertObject,
-  first,
   flattenDeep,
   formatNumber,
-  debounce,
+  formatQuery,
   scrollTo,
   uniq,
 };
