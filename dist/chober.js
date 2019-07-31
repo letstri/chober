@@ -1091,7 +1091,7 @@ function isEqual(firstItem, secondItem) {
     var clonedItem = Object(_clone__WEBPACK_IMPORTED_MODULE_2__["default"])(item);
     return Object(_isObject__WEBPACK_IMPORTED_MODULE_1__["default"])(clonedItem) ? Object.keys(clonedItem).sort().reduce(function (acc, name) {
       return _objectSpread({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, name, clonedItem[name]));
-    }, {}) : Object(_clone__WEBPACK_IMPORTED_MODULE_2__["default"])(clonedItem);
+    }, {}) : clonedItem;
   };
 
   return JSON.stringify(prepareItem(firstItem)) === JSON.stringify(prepareItem(secondItem));
