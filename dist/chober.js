@@ -122,11 +122,11 @@ var _package__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_req
 /* harmony import */ var _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./lib/getCookie */ "./lib/getCookie.js");
 /* harmony import */ var _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./lib/getOffset */ "./lib/getOffset.js");
 /* harmony import */ var _lib_getType__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./lib/getType */ "./lib/getType.js");
-/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
-/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
-/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
-/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
-/* harmony import */ var _lib_first__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/first */ "./lib/first.js");
+/* harmony import */ var _lib_groupBy__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./lib/groupBy */ "./lib/groupBy.js");
+/* harmony import */ var _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./lib/setQuery */ "./lib/setQuery.js");
+/* harmony import */ var _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./lib/setCookie */ "./lib/setCookie.js");
+/* harmony import */ var _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./lib/removeCookie */ "./lib/removeCookie.js");
+/* harmony import */ var _lib_clone__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./lib/clone */ "./lib/clone.js");
 /* harmony import */ var _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./lib/flattenDeep */ "./lib/flattenDeep.js");
 /* harmony import */ var _lib_formatNumber__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./lib/formatNumber */ "./lib/formatNumber.js");
 /* harmony import */ var _lib_formatQuery__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./lib/formatQuery */ "./lib/formatQuery.js");
@@ -198,11 +198,11 @@ var VERSION = _package__WEBPACK_IMPORTED_MODULE_0__["version"];
   getCookie: _lib_getCookie__WEBPACK_IMPORTED_MODULE_13__["default"],
   getOffset: _lib_getOffset__WEBPACK_IMPORTED_MODULE_14__["default"],
   getType: _lib_getType__WEBPACK_IMPORTED_MODULE_15__["default"],
-  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_16__["default"],
-  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_17__["default"],
-  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
-  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_19__["default"],
-  first: _lib_first__WEBPACK_IMPORTED_MODULE_20__["default"],
+  groupBy: _lib_groupBy__WEBPACK_IMPORTED_MODULE_16__["default"],
+  setQuery: _lib_setQuery__WEBPACK_IMPORTED_MODULE_17__["default"],
+  setCookie: _lib_setCookie__WEBPACK_IMPORTED_MODULE_18__["default"],
+  removeCookie: _lib_removeCookie__WEBPACK_IMPORTED_MODULE_19__["default"],
+  clone: _lib_clone__WEBPACK_IMPORTED_MODULE_20__["default"],
   flattenDeep: _lib_flattenDeep__WEBPACK_IMPORTED_MODULE_21__["default"],
   formatNumber: _lib_formatNumber__WEBPACK_IMPORTED_MODULE_22__["default"],
   formatQuery: _lib_formatQuery__WEBPACK_IMPORTED_MODULE_23__["default"],
@@ -314,42 +314,6 @@ function clone(item) {
 
 /***/ }),
 
-/***/ "./lib/first.js":
-/*!**********************!*\
-  !*** ./lib/first.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
-
-/**
- * Returns the first item of array or `number` items.
- *
- * @since 0.1.0
- * @param {Array} array
- * @param {Number} number Number of items to returns.
- * @returns {Array}
- *
- * @example
- * first([1, null, '3'])
- * // => [1]
- *
- * first([1, null, '3'], 2)
- * // => [1, null]
- */
-
-function first(array) {
-  var number = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-  return Object(_isArray__WEBPACK_IMPORTED_MODULE_0__["default"])(array) ? array.slice(0, number) : [];
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (first);
-
-/***/ }),
-
 /***/ "./lib/flattenDeep.js":
 /*!****************************!*\
   !*** ./lib/flattenDeep.js ***!
@@ -405,10 +369,10 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Number}
  *
  * @example
- * formatNumer(1234)
+ * formatNumber(1234)
  * // => '1 234'
  *
- * formatNumer('1234', ',')
+ * formatNumber('1234', ',')
  * // => '1,234'
  */
 function formatNumber(number) {
@@ -437,9 +401,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Get query from url.
+ * Format query to set to url.
  *
- * @since 0.1.0
+ * @since 2.0.0
  * @param {?Array} arrayFields Fields that must be arrays.
  * @returns {Object}
  *
@@ -532,25 +496,30 @@ function getCookie(key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
+/* harmony import */ var _isString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isString */ "./lib/isString.js");
+
 
 /**
  * Get absolute coordinates of an element.
  *
  * @since 0.1.0
- * @param {String} selector Selector of HTML element to get coordinates of.
+ * @param {String|HTMLElement} item Selector or HTML element to get coordinates of.
  * @returns {Object}
  *
  * @example
- * getOffset('#element').left
+ * getOffset('.j-block').left
+ * // => 8
+ *
+ * getOffset(document.querySelector('.j-block')).left
  * // => 8
  */
 
-function getOffset(selector) {
-  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(selector)) {
-    throw new Error('[chober]: selector is not passed.');
+function getOffset(item) {
+  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(item)) {
+    throw new Error('[chober]: item is not passed.');
   }
 
-  var element = document.querySelector(selector);
+  var element = Object(_isString__WEBPACK_IMPORTED_MODULE_1__["default"])(item) ? document.querySelector(item) : item;
   var rect = element.getBoundingClientRect();
   var scrollLeft = window.pageXOffset;
   var scrollTop = window.pageYOffset;
@@ -584,6 +553,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
+/* harmony import */ var _isNumber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isNumber */ "./lib/isNumber.js");
+/* harmony import */ var _isBoolean__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isBoolean */ "./lib/isBoolean.js");
+/* harmony import */ var _isNil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./isNil */ "./lib/isNil.js");
+
+
+
 
 
 
@@ -601,18 +576,27 @@ __webpack_require__.r(__webpack_exports__);
  * // => { value: 'test', field: ['hi', 'hello'] }
  *
  * // /?value=test&field=hi
- * getQuery(['value'])
+ * getQuery({ arrays: ['value'] })
  * // => { value: ['test'], field: 'hi' }
+ *
+ * // /?value=test&field=hi&value=123&test=true
+ * getQuery()
+ * // => { value: ['test', 123], field: 'hi', test: true }
  */
 
 function getQuery() {
-  var arrayFields = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$arrays = _ref.arrays,
+      arrays = _ref$arrays === void 0 ? [] : _ref$arrays,
+      _ref$isParse = _ref.isParse,
+      isParse = _ref$isParse === void 0 ? true : _ref$isParse;
+
   var query = window.location.search.substr(1);
   var objectUrl = {};
   if (query === '') return {}; // Set default array fields to objectUrl
 
-  if (arrayFields.length !== 0) {
-    objectUrl = arrayFields.reduce(function (object, field) {
+  if (arrays.length !== 0) {
+    objectUrl = arrays.reduce(function (object, field) {
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, object, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, field, []));
     }, {});
   }
@@ -643,6 +627,28 @@ function getQuery() {
       objectUrl[key] = decodeURIComponent(value);
     }
   });
+
+  if (isParse) {
+    var tryToParse = function tryToParse(item) {
+      try {
+        var parsedItem = JSON.parse(item);
+        return Object(_isNumber__WEBPACK_IMPORTED_MODULE_4__["default"])(parsedItem) || Object(_isBoolean__WEBPACK_IMPORTED_MODULE_5__["default"])(parsedItem) || Object(_isNil__WEBPACK_IMPORTED_MODULE_6__["default"])(parsedItem) ? parsedItem : item;
+      } catch (err) {
+        return item;
+      }
+    };
+
+    objectUrl = Object.entries(objectUrl).reduce(function (acc, _ref2) {
+      var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref2, 2),
+          key = _ref3[0],
+          value = _ref3[1];
+
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, key, Object(_isArray__WEBPACK_IMPORTED_MODULE_3__["default"])(value) ? value.map(function (item) {
+        return tryToParse(item);
+      }) : tryToParse(value)));
+    }, {});
+  }
+
   return objectUrl;
 }
 
@@ -713,6 +719,90 @@ function getType(item) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (getType);
+
+/***/ }),
+
+/***/ "./lib/groupBy.js":
+/*!************************!*\
+  !*** ./lib/groupBy.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
+/* harmony import */ var _isArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isArray */ "./lib/isArray.js");
+
+
+
+
+
+/**
+ * Group items of an array by their specific property.
+ *
+ * @since 2.0.0
+ * @param {Array} arr An array/collection to group.
+ * @param {String} param A parameter of array's item to group by.
+ * @param {Boolean} withoutKeys Remove keys from object and get an array.
+ * @returns {Object}
+ *
+ * @example
+ * const array = [
+ *   { id: 1, prop1: 'a', prop2: ['d', 'y'] },
+ *   { id: 2, prop1: 'a', prop2: 'c' },
+ *   { id: 3, prop1: 'b', prop2: 'd' },
+ * ];
+ *
+ * groupBy(array, 'prop2');
+ * // => {
+ * //   d: [
+ * //     { id: 1, prop1: 'a', prop2: ['d',  'y'] },
+ * //     { id: 3, prop1: 'b', prop2: 'd' }
+ * //   ],
+ * //   y: [
+ * //     { id: 1, prop1: 'a', prop2: ['d', 'y'] }
+ * //   ],
+ * //   c: [
+ * //     { id: 2, prop1: 'a', prop2: 'c' }
+ * //   ]
+ * // }
+ *
+ * groupBy(array, 'prop1', true);
+ * // => [
+ * //   [
+ * //     { id: 1, prop1: 'a', prop2: ['d', 'y'] },
+ * //     { id: 2, prop1: 'a', prop2: 'c' },
+ * //   ],
+ * //   [
+ * //     { id: 3, prop1: 'b', prop2: 'd' },
+ * //   ],
+ * // ]
+ */
+
+function groupBy(arr, param) {
+  var withoutKeys = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_3__["default"])(param)) {
+    throw new Error('[chober]: param is not passed.');
+  }
+
+  var groupedObject = arr.reduce(function (obj, item) {
+    var value = item[param];
+    return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, obj, !Object(_isArray__WEBPACK_IMPORTED_MODULE_4__["default"])(value) ? _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, value, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(obj[value] || []).concat([item])) : value.reduce(function (obj2, param2) {
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_2___default()({}, obj2, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, param2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(obj2[param2] || []).concat([item])));
+    }, obj));
+  }, {});
+  return withoutKeys ? Object.values(groupedObject) : groupedObject;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (groupBy);
 
 /***/ }),
 
@@ -1139,23 +1229,27 @@ function removeCookie(key) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _isUndefined__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isUndefined */ "./lib/isUndefined.js");
+/* harmony import */ var _isString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isString */ "./lib/isString.js");
+
 
 /**
  * Scroll to element in DOM.
  *
  * @since 0.2.0
- * @param {DOMElement} element Element to which to scroll.
+ * @param {String|HTMLElement} item Selector or HTML element to which to scroll.
  *
  * @example
  * scrollTo(document.querySelector('.j-block'))
+ *
+ * scrollTo('.j-block')
  */
 
-function scrollTo(element) {
-  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(element)) {
-    throw new Error('[chober]: element is not passed.');
+function scrollTo(item) {
+  if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(item)) {
+    throw new Error('[chober]: item is not passed.');
   }
 
-  element.scrollIntoView({
+  (Object(_isString__WEBPACK_IMPORTED_MODULE_1__["default"])(item) ? document.querySelector(item) : item).scrollIntoView({
     block: 'center',
     behavior: 'smooth',
     inline: 'end'
@@ -1264,7 +1358,7 @@ __webpack_require__.r(__webpack_exports__);
 function setQuery(query) {
   var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
       _ref$isSaveOld = _ref.isSaveOld,
-      isSaveOld = _ref$isSaveOld === void 0 ? false : _ref$isSaveOld,
+      isSaveOld = _ref$isSaveOld === void 0 ? true : _ref$isSaveOld,
       _ref$isSaveHash = _ref.isSaveHash,
       isSaveHash = _ref$isSaveHash === void 0 ? true : _ref$isSaveHash,
       _ref$isSaveEmptyField = _ref.isSaveEmptyFields,
@@ -1608,7 +1702,7 @@ module.exports = _toConsumableArray;
 /*! exports provided: name, version, description, main, types, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"chober","version":"1.3.2","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","types":"index.d.ts","scripts":{"start":"webpack --env development --watch","prod":"webpack --env production","dev":"webpack --env development","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve ./docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isBoolean","isUndefined","isNil","isFunction","getQuery","getScrollbarWidth","getCookie","getOffset","getType","setQuery","setCookie","removeCookie","clone","invertObject","first","flatten","formatNumber","formatQuery","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
+module.exports = {"name":"chober","version":"2.0.0","description":"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.","main":"dist/chober.js","types":"index.d.ts","scripts":{"start":"webpack --env development --watch","prod":"webpack --env production","dev":"webpack --env development","build":"npm run docs && npm run prod && npm run dev","docs":"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md","docs-server":"docsify serve ./docs -p 35730"},"repository":{"type":"git","url":"git+https://github.com/BrooonS/chober.git"},"keywords":["webpack","js","javascript","library","es6","commonjs","methods","chober","isEmpty","isArray","isNumber","isString","isObject","isBoolean","isEqual","isUndefined","isNil","isFunction","getQuery","getScrollbarWidth","getCookie","getOffset","getType","groupBy","setQuery","setCookie","removeCookie","clone","flattenDeep","formatNumber","formatQuery","scrollTo","uniq"],"author":"Valery Strelets","license":"MIT","bugs":{"url":"https://github.com/BrooonS/chober/issues"},"homepage":"https://github.com/BrooonS/chober#readme","devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-object-rest-spread":"^7.0.0","@babel/plugin-transform-object-assign":"^7.0.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","docsify-cli":"^4.3.0","eslint":"^5.9.0","eslint-config-airbnb":"^17.1.0","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jsx-a11y":"^6.1.2","eslint-plugin-react":"^7.11.1","jsdoc-to-markdown":"^4.0.1","uglifyjs-webpack-plugin":"^2.0.1","webpack":"^4.26.0","webpack-cli":"^3.1.2"}};
 
 /***/ })
 
