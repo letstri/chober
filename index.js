@@ -27,11 +27,11 @@ import getScrollbarWidth from './lib/getScrollbarWidth';
 import getCookie from './lib/getCookie';
 import getOffset from './lib/getOffset';
 import getType from './lib/getType';
+import groupBy from './lib/groupBy';
 import setQuery from './lib/setQuery';
 import setCookie from './lib/setCookie';
 import removeCookie from './lib/removeCookie';
 import clone from './lib/clone';
-import first from './lib/first';
 import flattenDeep from './lib/flattenDeep';
 import formatNumber from './lib/formatNumber';
 import formatQuery from './lib/formatQuery';
@@ -65,11 +65,11 @@ export default {
   getCookie,
   getOffset,
   getType,
+  groupBy,
   setQuery,
   setCookie,
   removeCookie,
   clone,
-  first,
   flattenDeep,
   formatNumber,
   formatQuery,
