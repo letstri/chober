@@ -34,7 +34,7 @@ or cdn
 <script src="https://cdn.jsdelivr.net/npm/chober/dist/chober.min.js"></script>
 
 <!-- With version -->
-<script src="https://cdn.jsdelivr.net/npm/chober@1.3.2/dist/chober.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chober@2.0.0/dist/chober.min.js"></script>
 ```
 
 ### npm
@@ -193,13 +193,7 @@ Format query to set to url.
 
 #### Example
 ```JS
-const query = { value: 'test', field: ['hi', 'hello'] };
-formatQuery(query)
-// => value=test&field=hi&field=hello
-
-const query = { value: ['test'], field: 'hi' }
-formatQuery(query, true)
-// => value[]=test&field=hi
+const query = { value: 'test', field: ['hi', 'hello'] };formatQuery(query)// => value=test&field=hi&field=helloconst query = { value: ['test'], field: 'hi' }formatQuery(query, true)// => value[]=test&field=hi
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/formatQuery.js" target="_blank">Source code</a>
 * * *
@@ -323,36 +317,7 @@ Group items of an array by their specific property.
 
 #### Example
 ```JS
-const array = [
-  { id: 1, prop1: 'a', prop2: ['d', 'y'] },
-  { id: 2, prop1: 'a', prop2: 'c' },
-  { id: 3, prop1: 'b', prop2: 'd' },
-];
-
-groupBy(array, 'prop2');
-// => {
-//   d: [
-//     { id: 1, prop1: 'a', prop2: ['d',  'y'] },
-//     { id: 3, prop1: 'b', prop2: 'd' }
-//   ],
-//   y: [
-//     { id: 1, prop1: 'a', prop2: ['d', 'y'] }
-//   ],
-//   c: [
-//     { id: 2, prop1: 'a', prop2: 'c' }
-//   ]
-// }
-
-groupBy(array, 'prop1', true);
-// => [
-//   [
-//     { id: 1, prop1: 'a', prop2: ['d', 'y'] },
-//     { id: 2, prop1: 'a', prop2: 'c' },
-//   ],
-//   [
-//     { id: 3, prop1: 'b', prop2: 'd' },
-//   ],
-// ]
+const array = [  { id: 1, prop1: 'a', prop2: ['d', 'y'] },  { id: 2, prop1: 'a', prop2: 'c' },  { id: 3, prop1: 'b', prop2: 'd' },];groupBy(array, 'prop2');// => {//   d: [//     { id: 1, prop1: 'a', prop2: ['d',  'y'] },//     { id: 3, prop1: 'b', prop2: 'd' }//   ],//   y: [//     { id: 1, prop1: 'a', prop2: ['d', 'y'] }//   ],//   c: [//     { id: 2, prop1: 'a', prop2: 'c' }//   ]// }groupBy(array, 'prop1', true);// => [//   [//     { id: 1, prop1: 'a', prop2: ['d', 'y'] },//     { id: 2, prop1: 'a', prop2: 'c' },//   ],//   [//     { id: 3, prop1: 'b', prop2: 'd' },//   ],// ]
 ```
 <a href="https://github.com/BrooonS/chober/blob/master/lib/groupBy.js" target="_blank">Source code</a>
 * * *
