@@ -564,6 +564,9 @@ Scroll to element in DOM.
 - `item`
   - Type: `String,HTMLElement`
   - Description: *Selector or HTML element to which to scroll.*
+- `isHorizontalEnabled`
+  - Type: `Boolean`
+  - Description: *Enable horizontal scroll. Default: false.*
 
 
 #### Example

@@ -1365,6 +1365,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @since 0.2.0
  * @param {String|HTMLElement} item Selector or HTML element to which to scroll.
+ * @param {Boolean} isHorizontalEnabled Enable horizontal scroll. Default: false.
  *
  * @example
  * scrollTo(document.querySelector('.j-block'))
@@ -1373,14 +1374,17 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function scrollTo(item) {
+  var isHorizontalEnabled = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   if (Object(_isUndefined__WEBPACK_IMPORTED_MODULE_0__["default"])(item)) {
     throw new Error('[chober]: item is not passed.');
   }
 
   (Object(_isString__WEBPACK_IMPORTED_MODULE_1__["default"])(item) ? document.querySelector(item) : item).scrollIntoView({
     block: 'center',
+    inline: isHorizontalEnabled ? 'center' : 'nearest',
     behavior: 'smooth',
-    inline: 'end'
+    left: 0
   });
 }
 
@@ -1834,7 +1838,7 @@ module.exports = _toConsumableArray;
 /*! exports provided: name, version, description, main, types, scripts, repository, keywords, author, license, bugs, homepage, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"chober\",\"version\":\"2.0.0\",\"description\":\"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.\",\"main\":\"dist/chober.js\",\"types\":\"index.d.ts\",\"scripts\":{\"start\":\"webpack --env development --watch\",\"prod\":\"webpack --env production\",\"dev\":\"webpack --env development\",\"build\":\"npm run docs && npm run prod && npm run dev\",\"docs\":\"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md\",\"docs-server\":\"docsify serve ./docs -p 35730\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/BrooonS/chober.git\"},\"keywords\":[\"webpack\",\"js\",\"javascript\",\"library\",\"es6\",\"commonjs\",\"methods\",\"chober\",\"isEmpty\",\"isArray\",\"isNumber\",\"isString\",\"isObject\",\"isBoolean\",\"isEqual\",\"isUndefined\",\"isNil\",\"isFunction\",\"getQuery\",\"getScrollbarWidth\",\"getCookie\",\"getOffset\",\"getType\",\"groupBy\",\"setQuery\",\"setCookie\",\"removeCookie\",\"clone\",\"flattenDeep\",\"formatNumber\",\"formatQuery\",\"scrollTo\",\"uniq\"],\"author\":\"Valery Strelets\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/BrooonS/chober/issues\"},\"homepage\":\"https://github.com/BrooonS/chober#readme\",\"devDependencies\":{\"@babel/core\":\"^7.7.2\",\"@babel/plugin-proposal-object-rest-spread\":\"^7.6.2\",\"@babel/plugin-transform-object-assign\":\"^7.2.0\",\"@babel/plugin-transform-runtime\":\"^7.6.2\",\"@babel/preset-env\":\"^7.7.1\",\"@babel/runtime\":\"^7.7.2\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"docsify-cli\":\"^4.3.0\",\"eslint\":\"^6.6.0\",\"eslint-config-airbnb\":\"^18.0.1\",\"eslint-loader\":\"^3.0.2\",\"eslint-plugin-import\":\"^2.18.2\",\"eslint-plugin-jsx-a11y\":\"^6.2.3\",\"eslint-plugin-react\":\"^7.16.0\",\"jsdoc-to-markdown\":\"^5.0.2\",\"uglifyjs-webpack-plugin\":\"^2.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\"}}");
+module.exports = JSON.parse("{\"name\":\"chober\",\"version\":\"2.0.1\",\"description\":\"Chober.js - is a collection of methods that are used by programmers every day. We decided to put all the methods together so as not to copy them from project to project.\",\"main\":\"dist/chober.js\",\"types\":\"index.d.ts\",\"scripts\":{\"start\":\"webpack --env development --watch\",\"prod\":\"webpack --env production\",\"dev\":\"webpack --env development\",\"build\":\"npm run docs && npm run prod && npm run dev\",\"docs\":\"jsdoc2md --template README.hbs --files lib/*.js > docs/README.md\",\"docs-server\":\"docsify serve ./docs -p 35730\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/BrooonS/chober.git\"},\"keywords\":[\"webpack\",\"js\",\"javascript\",\"library\",\"es6\",\"commonjs\",\"methods\",\"chober\",\"isEmpty\",\"isArray\",\"isNumber\",\"isString\",\"isObject\",\"isBoolean\",\"isEqual\",\"isUndefined\",\"isNil\",\"isFunction\",\"getQuery\",\"getScrollbarWidth\",\"getCookie\",\"getOffset\",\"getType\",\"groupBy\",\"setQuery\",\"setCookie\",\"removeCookie\",\"clone\",\"flattenDeep\",\"formatNumber\",\"formatQuery\",\"scrollTo\",\"uniq\"],\"author\":\"Valery Strelets\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/BrooonS/chober/issues\"},\"homepage\":\"https://github.com/BrooonS/chober#readme\",\"devDependencies\":{\"@babel/core\":\"^7.7.2\",\"@babel/plugin-proposal-object-rest-spread\":\"^7.6.2\",\"@babel/plugin-transform-object-assign\":\"^7.2.0\",\"@babel/plugin-transform-runtime\":\"^7.6.2\",\"@babel/preset-env\":\"^7.7.1\",\"@babel/runtime\":\"^7.7.2\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"docsify-cli\":\"^4.3.0\",\"eslint\":\"^6.6.0\",\"eslint-config-airbnb\":\"^18.0.1\",\"eslint-loader\":\"^3.0.2\",\"eslint-plugin-import\":\"^2.18.2\",\"eslint-plugin-jsx-a11y\":\"^6.2.3\",\"eslint-plugin-react\":\"^7.16.0\",\"jsdoc-to-markdown\":\"^5.0.2\",\"uglifyjs-webpack-plugin\":\"^2.2.0\",\"webpack\":\"^4.41.2\",\"webpack-cli\":\"^3.3.10\"}}");
 
 /***/ })
 
