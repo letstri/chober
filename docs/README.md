@@ -247,9 +247,15 @@ Get query from url.
 - 0.1.0
 
 #### Params
-- `arrayFields`
+- ``
+  - Type: `Object`
+  
+- `Object.arrays`
   - Type: `Array`
-  - Description: *Fields that must be arrays.*
+  - Description: *Fields that must be arrays. Default: [].*
+- `Object.isParse`
+  - Type: `Boolean`
+  - Description: *Fields that must be arrays. Default: true.*
 
 #### Returns
 - `Object`

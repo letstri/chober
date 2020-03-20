@@ -631,7 +631,9 @@ function _objectSpread(target) {
  * Get query from url.
  *
  * @since 0.1.0
- * @param {?Array} arrayFields Fields that must be arrays.
+ * @param {?Object}
+ * @param {Array} Object.arrays Fields that must be arrays. Default: [].
+ * @param {Boolean} Object.isParse Fields that must be arrays. Default: true.
  * @returns {Object}
  *
  * @example
